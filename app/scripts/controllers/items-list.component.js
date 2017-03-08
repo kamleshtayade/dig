@@ -17,18 +17,29 @@ angular.
         
        // this.items = Item.query();
        $scope.items = [];
+       $scope.facets = [];
        Item.query().$promise.then(
          function (result) {
            $scope.items = result.response.docs;
-           $log.debug('Result : '+ result.response.docs[1].name);
-           $log.debug('items : '+$scope.items[1].name);
+          // $log.debug('Result : '+ result.response.docs[1].item);
+           $log.debug('items : '+$scope.items[1].item);
          },
          function () {
          }
        );
 
-        this.orderProp = 'createddate';
-        this.facets = [
+       Item.query().$promise.then(
+         function (result) {
+           $scope.facets = result.facet_counts.facet_fields;
+          // $log.debug('Result : '+ result.response.docs[1].item);
+           $log.debug('facets : '+angular.toJson($scope.facets.revision, true));
+         },
+         function () {
+         }
+       );
+
+        $scope.orderProp = 'createddate';
+        /*this.facets = [
           {
             name: 'Category',
             num: '2'
@@ -49,7 +60,7 @@ angular.
             name: 'RoHS(c)',
             num: '3'
           }
-        ];        
+        ]; */       
       }
     ]
   });

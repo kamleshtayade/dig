@@ -7,7 +7,7 @@
         <div class="panel-body">
             <p>
                 Sort by:
-                <select ng-model="$ctrl.orderProp">
+                <select ng-model="orderProp">
           <option value="item">Item</option>
           <option value="createddate">Newest</option>
           <option value="lifecycle">Lifecycle</option>
@@ -15,6 +15,22 @@
             </p>
         </div>
     </div><!-- Personal Prefernces -->
+<div class="panel panel-success">
+    <div class="panel-heading">Refine By <small>(Revision)</small></div>
+    <div class="panel-body"> 
+        <div class="list-group" ng-repeat="f in facets.revision | facetFilter">
+            <a href="#" class="list-group-item"><span class="badge">{{facets.revision[($index * 2+1)]}}</span> {{f}}</a>
+        </div>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading">Refine By <small>(Category)</small></div>
+    <div class="panel-body"> 
+        <div class="list-group" ng-repeat="f2 in facets.category | facetFilter">
+            <a href="#" class="list-group-item"><span class="badge">{{facets.category[($index * 2+1)]}}</span> {{f2}}</a>
+        </div>
+    </div>
+</div>
 <div class="panel panel-success">
     <div class="panel-heading">Refine By <small>(Facet Search)</small></div>
     <div class="panel-body"> 
@@ -47,10 +63,11 @@
     <ul class="phones">
         <li ng-repeat="item in items | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
             <a href="#!/items/{{item.id}}" class="thumb">
-                <img ng-src="{{item.imageUrl}}" alt="{{item.item}}" />
+                <img ng-src="{{item.imageUrl}}" alt="{{item.id}}" />
             </a>
-            <a href="#!/items/{{item.id}}">{{item.name}}</a>
-            <p>{{item.features}}</p>
+            <a href="#!/items/{{item.id}}">{{item.item}}</a>
+            <p>{{item.revision}},{{item.subclass}},{{item.category}}</p>
+            <p>{{item.lifecycle}}</p>
         </li>
     </ul>
     </div>
