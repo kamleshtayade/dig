@@ -1,0 +1,201 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    /*max-width: 730px;*/
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+/* View: Phone list */
+.phones {
+  list-style: none;
+}
+
+.phones li {
+  clear: both;
+  height: 115px;
+  padding-top: 15px;
+}
+
+.thumb {
+  float: left;
+  height: 100px;
+  margin: -0.5em 1em 1.5em 0;
+  padding-bottom: 1em;
+  width: 100px;
+}
+
+/* View: Phone detail */
+.phone {
+  background-color: white;
+  display: none;
+  float: left;
+  height: 400px;
+  margin-bottom: 2em;
+  margin-right: 3em;
+  padding: 2em;
+  width: 400px;
+}
+
+.phone:first-child {
+  display: block;
+}
+
+.phone-images {
+  background-color: white;
+  float: left;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+}
+
+.phone-thumbs {
+  list-style: none;
+  margin: 0;
+}
+
+.phone-thumbs img {
+  height: 100px;
+  padding: 1em;
+  width: 100px;
+}
+
+.phone-thumbs li {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  display: inline-block;
+  margin: 1em;
+}
+
+.specs {
+  clear: both;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.specs dt {
+  font-weight: normal;
+  font-style: italic;
+  font-size: small;
+}
+.specs dd {
+  font-weight: normal;
+  font-size: small;
+}
+.specs > li {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;  
+}
+
+.specs > li > span {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/*star rating*/
+/*
+	Ratings Stars
+	(with as little code as possible)
+*/
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+   left: 0; 
+   color: gold;
+}

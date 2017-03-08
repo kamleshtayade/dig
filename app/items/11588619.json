@@ -1,0 +1,32 @@
+{
+    "id": "11588619",
+    "images": [
+        "items/images/341-0623-01_gr.PNG",
+        "items/images/341-0623-01_ch.PNG",
+        "items/images/341-0623-01_fp.PNG",
+        "items/images/341-0623-01_sch.PNG"
+    ],
+    "item":"74-4081210-01",
+        "revision":"^A1",
+        "subclass":"74-ODM or OEM Assembly",
+        "category":"Non-Commodity",
+        "lifecycle":"End of Production",
+        "description":"E/M-OTHER,ASSY,ATTENUATOR,FIXED 3DB SC/APC",
+        "itemtype":"TURNKEY",
+        "uom":"EACH",
+        "sucm":"mingxiao",
+        "commoditycode":"OEM/ODM_MIS_OPTIONS",
+        "riskrating":"NR",
+        "riskreason":"NA: Not Applicable",
+        "riskcomment":"FOR SPVTG USE ONLY",
+        "liability":"R:Reworkable",
+        "buyer":"aguirra",
+        "createdby":"avadakap",
+        "createddate":"2/28/2013 19:33",
+        "reqbu":"TBABU",
+        "rohsi":"Pass",
+        "rohsc":"Pass",
+        "manufacturer":"JDS UNIPHASE",
+        "imageUrl": "items/images/341-0623-01_gr.PNG",
+        "_version_":1561204450794668032
+}

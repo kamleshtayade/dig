@@ -1,0 +1,159 @@
+<div class="row">
+    <div class="panel panel-info">
+        <div class="panel-heading"><strong>Item </strong>: {{$ctrl.item.item}}</div>
+        <div class="panel-body">
+            <div class="phone-images">
+                <img ng-src="{{img}}" class="phone" ng-class="{selected: img === $ctrl.mainImageUrl}" ng-repeat="img in $ctrl.item.images"
+                />
+            </div>
+
+            <h2>{{$ctrl.item.item}} <small>{{$ctrl.item.revision}}</small></h2>
+
+            <p>{{$ctrl.item.description}}</p>
+
+            <ul class="phone-thumbs">
+                <li ng-repeat="img in $ctrl.item.images">
+                    <img ng-src="{{img}}" ng-click="$ctrl.setImage(img)" />
+                </li>
+            </ul>
+            
+            <ul class="specs">
+                <li>
+                    <span>Item Details</span>
+                    <dl>
+                        <dt>Revision : </dt>
+                        <dd >{{$ctrl.item.revision}}</dd>
+                        <dt>Subclass : </dt>
+                        <dd >{{$ctrl.item.subclass}}</dd>
+                        <dt>Category : </dt>
+                        <dd >{{$ctrl.item.category}}</dd>
+                        <dt>Lifecycle : </dt>
+                        <dd >{{$ctrl.item.lifecycle}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Info</span>
+                    <dl>
+                        <dt>Type : </dt>
+                        <dd>{{$ctrl.item.itemtype}}</dd>
+                        <dt>UOM : </dt>
+                        <dd>{{$ctrl.item.uom}}</dd>
+                        <dt>SuCM : </dt>
+                        <dd>{{$ctrl.item.sucm}}</dd>
+                        <dt>Commodity Code : </dt>
+                        <dd>{{$ctrl.item.commoditycode}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Risk</span>
+                    <dl>
+                        <dt>Risk Rating : </dt>
+                        <dd>{{$ctrl.item.riskrating}}</dd>
+                        <dt>Risk Reason : </dt>
+                        <dd>{{$ctrl.item.riskreason}}</dd>
+                        <dt>Liability : </dt>
+                        <dd>{{$ctrl.item.liability}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Compliance</span>
+                    <dl>
+                        <dt>RoHS(i) : </dt>
+                        <dd>{{$ctrl.item.rohsi}}</dd>
+                        <dt>RoHS(c) : </dt>
+                        <dd>{{$ctrl.item.rohsc}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Vendor and BU</span>
+                    <dl>
+                        <dt>Manufacturer : </dt>
+                        <dd>{{$ctrl.item.manufacturer}}</dd>
+                        <dt>Business Unit : </dt>
+                        <dd>{{$ctrl.item.reqbu}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Size and Weight</span>
+                    <dl>
+                        <dt>Dimensions : </dt>
+                        <dd ng-repeat="dim in $ctrl.item.sizeAndWeight.dimensions">{{dim}}</dd>
+                        <dt>Weight : </dt>
+                        <dd>{{$ctrl.item.sizeAndWeight.weight}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Display</span>
+                    <dl>
+                        <dt>Screen size : </dt>
+                        <dd>{{$ctrl.item.display.screenSize}}</dd>
+                        <dt>Screen resolution : </dt>
+                        <dd>{{$ctrl.item.display.screenResolution}}</dd>
+                        <dt>Touch screen : </dt>
+                        <dd>{{$ctrl.item.display.touchScreen | checkmark}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Hardware</span>
+                    <dl>
+                        <dt> </dt>
+                        <dd>{{$ctrl.item.hardware.cpu}}</dd>                        
+                    </dl>
+                </li>
+                <li>
+                    <span>Creation details</span>
+                    <dl>
+                        <dt>Created By : </dt>
+                        <dd>{{$ctrl.item.createdby}}</dd>
+                        <dt>Date : </dt>
+                        <dd>{{$ctrl.item.createddate}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Additional Features</span>
+                    <dd>{{$ctrl.item.additionalFeatures}}</dd>
+                </li>
+            </ul>
+            <div class="panel-footer">
+            <div class="row">
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <h5>Frequently Searched Together</h5>
+                        <div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
+                            <div class="thumbnail">
+                            <a href="#">
+                                <img src="{{freq.imgpath}}" alt="..." style="width: 150px;height: 150px">
+                            </a>
+                            <div class="caption">
+                                <h6>{{freq.name}}</h6>
+                            </div>
+                            <div class="rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                        <h5>Look for similar items by category</h5>
+                        <div class="col-xs-6 col-md-3" ng-repeat="itemByCat in $ctrl.itemByCats">
+                            <div class="thumbnail">
+                            <a href="#">
+                                <img src="{{itemByCat.imgpath}}" alt="..." style="width: 150px;height: 150px">
+                            </a>
+                            <div class="caption">
+                                <h6>{{itemByCat.name}}</h6>
+                            </div>
+                            <div class="rating">
+                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

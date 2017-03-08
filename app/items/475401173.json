@@ -1,0 +1,31 @@
+{
+    "id": "475401173",
+    "images": [
+        "items/images/341-0623-01_gr.PNG",
+        "items/images/341-0623-01_ch.PNG",
+        "items/images/341-0623-01_fp.PNG",
+        "items/images/341-0623-01_sch.PNG"
+    ],
+    "item":"74-4072597-01",
+        "revision":"^C0",
+        "subclass":"74-ODM or OEM Assembly",
+        "category":"Non-Commodity",
+        "lifecycle":"End of Support",
+        "description":"E/M-OTHER,SETTOP,Explorer 4652HDC,Dgtl-Analg,DOCSIS,ENET,MoCA,M-Card, 4028146",
+        "itemtype":"TURNKEY",
+        "uom":"EACH",
+        "sucm":"davissh",
+        "commoditycode":"OEM/ODM_SET-TOP BOX_OPTIONS",
+        "riskrating":"NR",
+        "riskreason":"NA: Not Applicable",
+        "liability":"P:Proprietary",
+        "iecex":"No",
+        "createdby":"kangdu",
+        "createddate":"9/9/2015 7:41",
+        "reqbu":"CDBU",
+        "rohsi":"Pass",
+        "rohsc":"Pass",
+        "manufacturer":"COMPETITION TEAM IRE (FJZ)",
+        "imageUrl": "items/images/341-0623-01_gr.PNG",
+        "_version_":1561204450724413440
+}

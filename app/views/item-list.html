@@ -1,0 +1,86 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+    <!--Sidebar content-->
+    <div class="panel panel-primary">
+        <div class="panel-heading">Preferences</div>
+        <div class="panel-body">
+            <p>
+                Sort by:
+                <select ng-model="$ctrl.orderProp">
+          <option value="item">Item</option>
+          <option value="createddate">Newest</option>
+          <option value="lifecycle">Lifecycle</option>
+        </select>
+            </p>
+        </div>
+    </div><!-- Personal Prefernces -->
+<div class="panel panel-success">
+    <div class="panel-heading">Refine By <small>(Facet Search)</small></div>
+    <div class="panel-body"> 
+        <div class="list-group">
+            <a href="#" class="list-group-item active"><span class="badge">2</span> Category</a>
+            <a href="#" class="list-group-item"><span class="badge">6</span> Lifecycle</a>
+            <a href="#" class="list-group-item"><span class="badge">3</span> RoHS (i)</a>
+            <a href="#" class="list-group-item"><span class="badge">4</span> Risk Rating</a>
+            <a href="#" class="list-group-item"><span class="badge">8</span> Buyer</a>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-info">
+        <div class="panel-heading">Avg. Customer Review <small>YELP</small></div>
+        <div class="panel-body">
+            <input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5" data-size="xs"><hr/>
+            <div class="rating">
+                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            </div>            
+        </div>       
+    </div>
+</div>
+    <div class="col-md-8">
+    <!--Body content-->
+    <div class="input-group margin-bottom-sm">
+        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+        <input class="form-control" type="text" placeholder="Search for..." ng-model="$ctrl.query">
+    </div>
+    </br>
+    <ul class="phones">
+        <li ng-repeat="item in $ctrl.items | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
+            <a href="#!/items/{{item.id}}" class="thumb">
+                <img ng-src="{{item.imageUrl}}" alt="{{item.item}}" />
+            </a>
+            <a href="#!/items/{{item.id}}">{{item.item}}</a>
+            <p>{{item.description}}</p>
+        </li>
+    </ul>
+    </div>
+
+    </div>
+  </div>
+</div>
+<!--<div>
+    <solr docs="docs" num-found="numFound" solr-url="'http://localhost:8983/solr/collection1/select?indent=on&q=*:*&wt=json&callback=JSON_CALLBACK'">
+          <div class="row">
+            <div class="col-md-4">
+              <solr-facet-group>
+                <h2>Search:</h2>
+                <solr-search preload='true' query='{{params.q}}'></solr-search>
+                <solr-selected><h2>Selected:</h2></solr-selected>
+                <h2>Facet List:</h2>
+                <solr-facet display="Resource Type" field="mods_type_of_resource"></solr-facet>
+                <solr-facet display="Object Type"   field="object_type"></solr-facet>
+                <solr-facet display="Keyword"       field="mods_subject_ssim"></solr-facet>
+              </solr-facet-group>
+            </div>
+
+            <div class="col-md-8">
+              <h2>Results ({{numFound}})</h2>
+              <ul class="list-unstyled">
+                <li ng-repeat="doc in docs">
+                  <result-document record=doc ></result-document>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </solr>
+</div>-->

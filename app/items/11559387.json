@@ -1,0 +1,32 @@
+{
+    "id": "11559387",
+    "images": [
+        "items/images/34-2615-01_gr.PNG",
+        "items/images/34-2615-01_ch.PNG",
+        "items/images/34-2615-01_fp.PNG",
+        "items/images/34-2615-01_sch.PNG"
+    ],
+    "item":"74-4073317-01",
+        "revision":"^A1",
+        "subclass":"74-ODM or OEM Assembly",
+        "category":"Non-Commodity",
+        "lifecycle":"End of Production",
+        "description":"E/M-OTHER,ASSY,EPC2325,GATEWAY,EURODOCSIS 2.0",
+        "itemtype":"TURNKEY",
+        "uom":"EACH",
+        "sucm":"maschenk",
+        "commoditycode":"OEM/ODM_WIRELESS_OPTIONS_OTHER",
+        "riskrating":"NR",
+        "riskreason":"NA: Not Applicable",
+        "riskcomment":"FOR SPVTG USE ONLY",
+        "liability":"P:Proprietary",
+        "buyer":"aguirra",
+        "createdby":"avadakap",
+        "createddate":"2/28/2013 19:33",
+        "reqbu":"TBABU",
+        "rohsi":"Pass",
+        "rohsc":"Pass",
+        "manufacturer":"UNIHAN CORPORATION",
+        "imageUrl": "items/images/34-2615-01_gr.PNG",
+        "_version_":1561204450803056640
+}
