@@ -32,7 +32,7 @@ angular.
     function($resource,solrUrl,solrFacet,solrCall,$log) {
 
      // var solr_url = solrUrl+'collection1/select?q=*%3A*'+solrFacet+'manu'+solrFacet+'cat'+solrCall;
-     var solr_url = solrUrl.concat('ihub2/select?q=*%3A*',solrFacet,'revision',solrFacet,'category',solrCall);
+     var solr_url = solrUrl.concat('ihub2/select?q=*%3A*',solrFacet,'lifecycle',solrFacet,'category',solrCall);
      $log.debug("solr_url: "+solr_url);
       return $resource(solr_url, {}, {
         query: {
