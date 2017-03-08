@@ -45,12 +45,12 @@
     </div>
     </br>
     <ul class="phones">
-        <li ng-repeat="item in $ctrl.items | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
+        <li ng-repeat="item in items | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
             <a href="#!/items/{{item.id}}" class="thumb">
                 <img ng-src="{{item.imageUrl}}" alt="{{item.item}}" />
             </a>
-            <a href="#!/items/{{item.id}}">{{item.item}}</a>
-            <p>{{item.description}}</p>
+            <a href="#!/items/{{item.id}}">{{item.name}}</a>
+            <p>{{item.features}}</p>
         </li>
     </ul>
     </div>

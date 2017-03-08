@@ -28,10 +28,13 @@ angular.
 // solr api call
 angular.
   module('core.item').
-  factory('Item', ['$resource',
-    function($resource) {
-      var solrurl = 'http://127.0.0.1:8983/solr/collection1/select?q=*%3A*&wt=json&facet.field=manu&facet.field=cat&facet=on&indent=true&callback=JSON_CALLBACK';
-      return $resource(solrurl, {}, {
+  factory('Item', ['$resource','solrUrl','solrFacet','solrCall',
+    function($resource,solrUrl,solrFacet,solrCall) {
+
+     // var solr_url = solrUrl+'collection1/select?q=*%3A*'+solrFacet+'manu'+solrFacet+'cat'+solrCall;
+     var solr_url = solrUrl.concat('collection1/select?q=*%3A*',solrFacet,'manu',solrFacet,'cat',solrCall);
+
+      return $resource(solr_url, {}, {
         query: {
           method: 'GET',          
           params: {itemId: 'items'},
