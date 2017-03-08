@@ -7,6 +7,7 @@
  * # ihub
  * Service in the iHubApp.
  */
+/*
 // local json call
 angular.
   module('core.item').
@@ -23,7 +24,7 @@ angular.
       });
     }
   ]);
-/*
+*/
 // solr api call
 angular.
   module('core.item').
@@ -43,5 +44,4 @@ angular.
       });
     }
   ]);
-  */
   

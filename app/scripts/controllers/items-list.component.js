@@ -15,8 +15,8 @@ angular.
     controller: ['Item','$log','$scope',
       function ItemListController(Item,$log,$scope) {
         
-        this.items = Item.query();
-       /*$scope.items = [];
+       // this.items = Item.query();
+       $scope.items = [];
        Item.query().$promise.then(
          function (result) {
            $scope.items = result.response.docs;
@@ -25,7 +25,7 @@ angular.
          },
          function () {
          }
-       );*/
+       );
 
         this.orderProp = 'createddate';
         this.facets = [
