@@ -12,15 +12,15 @@ angular.
   module('itemList').
   component('itemList', {
     templateUrl: 'views/item-list.html',
-    controller: ['Item','$log','$scope',
-      function ItemListController(Item,$log,$scope) {
+    controller: ['Items','$log','$scope',
+      function ItemListController(Items,$log,$scope) {
         
        // this.items = Item.query();
        $scope.items = [];
        $scope.classcode = "";
        $scope.imageUrl = "";
        $scope.facets = [];
-       Item.query().$promise.then(
+       Items.query().$promise.then(
          function (result) {
            $scope.items = result.response.docs;
           // $log.debug('Result : '+ result.response.docs[1].item);
@@ -33,7 +33,7 @@ angular.
          }
        );
 
-       Item.query().$promise.then(
+       Items.query().$promise.then(
          function (result) {
            $scope.facets = result.facet_counts.facet_fields;
           // $log.debug('Result : '+ result.response.docs[1].item);
