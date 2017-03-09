@@ -7,7 +7,7 @@
         <div class="panel-body">
             <p>
                 Sort by:
-                <select ng-model="orderProp">
+                <select ng-model="$ctrl.orderProp">
           <option value="item">Item</option>
           <option value="createddate">Newest</option>
           <option value="lifecycle">Lifecycle</option>
@@ -55,8 +55,10 @@
     </br>
     <ul class="phones">
         <li ng-repeat="item in items | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
-            <a href="#!/items/{{item.id}}" class="thumb">
-                <img ng-src="{{item.imageUrl}}" alt="{{item.id}}" />
+            <a href="#!/items/{{item.id}}" class="thumb" ng-switch="$index % 3">
+                <img ng-switch-when="0" ng-src="items/images/34-2467-02_gr.PNG" alt="{{item.id}}" />
+                <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
+                <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
             </a>
             <a href="#!/items/{{item.id}}">{{item.item}}</a>
             <p>{{item.revision}},{{item.subclass}},{{item.category}}</p>

@@ -15,7 +15,7 @@ angular.
       return input ? '\u2713' : '\u2718';
     };
   })
-  .filter('facetFilter',function(){
+  .filter('facetFilter',function(){    
     return function(input){
       var newArray = [];
       for(var x=0;x<input.length;x+=2){

@@ -17,12 +17,17 @@ angular.
         
        // this.items = Item.query();
        $scope.items = [];
+       $scope.classcode = "";
+       $scope.imageUrl = "";
        $scope.facets = [];
        Item.query().$promise.then(
          function (result) {
            $scope.items = result.response.docs;
           // $log.debug('Result : '+ result.response.docs[1].item);
            $log.debug('items : '+$scope.items[1].item);
+           $scope.classcode = $scope.items.item.substr(2);
+           $scope.imageUrl =$scope.classcode.split('-')[0];
+           $log.debug('classcode : '+$scope.classcode +":ImageUrl:"+$scope.imageUrl);
          },
          function () {
          }
@@ -38,7 +43,7 @@ angular.
          }
        );
 
-        $scope.orderProp = 'createddate';
+        this.orderProp = 'createddate';
         /*this.facets = [
           {
             name: 'Category',
