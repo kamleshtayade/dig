@@ -1,10 +1,16 @@
 <div class="row">    
-    <div class="panel panel-info">
+    <div class="panel panel-success">
         <div class="panel-heading"><strong>Item </strong>: {{item[0].item}}</div>
         <div class="panel-body">
+            <!-- Alert message for active mcn -->
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Heads up!</strong> This Component do have <a href="#" class="alert-link">active MCN</a>.
+            </div>
+            <!-- Alert message with field failure quantity -->
             <div class="alert alert-warning alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Warning!</strong> Better check yourself, you're not looking too good.
+                <strong>Warning!</strong> This Component do have field failure <span class="badge">120</span> from <a href="#" class="alert-link">TEXAS INSTRUMENTS</a> .
             </div>
             <div class="phone-images">
                 <img ng-src="{{img}}" class="phone" ng-class="{selected: img === mainImageUrl}" ng-repeat="img in itemImg"

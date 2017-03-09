@@ -30,7 +30,7 @@ angular.
   module('core.item')
   .factory('Items', ['$resource','solrUrl','solrFacet','solrCall','$log',
     function($resource,solrUrl,solrFacet,solrCall,$log) {     
-     var solr_url = solrUrl.concat('ihub2/select?',solrFacet,'lifecycle',solrFacet,'category',solrCall,'&q=*%3A*');
+     var solr_url = solrUrl.concat('ihub2/select?&rows=30&start=0',solrFacet,'lifecycle',solrFacet,'category',solrCall,'&q=*%3A*');
 
      $log.debug("solr_url:Items "+solr_url);
       return $resource(solr_url, {}, {
