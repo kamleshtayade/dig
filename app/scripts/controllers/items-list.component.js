@@ -25,9 +25,9 @@ angular.
            $scope.items = result.response.docs;
           // $log.debug('Result : '+ result.response.docs[1].item);
            $log.debug('items : '+$scope.items[1].item_number);
-          // $scope.classcode = $scope.items.item.substr(2);
-          // $scope.imageUrl =$scope.classcode.split('-')[0];
-          // $log.debug('classcode : '+$scope.classcode +":ImageUrl:"+$scope.imageUrl);
+           //$scope.classcode = $scope.items[1].item_number.substr(2);
+           //$scope.imageUrl =$scope.classcode.split('-')[0];
+           //$log.debug('classcode : '+$scope.classcode +":ImageUrl:"+$scope.imageUrl);
          },
          function () {
          }
@@ -53,18 +53,18 @@ angular.
         var item2 = addChild($scope.dataCat, 2, "Non-Commodity");
 
         $scope.dataLife = newItem(1,"Lifecycle");
-        var item1 = addChild($scope.dataLife, 1, "End of Production");
-        var item2 = addChild($scope.dataLife, 2, "Production");
-        var item3 = addChild($scope.dataLife, 3, "Cancelled");
-        var item4 = addChild($scope.dataLife, 4, "End of Support");
-        var item5 = addChild($scope.dataLife, 5, "Prototype");
+        var item11 = addChild($scope.dataLife, 1, "End of Production");
+        var item12 = addChild($scope.dataLife, 2, "Production");
+        var item13 = addChild($scope.dataLife, 3, "Cancelled");
+        var item14 = addChild($scope.dataLife, 4, "End of Support");
+        var item15 = addChild($scope.dataLife, 5, "Prototype");
         
-        item4.isSelected=true;
-        item1.isExpanded = true;
-        addChild(item1, 5, "MPN");
-        addChild(item1, 6, "CPN");
-        addChild(item2, 7, "New Product");
-        addChild(item2, 8, "Existing Product");
+        item14.isSelected=true;
+        item11.isExpanded = true;
+        addChild(item11, 5, "MPN");
+        addChild(item11, 6, "CPN");
+        addChild(item12, 7, "New Product");
+        addChild(item12, 8, "Existing Product");
 
 
         function newItem(id, name) {
