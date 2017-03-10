@@ -1,19 +1,29 @@
-<div class="row">
-    <div class="panel panel-info">
-        <div class="panel-heading"><strong>Item </strong>: {{$ctrl.item.item}}</div>
+<div class="row">    
+    <div class="panel panel-success" ng-repeat="item in item">
+        <div class="panel-heading"><strong>Item </strong>: {{item.item_number}}</div>
         <div class="panel-body">
+            <!-- Alert message for active mcn -->
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <i class="fa fa-chain-broken" aria-hidden="true"></i> <strong>Heads up!</strong> This Component do have active MCN # <a href="#" class="alert-link">31722</a>.
+            </div>
+            <!-- Alert message with field failure quantity -->
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <i class="fa fa-chain-broken" aria-hidden="true"></i> <strong>Warning!</strong> This Component do have field failure <span class="badge">120</span> from <a href="#" class="alert-link">TEXAS INSTRUMENTS</a> .
+            </div>
             <div class="phone-images">
-                <img ng-src="{{img}}" class="phone" ng-class="{selected: img === $ctrl.mainImageUrl}" ng-repeat="img in $ctrl.item.images"
+                <img ng-src="{{img}}" class="phone" ng-class="{selected: img === mainImageUrl}" ng-repeat="img in itemImg"
                 />
             </div>
 
-            <h2>{{$ctrl.item.item}} <small>{{$ctrl.item.revision}}</small></h2>
+            <h2>{{item.item_number}} <small>{{item.revision}}</small></h2>
 
-            <p>{{$ctrl.item.description}}</p>
+            <p>{{item.item_description}}</p>
 
             <ul class="phone-thumbs">
-                <li ng-repeat="img in $ctrl.item.images">
-                    <img ng-src="{{img}}" ng-click="$ctrl.setImage(img)" />
+                <li ng-repeat="img in itemImg">
+                    <img ng-src="{{img}}" ng-click="setImage(img)" />
                 </li>
             </ul>
             
@@ -22,55 +32,57 @@
                     <span>Item Details</span>
                     <dl>
                         <dt>Revision : </dt>
-                        <dd >{{$ctrl.item.revision}}</dd>
+                        <dd >{{item.revision}}</dd>
                         <dt>Subclass : </dt>
-                        <dd >{{$ctrl.item.subclass}}</dd>
+                        <dd >{{item.item_subclass}}</dd>
                         <dt>Category : </dt>
-                        <dd >{{$ctrl.item.category}}</dd>
+                        <dd >{{item.item_category}}</dd>
                         <dt>Lifecycle : </dt>
-                        <dd >{{$ctrl.item.lifecycle}}</dd>
+                        <dd >{{item.item_lifecycle}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Info</span>
                     <dl>
                         <dt>Type : </dt>
-                        <dd>{{$ctrl.item.itemtype}}</dd>
+                        <dd>{{item.itemtype}}</dd>
                         <dt>UOM : </dt>
-                        <dd>{{$ctrl.item.uom}}</dd>
+                        <dd>{{item.uom}}</dd>
                         <dt>SuCM : </dt>
-                        <dd>{{$ctrl.item.sucm}}</dd>
+                        <dd>{{item.sucm}}</dd>
                         <dt>Commodity Code : </dt>
-                        <dd>{{$ctrl.item.commoditycode}}</dd>
+                        <dd>{{item.commodity_code}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Risk</span>
                     <dl>
                         <dt>Risk Rating : </dt>
-                        <dd>{{$ctrl.item.riskrating}}</dd>
+                        <dd>{{item.risk_rating}}</dd>
                         <dt>Risk Reason : </dt>
-                        <dd>{{$ctrl.item.riskreason}}</dd>
-                        <dt>Liability : </dt>
-                        <dd>{{$ctrl.item.liability}}</dd>
+                        <dd>{{item.risk_reason_code}}</dd>
+                        <dt>Risk Comments : </dt>
+                        <dd>{{item.risk_comment}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Compliance</span>
                     <dl>
                         <dt>RoHS(i) : </dt>
-                        <dd>{{$ctrl.item.rohsi}}</dd>
+                        <dd>{{item.rohsi}}</dd>
                         <dt>RoHS(c) : </dt>
-                        <dd>{{$ctrl.item.rohsc}}</dd>
+                        <dd>{{item.rohsc}}</dd>
+                        <dt>PbFree</dt>
+                        <dd>{{item.pbfree}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Vendor and BU</span>
                     <dl>
                         <dt>Manufacturer : </dt>
-                        <dd>{{$ctrl.item.manufacturer}}</dd>
+                        <dd>{{item.manufacturer}}</dd>
                         <dt>Business Unit : </dt>
-                        <dd>{{$ctrl.item.reqbu}}</dd>
+                        <dd>{{item.requesting_bu}}</dd>
                     </dl>
                 </li>
                 <li>
@@ -79,46 +91,46 @@
                         <dt>Dimensions : </dt>
                         <dd ng-repeat="dim in $ctrl.item.sizeAndWeight.dimensions">{{dim}}</dd>
                         <dt>Weight : </dt>
-                        <dd>{{$ctrl.item.sizeAndWeight.weight}}</dd>
+                        <dd>{{item.sizeAndWeight.weight}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Display</span>
                     <dl>
                         <dt>Screen size : </dt>
-                        <dd>{{$ctrl.item.display.screenSize}}</dd>
+                        <dd>{{item.display.screenSize}}</dd>
                         <dt>Screen resolution : </dt>
-                        <dd>{{$ctrl.item.display.screenResolution}}</dd>
+                        <dd>{{item.display.screenResolution}}</dd>
                         <dt>Touch screen : </dt>
-                        <dd>{{$ctrl.item.display.touchScreen | checkmark}}</dd>
+                        <dd>{{item.display.touchScreen | checkmark}}</dd>
                     </dl>
                 </li>
                 <li>
-                    <span>Hardware</span>
+                    <span>Royalty Status</span>
                     <dl>
                         <dt> </dt>
-                        <dd>{{$ctrl.item.hardware.cpu}}</dd>                        
+                        <dd>{{item.royalty_status}}</dd>                        
                     </dl>
                 </li>
                 <li>
                     <span>Creation details</span>
                     <dl>
                         <dt>Created By : </dt>
-                        <dd>{{$ctrl.item.createdby}}</dd>
+                        <dd>{{item.createdby}}</dd>
                         <dt>Date : </dt>
-                        <dd>{{$ctrl.item.createddate}}</dd>
+                        <dd>{{item.createddate}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Additional Features</span>
-                    <dd>{{$ctrl.item.additionalFeatures}}</dd>
+                    <dd>{{item.additionalFeatures}}</dd>
                 </li>
             </ul>
             <div class="panel-footer">
             <div class="row">
                 <div class="panel panel-info">
                     <div class="panel-body">
-                        <h5>Frequently Searched Together</h5>
+                        <h5><i class="fa fa-chain-broken" aria-hidden="true"></i> Frequently Searched Together</h5>
                         <div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
                             <div class="thumbnail">
                             <a href="#">
@@ -136,7 +148,7 @@
                 </div>
                 <div class="panel panel-info">
                     <div class="panel-body">
-                        <h5>Look for similar items by category</h5>
+                        <h5><i class="fa fa-chain-broken" aria-hidden="true"></i> Look for similar items by category</h5>
                         <div class="col-xs-6 col-md-3" ng-repeat="itemByCat in $ctrl.itemByCats">
                             <div class="thumbnail">
                             <a href="#">

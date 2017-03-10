@@ -8,27 +8,43 @@
             <p>
                 Sort by:
                 <select ng-model="$ctrl.orderProp">
-          <option value="item">Item</option>
+          <option value="item_number">Item</option>
           <option value="createddate">Newest</option>
           <option value="lifecycle">Lifecycle</option>
         </select>
             </p>
         </div>
     </div><!-- Personal Prefernces -->
+  
 <div class="panel panel-success">
-    <div class="panel-heading">Refine By <small>(Facet Search)</small></div>
+    <div class="panel-heading">Refine By <small>(Category)</small></div>
     <div class="panel-body"> 
         <div class="list-group">
-            <a href="#" class="list-group-item active"><span class="badge">2</span> Category</a>
-            <a href="#" class="list-group-item"><span class="badge">6</span> Lifecycle</a>
-            <a href="#" class="list-group-item"><span class="badge">3</span> RoHS (i)</a>
-            <a href="#" class="list-group-item"><span class="badge">4</span> Risk Rating</a>
-            <a href="#" class="list-group-item"><span class="badge">8</span> Buyer</a>
+            <a href="#" class="list-group-item list-group-item-action" ng-repeat="f2 in facets.item_category | facetFilter">
+                <span class="badge">{{facets.item_category[($index * 2+1)]}}</span> {{f2}}
+            </a>
+        </div>
+    </div>
+</div><!-- Refine By -->
+<div class="panel panel-info">
+    <div class="panel-heading">Refine By <small>(lifecycle)</small></div>
+    <div class="panel-body"> 
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action" ng-repeat="f in facets.item_lifecycle | facetFilter">
+                <span class="badge">{{facets.item_lifecycle[($index * 2+1)]}}</span> {{f}}
+            </a>
         </div>
     </div>
 </div>
+<div class="panel panel-success">
+    <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Refine By </div>
+    <div class="panel-body"> 
+        <tree branch="dataCat"></tree> <!-- Tree Directive -->
+        <tree branch="dataLife"></tree>
+    </div>
+</div><!-- Refine By -->
     <div class="panel panel-info">
-        <div class="panel-heading">Avg. Customer Review <small>YELP</small></div>
+        <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Avg. Customer Review <small>YELP</small></div>
         <div class="panel-body">
             <input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5" data-size="xs"><hr/>
             <div class="rating">
@@ -45,12 +61,15 @@
     </div>
     </br>
     <ul class="phones">
-        <li ng-repeat="item in $ctrl.items | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
-            <a href="#!/items/{{item.id}}" class="thumb">
-                <img ng-src="{{item.imageUrl}}" alt="{{item.item}}" />
+        <li ng-repeat="item in items | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
+            <a href="#!/items/{{item.id}}" class="thumb" ng-switch="$index % 3">
+                <img ng-switch-when="0" ng-src="items/images/34-2467-02_gr.PNG" alt="{{item.id}}" />
+                <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
+                <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
             </a>
-            <a href="#!/items/{{item.id}}">{{item.item}}</a>
-            <p>{{item.description}}</p>
+            <a href="#!/items/{{item.id}}">{{item.item_number}}</a>
+            <p>{{item.revision}},{{item.item_subclass}},{{item.item_category}}</p>
+            <p>{{item.item_description}}</p>
         </li>
     </ul>
     </div>

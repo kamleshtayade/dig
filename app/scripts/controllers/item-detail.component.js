@@ -11,16 +11,32 @@ angular.
   module('itemDetail').
   component('itemDetail', {
     templateUrl: 'views/item-detail.html',
-    controller: ['$routeParams', 'Item',
-      function ItemDetailController($routeParams, Item) {
-        var self = this;
-        self.item = Item.get({itemId: $routeParams.itemId}, function(item) {
-          self.setImage(item.images[0]);
-        });
+    controller: ['$routeParams', 'Item','$log','$scope',
+      function ItemDetailController($routeParams,Item,$log,$scope) {   
+        $scope.item=[];
+        $scope.solrQuery = 'id:'+$routeParams.id; // Here we can modify search parameter
+        
+       Item.get({q: $scope.solrQuery}).$promise.then(
+         function (result) {
+           $scope.item = result.response.docs;
+           $scope.setImage("items/images/34-2467-02_gr.PNG");
+           $log.debug('item : '+$scope.item[0].item_number);
+         },
+         function () {
+         }
+       );
 
-        self.setImage = function setImage(imageUrl) {
-          self.mainImageUrl = imageUrl;
+        $scope.setImage = function setImage(imageUrl) {
+          $scope.mainImageUrl = imageUrl;
         };
+
+        $scope.itemImg =  [
+        "items/images/34-2615-01_gr.PNG",
+        "items/images/34-2615-01_ch.PNG",
+        "items/images/34-2615-01_fp.PNG",
+        "items/images/34-2615-01_sch.PNG"
+        ];
+
         this.freqs = [
           {
             name: '34-2615-01',

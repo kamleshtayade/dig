@@ -199,3 +199,16 @@ body {
    left: 0; 
    color: gold;
 }
+
+/*Tree Directive*/
+.angular-bootstrap-tree {
+    margin-left: 20px;
+    display: block;
+}
+
+/*alert
+.alert {
+  height: 40px;
+  line-height:30px;
+  padding:0px 5px;
+}*/
