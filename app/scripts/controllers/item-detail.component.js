@@ -23,7 +23,7 @@ angular.
          function (result) {
            $scope.item = result.response.docs;
            $scope.setImage("items/images/34-2467-02_gr.PNG");
-           $log.debug('item : '+$scope.item[0].item);
+           $log.debug('item : '+$scope.item[0].item_number);
          },
          function () {
          }
@@ -39,7 +39,7 @@ angular.
         "items/images/34-2615-01_fp.PNG",
         "items/images/34-2615-01_sch.PNG"
         ];
-        
+
         this.freqs = [
           {
             name: '34-2615-01',

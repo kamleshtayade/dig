@@ -24,7 +24,7 @@ angular.
          function (result) {
            $scope.items = result.response.docs;
           // $log.debug('Result : '+ result.response.docs[1].item);
-           $log.debug('items : '+$scope.items[1].item);
+           $log.debug('items : '+$scope.items[1].item_number);
           // $scope.classcode = $scope.items.item.substr(2);
           // $scope.imageUrl =$scope.classcode.split('-')[0];
           // $log.debug('classcode : '+$scope.classcode +":ImageUrl:"+$scope.imageUrl);

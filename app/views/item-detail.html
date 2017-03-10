@@ -1,6 +1,6 @@
 <div class="row">    
     <div class="panel panel-success">
-        <div class="panel-heading"><strong>Item </strong>: {{item[0].item}}</div>
+        <div class="panel-heading"><strong>Item </strong>: {{item[0].item_number}}</div>
         <div class="panel-body">
             <!-- Alert message for active mcn -->
             <div class="alert alert-info alert-dismissible" role="alert">
@@ -17,9 +17,9 @@
                 />
             </div>
 
-            <h2>{{item[0].item}} <small>{{item[0].revision}}</small></h2>
+            <h2>{{item[0].item_number}} <small>{{item[0].revision}}</small></h2>
 
-            <p>{{item[0].description}}</p>
+            <p>{{item[0].item_description}}</p>
 
             <ul class="phone-thumbs">
                 <li ng-repeat="img in itemImg">
@@ -34,11 +34,11 @@
                         <dt>Revision : </dt>
                         <dd >{{item[0].revision}}</dd>
                         <dt>Subclass : </dt>
-                        <dd >{{item[0].subclass}}</dd>
+                        <dd >{{item[0].item_subclass}}</dd>
                         <dt>Category : </dt>
-                        <dd >{{item[0].category}}</dd>
+                        <dd >{{item[0].item_category}}</dd>
                         <dt>Lifecycle : </dt>
-                        <dd >{{item[0].lifecycle}}</dd>
+                        <dd >{{item[0].item_lifecycle}}</dd>
                     </dl>
                 </li>
                 <li>
@@ -51,18 +51,18 @@
                         <dt>SuCM : </dt>
                         <dd>{{item[0].sucm}}</dd>
                         <dt>Commodity Code : </dt>
-                        <dd>{{item[0].commoditycode}}</dd>
+                        <dd>{{item[0].commodity_code}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Risk</span>
                     <dl>
                         <dt>Risk Rating : </dt>
-                        <dd>{{item[0].riskrating}}</dd>
+                        <dd>{{item[0].risk_rating}}</dd>
                         <dt>Risk Reason : </dt>
-                        <dd>{{item[0].riskreason}}</dd>
-                        <dt>Liability : </dt>
-                        <dd>{{item[0].liability}}</dd>
+                        <dd>{{item[0].risk_reason_code}}</dd>
+                        <dt>Risk Comments : </dt>
+                        <dd>{{item[0].risk_comment}}</dd>
                     </dl>
                 </li>
                 <li>
@@ -72,6 +72,8 @@
                         <dd>{{item[0].rohsi}}</dd>
                         <dt>RoHS(c) : </dt>
                         <dd>{{item[0].rohsc}}</dd>
+                        <dt>PbFree</dt>
+                        <dd>{{item[0].pbfree}}</dd>
                     </dl>
                 </li>
                 <li>
@@ -80,7 +82,7 @@
                         <dt>Manufacturer : </dt>
                         <dd>{{item[0].manufacturer}}</dd>
                         <dt>Business Unit : </dt>
-                        <dd>{{item[0].reqbu}}</dd>
+                        <dd>{{item[0].requesting_bu}}</dd>
                     </dl>
                 </li>
                 <li>
@@ -104,10 +106,10 @@
                     </dl>
                 </li>
                 <li>
-                    <span>Hardware</span>
+                    <span>Royalty Status</span>
                     <dl>
                         <dt> </dt>
-                        <dd>{{item[0].hardware.cpu}}</dd>                        
+                        <dd>{{item[0].royalty_status}}</dd>                        
                     </dl>
                 </li>
                 <li>
