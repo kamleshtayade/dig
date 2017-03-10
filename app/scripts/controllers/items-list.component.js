@@ -23,7 +23,6 @@ angular.
        Items.query().$promise.then(
          function (result) {
            $scope.items = result.response.docs;
-          // $log.debug('Result : '+ result.response.docs[1].item);
            $log.debug('items : '+$scope.items[1].item_number);
            //$scope.classcode = $scope.items[1].item_number.substr(2);
            //$scope.imageUrl =$scope.classcode.split('-')[0];
@@ -36,14 +35,13 @@ angular.
        Items.query().$promise.then(
          function (result) {
            $scope.facets = result.facet_counts.facet_fields;
-          // $log.debug('Result : '+ result.response.docs[1].item);
-           $log.debug('facets : '+angular.toJson($scope.facets.revision, true));
          },
          function () {
          }
        );
 
         this.orderProp = 'createddate';
+        
         /*Tree directive */
 
         $scope.expandAll = expandAll;

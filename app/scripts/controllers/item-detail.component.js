@@ -14,12 +14,9 @@ angular.
     controller: ['$routeParams', 'Item','$log','$scope',
       function ItemDetailController($routeParams,Item,$log,$scope) {   
         $scope.item=[];
-
-        /*$scope.item = Item.get({itemId: $routeParams.itemId}, function(item) {
-          $scope.setImage(item.images[0]);
-        });*/
+        $scope.solrQuery = 'id:'+$routeParams.id; // Here we can modify search parameter
         
-       Item.query().$promise.then(
+       Item.get({q: $scope.solrQuery}).$promise.then(
          function (result) {
            $scope.item = result.response.docs;
            $scope.setImage("items/images/34-2467-02_gr.PNG");
