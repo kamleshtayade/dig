@@ -200,6 +200,12 @@ body {
    color: gold;
 }
 
+/*Tree Directive*/
+.angular-bootstrap-tree {
+    margin-left: 20px;
+    display: block;
+}
+
 /*alert
 .alert {
   height: 40px;
