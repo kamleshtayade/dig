@@ -14,18 +14,20 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/app.animations.css">
+    <link rel="stylesheet" href="styles/cisco-light/styles.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" />
     <!-- endbuild -->
   </head>
   <body ng-app="iHubApp">
+    <div class="apollo-body">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-inverse" role="navigation">
+    <!--<div class="header">
+      <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
 
@@ -49,17 +51,59 @@
           </div>
         </div>
       </div>
+    </div>-->
+
+
+		  <!-- Page header start -->
+         <header class="header">
+            <div class="header-bar container">
+               <a class="button button--icon toggle-menu">
+                  <span class="icon-list-menu"></span>
+               </a>
+               <a class="header-bar__logo">
+                  <span class="icon-cisco"></span>
+               </a>
+               <div class="header-bar__main">
+                  <div class="header-heading">
+                     <h1 class="page-title">iHub Market Place</h1>
+                  </div>
+               </div>
+               <div class="header-toolbar">
+                  <a class="button button--icon">
+                     <span class="icon-search"></span>
+                  </a>
+                  <a class="button button--icon">
+                        <span class="icon-alert"></span>
+                    </a>
+                  <a class="button button--icon">
+                     <span class="icon-cog"></span>
+                  </a>
+               </div>
+            </div>
+         </header>
+		  <!-- Page header end -->
+
+    <div class="apollo-content">
+      <div class="col-sm-2"></div>	<!-- Column on the side for padding -->
+      <div ng-view=""></div>
+      <div class="col-sm-2"></div>	<!-- Column on the side for padding -->
     </div>
 
-    <div class="container">
-    <div ng-view=""></div>
-    </div>
-
-    <div class="footer">
+  <!-- Start Footer -->
+    <div class="apollo-footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the PLM team</p>
+        <ul class="list--inline list--divider">
+          <li><a class="link" href="#">Contacts</a></li>
+          <li><a class="link" href="#">Feedback</a></li>
+          <li><a class="link" href="#">Site Map</a></li>
+          <li><a class="link" href="#">Terms & Conditions</a></li>
+          <li><a class="link" href="#">Privacy Statement</a></li>
+          <li><a class="link" href="#">Cookie Policy</a></li>
+          <li><a class="link" href="#">Trademarks</a></li>
+        </ul>
       </div>
     </div>
+    <!-- End Footer -->
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -108,5 +152,6 @@
         <script src="scripts/services/constant.js"></script>
         <script src="scripts/directives/tree.js"></script>
         <!-- endbuild -->
+    </div>
 </body>
 </html>
