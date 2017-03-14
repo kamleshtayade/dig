@@ -2,20 +2,18 @@
 
 /**
  * @ngdoc function
- * @name iHubApp.controller:MainCtrl
+ * @name iHubApp.controller:LandCtrl
  * @description
- * # MainCtrl
+ * # LandCtrl
  * Controller of the iHubApp
  */
 angular.module('iHubApp')
-  .controller('MainCtrl', ['$scope',function ($scope) {
-    $scope.$log.debug('I am a debug statment (you can disable me in $logProvider configuration)', {msg: 'Hello World!'});
+  .controller('LandCtrl',['$log','$scope', function LandController($log,$scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-
     $scope.otherNotes = [
       'phonecat yeoman-ized',
       'Disabled CSS watchers for CDT',
@@ -24,5 +22,4 @@ angular.module('iHubApp')
       'Continuous Integration',
       'Protractor'
     ];
-
   }]);

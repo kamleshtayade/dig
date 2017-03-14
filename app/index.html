@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>iHub</title>
+    <title>Design Store</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="styles/app.animations.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" />
+    <!--<link rel="stylesheet" href="styles/aui-basic.min.css">
+    <link rel="stylesheet" href="styles/aui-standard.min.css">-->
+    <link rel="stylesheet" href="styles/ciscoStructure.css">
     <!-- endbuild -->
   </head>
   <body ng-app="iHubApp">
@@ -23,8 +26,45 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+<!-- Header Section -->
+		<header class="container-fluid top-header-strip">
+				<div class="container">
+						<div class="row header-panel">
+								<!-- logo-outer -->
+								<div class="col-xs-12 col-sm-6 logo-outer logo-box-pad"> <a class="logo-box" href="#/">Design Store </a> </div>
+								<!-- /logo-outer -->
+								
+								<!-- header Navigation -->
+								<div class=" col-sm-6 col-xs-12 headerNavigation">
+										<div class="iconsCont"> 
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											  <i class="fa fa-user fa-fw"></i>
+											  <span class="profile-username" id="Username">Welcome, Kamlesh Tayade</span>
+											</a>
+											<ul class="dropdown-menu animated flipInX pull-right" role="menu">
+											  <li><a id="logout" href="#"><i class="fa fa-sign-out"></i> Logout</a>
+											  </li>
+											</ul>
+											<a href="javascript:void(0);" class="cIcon-msgNotification hyperLink"></a> 
+											<a href="javascript:void(0);" class="cIcon-question hyperLink"></a> 
+										</div>
+								</div>
+								<input type="hidden" id="loggedInUserName" value="Kamlesh Tayade"/>
+								<!-- /header Navigation -->
+						</div>
+              <ul class="nav nav-tabs">
+                <li role="presentation" class=""><a href="#">Search History</a></li>
+                <li role="presentation" class=""><a href="#">User Profile</a></li>
+                <li role="presentation" class=""><a href="#">Notifications</a></li>
+                <li role="presentation" class=""><a href="#">Sli</a></li>
+              </ul>
+				</div>
+				<!-- /top-header-strip -->
+		</header>
+		<!-- /Header Section -->
+
     <!-- Add your site or application content here -->
-    <div class="header">
+    <!--<div class="header">
       <div class="navbar navbar-inverse" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -49,17 +89,22 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
 
     <div class="container">
     <div ng-view=""></div>
     </div>
 
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the PLM team</p>
-      </div>
-    </div>
+    <footer class="container-fluid footer-panel">
+      <ul class="footer-panel-list home">
+        <li><a target="_blank" href="http://www.cisco.com/web/siteassets/legal/trademark.html">Trademarks</a></li>
+        <li><a target="_blank" href="http://www.cisco.com/web/siteassets/legal/terms_condition.html">Terms &amp; Conditions </a></li>
+        <li><a target="_blank" href="http://www.cisco.com/web/siteassets/legal/privacy.html#cookies">Cookie Policy</a></li>
+        <li><a target="_blank" href="http://www.cisco.com/web/siteassets/legal/privacy.html">Privacy Statement</a></li>
+        <li><a target="_blank" href="http://srm.cisco.com">Design Store Support</a></li>
+      </ul>
+    </footer>
+
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -97,7 +142,6 @@
         <script src="scripts/app.animations.js"></script>
         <script src="scripts/module/core.module.js"></script>
         <script src="scripts/filters/ihub.js"></script>
-        <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/module/item-list.module.js"></script>
         <script src="scripts/controllers/items-list.component.js"></script>        
@@ -107,6 +151,7 @@
         <script src="scripts/services/ihub.js"></script>
         <script src="scripts/services/constant.js"></script>
         <script src="scripts/directives/tree.js"></script>
+        <script src="scripts/controllers/land.js"></script>
         <!-- endbuild -->
 </body>
 </html>
