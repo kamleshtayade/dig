@@ -33,35 +33,31 @@
             </p>
         </div>
     </div><!-- Personal Prefernces -->
-<!-- start facet filter--> 
- <div class="panel panel-success">
-    <div class="panel-heading">Refine By</div>
-    <div class="panel-body"> 
-    <div ng-if="filteredProducts.length > 0">
-        <h4>Lifecycle</h4>
-        <!-- works but haven't found a way to abstract it to make it scalable for multiple filter groups  -->
-        <div data-ng-repeat="brand in brandsGroup | limitTo: maxBrands" data-ng-if="(filteredProducts | filter:searchTerm | filter:count('Brand', brand)).length > 0">
-            <label class="checkbox">
-                    <input type="checkbox" data-ng-model="useBrands[brand]" /> {{brand}} <span>({{ (filteredProducts | filter:searchTerm | filter:count('Brand', brand)).length }})</span> </label>
-        </div>
-        <span data-ng-show="maxBrands<4" class="link" data-ng-click="maxBrands = 100">More</span> <span data-ng-show="maxBrands>3"
-            class="link" data-ng-click="maxBrands = 3">Less</span>
-    </div>
-    <div ng-if="filteredProducts.length > 0">
-        <h4>Category</h4>
-        <div>
-            <!--- Not working correctly, ideally this should be iterated rather than hardcoded and the count doesn't match if there are multiple values in the array -->
-            <label class="checkbox">
-                    <input type="checkbox" data-ng-model="filters.Label['Commodity']" /> Commodity <span>({{ (filteredProducts | filter:searchTerm | filter:count('Labels', 'Commodity')).length }})</span> </label>
-            <label class="checkbox">
-                    <input type="checkbox" data-ng-model="filters.Label['Non-Commodity']" /> Non-Commodity <span>({{ (filteredProducts | filter:searchTerm | filter:count('Labels', 'Non-Commodity')).length }})</span> </label>
-            <label class="checkbox">
-                <input type="checkbox" data-ng-model="filters.Label['Document']" /> Document <span>({{ (filteredProducts | filter:searchTerm | filter:count('Labels', 'Document')).length }})</span> </label>
+    <!-- start facet filter--> 
+    <div class="panel panel-success">
+        <div class="panel-heading">Refine By</div>
+        <div class="panel-body">
+            <div ng-if="filteredProducts.length > 0">
+                <h4>Lifecycle</h4>
+                <div data-ng-repeat="brand in brandsGroup | limitTo: maxBrands" data-ng-if="(filteredProducts | filter:searchTerm | filter:count('item_lifecycle', brand)).length > 0">
+                    <label class="checkbox">
+                        <input type="checkbox" data-ng-model="useBrands[brand]" /> {{brand}} <span>({{ (filteredProducts | filter:$ctrl.query | filter:count('item_lifecycle', brand)).length }})</span> </label>
+                </div>
+                <span data-ng-show="maxBrands<4" class="link" data-ng-click="maxBrands = 100">More</span> <span data-ng-show="maxBrands>3"
+                    class="link" data-ng-click="maxBrands = 3">Less</span>
+            </div>
+            <div ng-if="filteredProducts.length > 0">
+                <h4>Category</h4>
+                <div>
+                    <div data-ng-repeat="label in labelsGroup" data-ng-if="(filteredProducts | filter:searchTerm | filter:count('item_category', label)).length > 0">
+                        <label class="checkbox">
+                        <input type="checkbox" data-ng-model="useLabels[label]" /> {{label}} <span>({{ (filteredProducts | filter:$ctrl.query | filter:count('item_category', label)).length }})</span> </label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-</div>
-<!-- end facet filter--> 
+    <!-- end facet filter--> 
 <div class="panel panel-success">
     <div class="panel-heading">Refine By <small>(Category)</small></div>
     <div class="panel-body"> 
@@ -107,7 +103,7 @@
     </div>
     </br>
     <ul class="phones">
-        <li ng-repeat="item in items | filter:$ctrl.query | orderBy:orderProp" class="thumbnail phone-list-item">
+        <li ng-repeat="item in filteredProducts | filter:$ctrl.query | orderBy:orderProp" class="thumbnail phone-list-item">
             <a href="#!/items/{{item.id}}" class="thumb" ng-switch="$index % 3">
                 <img ng-switch-when="0" ng-src="items/images/34-2467-02_gr.PNG" alt="{{item.id}}" />
                 <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
