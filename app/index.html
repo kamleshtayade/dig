@@ -17,48 +17,70 @@
     <link rel="stylesheet" href="styles/app.animations.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" />
-    <!--<link rel="stylesheet" href="styles/aui-basic.min.css">
-    <link rel="stylesheet" href="styles/aui-standard.min.css">-->
-    <link rel="stylesheet" href="styles/ciscoStructure.css">
+    <link rel="stylesheet" href="styles/aui-standard.min.css">
+    <!--<link rel="stylesheet" href="styles/ciscoStructure.css">-->
     <!-- endbuild -->
   </head>
-  <body ng-app="iHubApp">
+  <body class="aui content-body"ng-app="iHubApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
 <!-- Header Section -->
-		<header class="container-fluid top-header-strip">
-				<div class="container">
-						<div class="row header-panel">
-								<!-- logo-outer -->
-								<div class="col-xs-12 col-sm-6 logo-outer logo-box-pad"> <a class="logo-box" href="#/">Design Store </a> </div>
-								<!-- /logo-outer -->
-								
-								<!-- header Navigation -->
-								<div class=" col-sm-6 col-xs-12 headerNavigation">
-										<div class="iconsCont"> 
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-											  <i class="fa fa-user fa-fw"></i>
-											  <span class="profile-username" id="Username">Welcome, Kamlesh Tayade</span>
-											</a>
-											<ul class="dropdown-menu animated flipInX pull-right" role="menu">
-											  <li><a id="logout" href="#"><i class="fa fa-sign-out"></i> Logout</a>
-											  </li>
-											</ul>
-											<a href="javascript:void(0);" class="cIcon-msgNotification hyperLink"></a> 
-											<a href="javascript:void(0);" class="cIcon-question hyperLink"></a> 
-										</div>
-								</div>
-								<input type="hidden" id="loggedInUserName" value="Kamlesh Tayade"/>
-								<!-- /header Navigation -->
-						</div>
-              <ul class="nav nav-tabs">
-                <li role="presentation" class=""><a href="#">Search History</a></li>
-                <li role="presentation" class=""><a href="#">User Profile</a></li>
-                <li role="presentation" class=""><a href="#">Notifications</a></li>
-                <li role="presentation" class=""><a href="#">Sli</a></li>
-              </ul>
+		<header class="header">
+				<div class="header-bar container">
+                <a class="button button--icon toggle-menu">
+                    <span class="icon-list-menu"></span>
+                </a>
+                <a class="header-bar__logo">
+                    <span class="icon-cisco"></span>
+                </a>
+                <div class="header-bar__main">
+                    <div class="header-heading">
+                        <h1 class="page-title">Design Store</h1>
+                    </div>
+                </div>
+                <div class="header-menus">
+                  <ul class="tabs">
+                    <li class="tab active">
+                      <a>
+                        <div class="tab__heading" title="Search History">Market Place</div>
+                      </a>
+                    </li>
+                    <li class="tab">
+                      <a>
+                        <div class="tab__heading" title="Search History">Search History</div>
+                      </a>
+                    </li>
+                    <li class="tab">
+                      <a>
+                        <div class="tab__heading" title="User Profile">User Profile</div>
+                      </a>
+                    </li>
+                    <li class="tab">
+                      <a>
+                        <div class="tab__heading" title="Notifications">Notifications</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="header-toolbar">
+                  <a class="avatar">John Doe</a>
+                  <button class="btn btn--small btn--icon">
+                        <span class="icon-user"></span>
+                  </button>
+                  <button class="btn btn--small btn--icon btn--negative">
+                        <span class="icon-alert"></span>
+                        <span class="btn__subtext">999+</span>
+                  </button>
+                  <button class="btn btn--small btn--icon btn--success">
+                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                         <span class="btn__subtext">34</span>
+                  </button>
+                  <button class="btn btn--small btn--icon">
+                         <span class="icon-cog"></span>
+                  </button>
+                </div>
 				</div>
 				<!-- /top-header-strip -->
 		</header>
@@ -91,20 +113,43 @@
         </div>
       </div>
     </div>-->
+  <div class="content content__main">
 
     <div class="container">
-    <div ng-view=""></div>
+      <div ng-view=""></div>
     </div>
 
-    <footer class="container-fluid footer-panel">
-      <ul class="footer-panel-list home">
-        <li><a target="_blank" href="http://www.cisco.com/web/siteassets/legal/trademark.html">Trademarks</a></li>
-        <li><a target="_blank" href="http://www.cisco.com/web/siteassets/legal/terms_condition.html">Terms &amp; Conditions </a></li>
-        <li><a target="_blank" href="http://www.cisco.com/web/siteassets/legal/privacy.html#cookies">Cookie Policy</a></li>
-        <li><a target="_blank" href="http://www.cisco.com/web/siteassets/legal/privacy.html">Privacy Statement</a></li>
-        <li><a target="_blank" href="http://srm.cisco.com">Design Store Support</a></li>
-      </ul>
+    <footer class="footer">
+      <div class="row">
+        <div class="col-xs-8 col-sm-6 text-center">
+          <div class="flex-inline text-left">
+            <ul class="list base-margin-left base-margin-right">
+              <li><a class="link" href="http://www.cisco.com/cisco/web/siteassets/contacts/index.html" target="_blank">Contacts</a></li>
+              <li><a class="link" href="https://secure.opinionlab.com/ccc01/o.asp?id=jBjOhqOJ" target="_blank">Feedback</a></li>
+              <li><a class="link" href="http://www.cisco.com/web/siteassets/sitemap/index.html" target="_blank">Site Map</a></li>
+              <li><a class="link" href="http://www.cisco.com/web/siteassets/legal/terms_condition.html" target="_blank">Terms & Conditions</a></li>
+            </ul>
+            <ul class="list base-margin-left">
+              <li><a class="link" href="http://www.cisco.com/web/siteassets/legal/privacy.html" target="_blank">Privacy Statement</a></li>
+              <li><a class="link" href="http://www.cisco.com/web/siteassets/legal/privacy.html#cookies" target="_blank">Cookie Policy</a></li>
+              <li><a class="link" href="http://www.cisco.com/web/siteassets/legal/trademark.html" target="_blank">Trademarks</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-6 text-center">
+          <div class="flex-inline">
+            <a href="http://www.cisco.com" target="_blank">
+              <span class="icon-cisco icon-medium"></span>
+            </a>
+            <div class="base-margin-left text-left hidden-xs">
+              <div>Copyright &copy; 2017 Cisco Systems Inc.</div>
+              <div>All rights reserved.</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
+  </div>
 
 
 

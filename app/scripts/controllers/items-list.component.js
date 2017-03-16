@@ -7,15 +7,13 @@
  * # ItemsCtrl
  * Controller of the iHubApp
  */
-// Register `phoneList` component, along with its associated controller and template
+// Register `itemList` component, along with its associated controller and template
 angular.
   module('itemList').
   component('itemList', {
     templateUrl: 'views/item-list.html',
     controller: ['Items','$log','$scope',
       function ItemListController(Items,$log,$scope) {
-        
-       // this.items = Item.query();
        $scope.items = [];
        $scope.classcode = "";
        $scope.imageUrl = "";
@@ -25,11 +23,8 @@ angular.
        Items.query().$promise.then(
          function (result) {
            $scope.items = result.response.docs;
-           $log.debug('items : '+$scope.items[1].item_number);
+           //$log.debug('items : '+$scope.items[1].item_number);
            $scope.filteredProducts = $scope.items; //facted filter
-           //$scope.classcode = $scope.items[1].item_number.substr(2);
-           //$scope.imageUrl =$scope.classcode.split('-')[0];
-           //$log.debug('classcode : '+$scope.classcode +":ImageUrl:"+$scope.imageUrl);
          },
          function () {
          }
@@ -46,7 +41,6 @@ angular.
         $scope.orderProp = "item_number";
         
         /*Tree directive */
-
         $scope.expandAll = expandAll;
         
         $scope.dataCat = CommodityItem(0,"Category");
@@ -688,7 +682,6 @@ angular.
           if (!selected) {
             filterAfterLabels = filterAfterBrands;
           }
-
           $scope.filteredProducts = filterAfterLabels;
         }, true);
 
@@ -697,9 +690,6 @@ angular.
             console.log(CommodityValue.length);
           }
         }, true);
-
-
-
         // end Define facted        
       }
     ]

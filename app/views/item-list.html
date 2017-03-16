@@ -1,17 +1,16 @@
 <!-- Page Title -->
-<div class="page-title-area">
+<div class="row">
     <div class="container">
-        <!-- breadcumbWrap -->
-        <div class="breadcumbWrap">
-            <ol class="breadcrumb">
+        <!-- breadcumb -->
+            <ul class="breadcrumb">
                 <li><a href="#!/land">Home</a></li>
-                <li class="active">Search</li>
-            </ol>
-        </div>
+                <li><span>Search</span></li>
+            </ul>
         <!-- /breadcumbWrap -->
-        <div class="titleWrap row">
-            <h1 class="pull-left page-title">Search</h1>
+        <div class="row">
+            <h2 class="pull-left">Search</h2>
         </div>
+        <div class="divider"></div>
     </div>
 </div>
 
@@ -20,21 +19,53 @@
   <div class="row">
     <div class="col-md-4">
     <!--Sidebar content-->
-    <div class="panel panel-primary">
-        <div class="panel-heading">Preferences</div>
-        <div class="panel-body">
-            <p>
-                Sort by:
-        <select ng-model="orderProp">
-          <option value="item_number">Item</option>
-          <option value="-revision">Revision</option>
-          <option value="-item_category">Category</option>
-        </select>
-            </p>
+    <form> <!-- Sort Prefernces -->
+        <div class="form-group">            
+                    <h6>Sort By:</h6>
+                <div class="form-group__text select">
+                    <select ng-model="orderProp">
+                        <option value="0" selected>Sort By:</option>
+                        <option value="item_number">Item</option>
+                        <option value="-revision">Revision</option>
+                        <option value="-item_category">Category</option>
+                    </select>
+                </div>
+            </div>
+    </form>
+    <!-- Sort Prefernces -->
+    <div class="divider"></div>
+    <form> <!-- start facet filter-->
+        <div ng-if="filteredProducts.length > 0">
+            <h6>Lifecycle</h6>
+            <div data-ng-repeat="brand in brandsGroup | limitTo: maxBrands" data-ng-if="(filteredProducts | filter:searchTerm | filter:count('item_lifecycle', brand)).length > 0">
+                <label class="checkbox">
+                    <input type="checkbox" data-ng-model="useBrands[brand]" />
+                    <span class="checkbox__input"></span>
+                    <span class="checkbox__label">{{brand}}</span>
+                    <span class="badge badge--small badge--blue">{{ (filteredProducts | filter:$ctrl.query | filter:count('item_lifecycle', brand)).length }}</span>
+                </label>
+            </div>
+            <span data-ng-show="maxBrands<4" class="link" data-ng-click="maxBrands = 100">More</span> <span data-ng-show="maxBrands>3"
+                class="link" data-ng-click="maxBrands = 3">Less</span>
         </div>
-    </div><!-- Personal Prefernces -->
+        <div class="divider"></div>
+        <div ng-if="filteredProducts.length > 0">
+            <h6>Category</h6>
+            <div>
+                <div data-ng-repeat="label in labelsGroup" data-ng-if="(filteredProducts | filter:searchTerm | filter:count('item_category', label)).length > 0">
+                    <label class="checkbox">
+                        <input type="checkbox" data-ng-model="useLabels[label]" />
+                        <span class="checkbox__input"></span>
+                        <span class="checkbox__label">{{label}}</span>  
+                        <span class="badge badge--small badge--blue">{{ (filteredProducts | filter:$ctrl.query | filter:count('item_category', label)).length }}</span> 
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="divider"></div>
     <!-- start facet filter--> 
-    <div class="panel panel-success">
+    <!--<div class="panel panel-success">
         <div class="panel-heading">Refine By</div>
         <div class="panel-body">
             <div ng-if="filteredProducts.length > 0">
@@ -56,9 +87,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- end facet filter--> 
-<div class="panel panel-success">
+<!--<div class="panel panel-success">
     <div class="panel-heading">Refine By <small>(Category)</small></div>
     <div class="panel-body"> 
         <div class="list-group">
@@ -67,8 +98,9 @@
             </a>
         </div>
     </div>
-</div><!-- Refine By -->
-<div class="panel panel-info">
+</div>-->
+<!-- Refine By -->
+<!--<div class="panel panel-info">
     <div class="panel-heading">Refine By <small>(lifecycle)</small></div>
     <div class="panel-body"> 
         <div class="list-group">
@@ -77,7 +109,7 @@
             </a>
         </div>
     </div>
-</div>
+</div>-->
 <div class="panel panel-success">
     <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Refine By </div>
     <div class="panel-body"> 
@@ -88,19 +120,45 @@
     <div class="panel panel-info">
         <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Avg. Customer Review <small>YELP</small></div>
         <div class="panel-body">
-            <input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5" data-size="xs"><hr/>
-            <div class="rating">
-                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-            </div>            
+        <div class="rating">
+            <div class="rating__stars">
+                <div class="rating__star" title="5 Stars">
+                    <span class="icon-star"></span>
+                </div>
+                <div class="rating__star" title="4 Stars">
+                    <span class="icon-star"></span>
+                </div>
+                <div class="rating__star" title="3 Stars">
+                    <span class="icon-star"></span>
+                </div>
+                <div class="rating__star" title="2 Stars">
+                    <span class="icon-star"></span>
+                </div>
+                <div class="rating__star" title="1 Star">
+                    <span class="icon-star"></span>
+                </div>
+            </div>
+        </div>           
         </div>       
     </div>
 </div>
     <div class="col-md-8">
     <!--Body content-->
-    <div class="input-group margin-bottom-sm">
+    <!--<div class="input-group margin-bottom-sm">
         <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
         <input class="form-control" type="text" placeholder="Search for..." ng-model="$ctrl.query">
-    </div>
+    </div>-->
+    <form>
+        <div class="form-group">
+                <div class="form-group__text">
+                    <input id="search" type="search" ng-model="$ctrl.query">
+                    <label for="search">Search Devices</label>
+                    <button type="button" class="link">
+                        <span class="icon-search"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
     </br>
     <ul class="phones">
         <li ng-repeat="item in filteredProducts | filter:$ctrl.query | orderBy:orderProp" class="thumbnail phone-list-item">
@@ -110,6 +168,9 @@
                 <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
             </a>
             <a href="#!/items/{{item.id}}">{{item.item_number}}</a>
+            <button class="btn btn--primary btn--small btn--icon pull-right">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
             <p>{{item.revision}},{{item.item_subclass}},{{item.item_category}}</p>
             <p>{{item.item_description}}</p>
         </li>

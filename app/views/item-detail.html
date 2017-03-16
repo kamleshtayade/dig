@@ -1,36 +1,52 @@
 <!-- Page Title -->
-<div class="page-title-area">
+<div class="row">
     <div class="container">
-        <!-- breadcumbWrap -->
-        <div class="breadcumbWrap">
-            <ol class="breadcrumb">
+        <!-- breadcumb -->
+            <ul class="breadcrumb">
                 <li><a href="#!/land">Home</a></li>
                 <li><a href="#!/items">Search</a></li>
-                <li class="active">Details</li>
-            </ol>
-        </div>
+                <li><span>Details</span></li>
+            </ul>
         <!-- /breadcumbWrap -->
-        <div class="titleWrap row">
-            <h1 class="pull-left page-title">Details</h1>
+        <div class="row">
+            <h2 class="pull-left">Details</h2>
         </div>
+        <div class="divider"></div>
     </div>
 </div>
-
 <!-- /Page Title -->
 <div class="row">    
     <div class="panel panel-success" ng-repeat="item in item">
-        <div class="panel-heading"><strong>Item </strong>: {{item.item_number}}</div>
+        <div class="panel-heading">
+            <strong>Item </strong>: {{item.item_number}}
+            <button class="btn btn--primary btn--small btn--icon pull-right">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+        </div>
         <div class="panel-body">
             <!-- Alert message for active mcn -->
-            <div class="alert alert-info alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <i class="fa fa-chain-broken" aria-hidden="true"></i> <strong>Heads up!</strong> This Component do have active MCN # <a href="#" class="alert-link">31722</a>.
+            <div class="alert alert--info alert-dismissible" role="alert">
+                <div class="alert__icon icon-info-circle"></div>
+                <div class="alert__message">This Component do have active MCN # 
+                <a href="#" class="alert-link">31722</a>.
+                </div>
+                <div class="alert__close icon-close"><a type="button" class="alert__close icon-close pull-right" data-dismiss="alert" aria-label="Close"></a></div>
+                
             </div>
             <!-- Alert message with field failure quantity -->
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <i class="fa fa-chain-broken" aria-hidden="true"></i> <strong>Warning!</strong> This Component do have field failure <span class="badge">120</span> from <a href="#" class="alert-link">TEXAS INSTRUMENTS</a> .
+            <div class="alert alert--warning alert-dismissible" role="alert">
+                <div class="alert__icon icon-exclamation-triangle"></div> 
+                <div class="alert__message">
+                    This Component do have field failure <span class="badge">120</span> from 
+                    <a href="#" class="alert-link">TEXAS INSTRUMENTS</a>.  
+                </div>              
+                <a type="button" class="alert__close icon-close pull-right" data-dismiss="alert" aria-label="Close"></a>
             </div>
+        <!--<div class="alert alert--warning">
+            <div class="alert__icon icon-exclamation-triangle"></div>
+            <div class="alert__message"><strong>Warning!</strong> This Component do have field failure <span class="badge">120</span> from <a href="#" class="link">TEXAS INSTRUMENTS</a> </div>
+            <div class="alert__close icon-close"></div>
+        </div>-->
             <div class="phone-images">
                 <img ng-src="{{img}}" class="phone" ng-class="{selected: img === mainImageUrl}" ng-repeat="img in itemImg"
                 />
@@ -145,8 +161,7 @@
                     <dd>{{item.additionalFeatures}}</dd>
                 </li>
             </ul>
-            <div class="panel-footer">
-            <div class="row">
+            <div class="divider"></div>
                 <div class="panel panel-info">
                     <div class="panel-body">
                         <h5><i class="fa fa-chain-broken" aria-hidden="true"></i> Frequently Searched Together</h5>
@@ -165,6 +180,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="divider"></div>
                 <div class="panel panel-info">
                     <div class="panel-body">
                         <h5><i class="fa fa-chain-broken" aria-hidden="true"></i> Look for similar items by category</h5>
@@ -183,8 +199,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
         </div>
     </div>
 </div>
