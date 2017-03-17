@@ -1,4 +1,26 @@
+body {
+	background: #ffffff;
+	color: #333333;
+  font-size: 14px;
+  line-height: 1.42857;
+}
+/* Page Header Section */
+.header {
+	background: #103d5b none repeat scroll 0 0;
+	display: block;
+	padding: 1px 0 1px;
+}
 
+ .header-bar__logo span.icon-cisco {
+        display: block;
+        color: #ffffff;
+        font-size: 2.1875rem;
+        line-height: 1; }
+
+/*.header-heading .page-title {
+    color: #ffffff; }*/
+
+      
 /* View: Phone list */
 .phones {
   list-style: none;

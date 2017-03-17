@@ -13,11 +13,11 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/app.animations.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" />
-    <link rel="stylesheet" href="styles/aui-standard.min.css">
+    <link rel="stylesheet" href="styles/aui-standard.min.css">    
+    <link rel="stylesheet" href="styles/main.css">
     <!--<link rel="stylesheet" href="styles/ciscoStructure.css">-->
     <!-- endbuild -->
   </head>
@@ -29,53 +29,53 @@
 <!-- Header Section -->
 		<header class="header">
 				<div class="header-bar container">
-                <a class="button button--icon toggle-menu">
+                <!--<a class="button button--icon toggle-menu">
                     <span class="icon-list-menu"></span>
-                </a>
+                </a>-->
                 <a class="header-bar__logo">
                     <span class="icon-cisco"></span>
                 </a>
                 <div class="header-bar__main">
                     <div class="header-heading">
-                        <h1 class="page-title">Design Store</h1>
+                        <h1 class="page-title text-ghost">Design Store</h1>
                     </div>
                 </div>
                 <div class="header-menus">
                   <ul class="tabs">
                     <li class="tab active">
                       <a>
-                        <div class="tab__heading" title="Search History">Market Place</div>
+                        <div class="tab__heading text-ghost" title="Catalog">Catalog</div>
                       </a>
                     </li>
                     <li class="tab">
                       <a>
-                        <div class="tab__heading" title="Search History">Search History</div>
+                        <div class="tab__heading text-ghost" title="Search History">Search History</div>
                       </a>
                     </li>
                     <li class="tab">
                       <a>
-                        <div class="tab__heading" title="User Profile">User Profile</div>
+                        <div class="tab__heading text-ghost" title="User Profile">User Profile</div>
                       </a>
                     </li>
                     <li class="tab">
                       <a>
-                        <div class="tab__heading" title="Notifications">Notifications</div>
+                        <div class="tab__heading text-ghost" title="Notifications">Notifications</div>
                       </a>
                     </li>
                   </ul>
                 </div>
                 <div class="header-toolbar">
-                  <a class="avatar">John Doe</a>
+                  <a class="avatar text-ghost">John Doe</a>
                   <button class="btn btn--small btn--icon">
                         <span class="icon-user"></span>
                   </button>
                   <button class="btn btn--small btn--icon btn--negative">
                         <span class="icon-alert"></span>
-                        <span class="btn__subtext">999+</span>
+                        <span class="btn__subtext text-ghost">999+</span>
                   </button>
-                  <button class="btn btn--small btn--icon btn--success">
+                  <button class="btn btn--small btn--icon btn--success" type="button" data-toggle="modal" data-target="#myModal">
                          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                         <span class="btn__subtext">34</span>
+                         <span class="btn__subtext text-ghost">03</span>
                   </button>
                   <button class="btn btn--small btn--icon">
                          <span class="icon-cog"></span>
@@ -149,6 +149,81 @@
         </div>
       </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Cart List</h4>
+          </div>
+          <div class="modal-body">
+            <div class="responsive-table">
+              <table class="table table--highlight table--nostripes">
+                <thead>
+                  <tr>
+                    <th>
+                      <label class="checkbox">
+                                      <input type="checkbox"/>
+                                      <span class="checkbox__input"></span>
+                                  </label>
+                    </th>
+                    <th class="sortable">Part<span class="sort-indicator icon-chevron-down"></span></th>
+                    <th>Vendor</th>
+                    <th>Cost</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                         <input type="checkbox"/>
+                         <span class="checkbox__input"></span>
+                      </label>
+                    </td>
+                    <td>12-1434-02</td>
+                    <td>YAGEO</td>
+                    <td>$25</td>
+                    <td><button class="btn btn--small disabled">Add to Agile</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                          <input type="checkbox">
+                          <span class="checkbox__input"></span>
+                      </label>
+                    </td>
+                    <td>08-0870-04</td>
+                    <td>TEXAS INSTRUMENTS</td>
+                    <td>$25</td>
+                    <td><button class="btn btn--small disabled">Add to Agile</button></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                                      <input type="checkbox"/>
+                                      <span class="checkbox__input"></span>
+                                  </label>
+                    </td>
+                    <td>BCM5241A1KMLG</td>
+                    <td>Broadcom</td>
+                    <td>$25</td>
+                    <td><button class="btn btn--small btn--primary">Add to Agile</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn--small btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn--small btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- modal -->
+
   </div>
 
 

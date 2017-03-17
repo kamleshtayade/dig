@@ -2,29 +2,30 @@
 <div class="row">
     <div class="container">
         <!-- breadcumb -->
-            <ul class="breadcrumb">
-                <li><a href="#!/land">Home</a></li>
-                <li><span>Search</span></li>
-            </ul>
+        <ul class="breadcrumb">
+            <li><a href="#!/land">Home</a></li>
+            <li><span>Search</span></li>
+        </ul>
         <!-- /breadcumbWrap -->
-        <div class="row">
+        <!--<div class="row">
             <h2 class="pull-left">Search</h2>
-        </div>
+        </div>-->
         <div class="divider"></div>
+        </div>
     </div>
 </div>
 
 <!-- /Page Title -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 panel-group panel-group--compressed">
+        <div class="panel panel--raised">
     <!--Sidebar content-->
     <form> <!-- Sort Prefernces -->
         <div class="form-group">            
                     <h6>Sort By:</h6>
                 <div class="form-group__text select">
                     <select ng-model="orderProp">
-                        <option value="0" selected>Sort By:</option>
                         <option value="item_number">Item</option>
                         <option value="-revision">Revision</option>
                         <option value="-item_category">Category</option>
@@ -113,8 +114,8 @@
 <div class="panel panel-success">
     <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Refine By </div>
     <div class="panel-body"> 
-        <tree branch="dataCat"></tree> <!-- Tree Directive -->
-        <tree branch="dataLife"></tree>
+        <tree branch="dataLife"></tree> <!-- Tree Directive -->
+        <tree branch="dataCat"></tree>
     </div>
 </div><!-- Refine By -->
     <div class="panel panel-info">
@@ -141,6 +142,7 @@
         </div>           
         </div>       
     </div>
+    </div>
 </div>
     <div class="col-md-8">
     <!--Body content-->
@@ -148,7 +150,8 @@
         <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
         <input class="form-control" type="text" placeholder="Search for..." ng-model="$ctrl.query">
     </div>-->
-    <form>
+    <div class="panel panel--raised">
+        <form>
         <div class="form-group">
                 <div class="form-group__text">
                     <input id="search" type="search" ng-model="$ctrl.query">
@@ -159,20 +162,106 @@
                 </div>
             </div>
         </form>
+    </div>
     </br>
+    <!-- SiliconExpert -->
+    <div class="row">
+            <button class="btn btn--primary btn--small pull-right" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+            Industry Catalog 
+        </button>
+    </div>
+    <div class="row">
+            <div class="collapse" id="collapseExample">
+                <ul class="phones">
+                    <li ng-repeat="item in filteredSiliconProducts" class="thumbnail phone-list-item">
+                        <a href="#" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
+                            <img ng-switch-when="0" ng-src="items/images/34-2467-02_gr.PNG" alt="{{item.id}}" />
+                            <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
+                            <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
+                        </a>
+                        <a href="#">{{item.part}}</a>
+                        <button class="btn btn--primary btn--small btn--icon pull-right">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            </button>
+                        <p>{{item.supplier}},{{item.cost}}</p>
+                        <p>{{item.sellers}}</p>
+                    </li>
+                </ul>
+
+                        <!--<div class="responsive-table">
+              <table class="table table--highlight table--nostripes">
+                <thead>
+                  <tr>
+                    <th>
+                      <label class="checkbox">
+                                      <input type="checkbox"/>
+                                      <span class="checkbox__input"></span>
+                                  </label>
+                    </th>
+                    <th class="sortable">Part<span class="sort-indicator icon-chevron-down"></span></th>
+                    <th>Supplier</th>
+                    <th>Sellers</th>
+                    <th>Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                         <input type="checkbox"/>
+                         <span class="checkbox__input"></span>
+                      </label>
+                    </td>
+                    <td>BCM5241A1KMLG</td>
+                    <td>Broadcom</td>
+                    <td>Avnet,Mouser Electronics</td>
+                    <td>$21</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                          <input type="checkbox">
+                          <span class="checkbox__input"></span>
+                      </label>
+                    </td>
+                    <td>BCM5241A1KMLG_2</td>
+                    <td>Broadcom</td>
+                    <td>Digi-Key,RS Components,EBV Elektronik</td>
+                    <td>$22</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="checkbox">
+                                      <input type="checkbox"/>
+                                      <span class="checkbox__input"></span>
+                                  </label>
+                    </td>
+                    <td>BCM5241A1KMLG_3</td>
+                    <td>Broadcom</td>
+                    <td>Alltek Technology Corporation</td>
+                    <td>$25</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>-->
+
+            </div>
+        </div><!-- SiliconExpert -->
+    <div class="divider"></div>
     <ul class="phones">
         <li ng-repeat="item in filteredProducts | filter:$ctrl.query | orderBy:orderProp" class="thumbnail phone-list-item">
-            <a href="#!/items/{{item.id}}" class="thumb" ng-switch="$index % 3">
+            <a href="#!/items/{{item.id}}" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
                 <img ng-switch-when="0" ng-src="items/images/34-2467-02_gr.PNG" alt="{{item.id}}" />
                 <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
                 <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
             </a>
-            <a href="#!/items/{{item.id}}">{{item.item_number}}</a>
+            <a href="#!/items/{{item.id}}">{{item.item_number}}</a><small> {{item.revision}}</small>
             <button class="btn btn--primary btn--small btn--icon pull-right">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </button>
-            <p>{{item.revision}},{{item.item_subclass}},{{item.item_category}}</p>
-            <p>{{item.item_description}}</p>
+            <p>$Amt, Risk Rating</p>
+            <p>Preffered Supplier</p>
         </li>
     </ul>
     </div>

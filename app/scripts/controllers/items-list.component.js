@@ -19,6 +19,7 @@ angular.
        $scope.imageUrl = "";
        $scope.facets = [];
        $scope.filteredProducts = [];
+       $scope.filteredSiliconProducts=[];
 
        Items.query().$promise.then(
          function (result) {
@@ -39,27 +40,44 @@ angular.
        );
 
         $scope.orderProp = "item_number";
-        
+        /* filteredSiliconProducts */
+
+        $scope.filteredSiliconProducts = [{
+        "part":"BCM5241A1KMLG",
+        "supplier":"Broadcom",
+        "sellers":"Avnet,Mouser Electronics",
+        "cost":"$21"},{
+        "part":"BCM5241A1KMLG_2",
+        "supplier":"Broadcom",
+        "sellers":"Digi-Key,RS Components,EBV Elektronik",
+        "cost":"$22"},{
+        "part":"BCM5241A1KMLG",
+        "supplier":"Broadcom",
+        "sellers":"Avnet,Mouser Electronics",
+        "cost":"$20"},{
+        "part":"BCM5241A1KMLG_3",
+        "supplier":"Broadcom",
+        "sellers":"Alltek Technology Corporation",
+        "cost":"$25"}];
+
         /*Tree directive */
         $scope.expandAll = expandAll;
         
         $scope.dataCat = CommodityItem(0,"Category");
-        var item1 = addChild($scope.dataCat, 1, "PID");
+        var item1 = addChild($scope.dataCat, 1, "Commodity");
         var item2 = addChild($scope.dataCat, 2, "Non-Commodity");
 
         $scope.dataLife = CommodityItem(1,"Lifecycle");
-        var item11 = addChild($scope.dataLife, 1, "End of Production");
-        var item12 = addChild($scope.dataLife, 2, "Production");
+        var item11 = addChild($scope.dataLife, 1, "Production");
+        var item12 = addChild($scope.dataLife, 2, "End of Production");
         var item13 = addChild($scope.dataLife, 3, "Cancelled");
-        var item14 = addChild($scope.dataLife, 4, "End of Support");
-        var item15 = addChild($scope.dataLife, 5, "Prototype");
+        var item14 = addChild($scope.dataLife, 4, "Prototype");
+        var item15 = addChild($scope.dataLife, 5, "Obsolete");
         
-        item14.isSelected=true;
+       /*  item14.isSelected=true;
         item11.isExpanded = true;
-        addChild(item11, 5, "MPN");
-        addChild(item11, 6, "CPN");
-        addChild(item12, 7, "Commodity Product");
-        addChild(item12, 8, "Existing Product");
+       addChild(item12, 5, "End of Production");
+        addChild(item12, 6, "End of Support");*/
 
 
         function CommodityItem(id, name) {
