@@ -12,14 +12,32 @@ angular.
   module('itemList').
   component('itemList', {
     templateUrl: 'views/item-list.html',
-    controller: ['Items','$log','$scope',
-      function ItemListController(Items,$log,$scope) {
+    controller: ['Items','$log','$scope','$routeParams','es','esFactory',
+      function ItemListController(Items,$log,$scope,$routeParams,es,esFactory) {
        $scope.items = [];
        $scope.classcode = "";
        $scope.imageUrl = "";
        $scope.facets = [];
        $scope.filteredProducts = [];
        $scope.filteredSiliconProducts=[];
+
+          // Elastic search
+          // search for documents
+          es.search({
+            index: 'dmitemmastermv',
+            size: 10,
+            body: {
+              "query": { "match_phrase": { "_all": $routeParams.search } },
+              "aggregations":{
+                "revisions":{"terms":{"field":"revision"}},
+                "categories":{"terms":{"field":"item_category"}}
+              }
+            }
+          }).then(function (response) {
+            $scope.hits = response.hits.hits;
+          });
+          // Elastic Search
+          
 
        Items.query().$promise.then(
          function (result) {

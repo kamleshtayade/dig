@@ -20,7 +20,7 @@ angular.
         controller: 'LandCtrl',
         controllerAs: 'land'
         }).
-        when('/items', {
+        when('/items/:search', {
           template: '<item-list></item-list>'
         }).
         when('/items/:id', {
