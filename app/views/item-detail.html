@@ -15,6 +15,7 @@
     </div>
 </div>
 <!-- /Page Title -->
+
 <div class="row">    
     <div class="panel panel-success" ng-repeat="item in item">
         <div class="panel-heading">
@@ -23,6 +24,14 @@
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </button>
         </div>
+        <!--<div class="hero hero--blue hero--compressed">
+    <div class="container">
+        <div class="hero__content">
+            <h1>{{item.item_number}} <small class="text-ghost">{{item.revision}}</small></h1>
+            <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        </div>
+    </div>
+</div>-->
         <div class="panel-body">
             <!-- Alert message for active mcn -->
             <div class="alert alert--info alert-dismissible" role="alert">
@@ -61,7 +70,40 @@
                     <img ng-src="{{img}}" ng-click="setImage(img)" />
                 </li>
             </ul>
-            
+
+            <div class="divider"></div>
+            <h6> Product Description</h6>
+                <p>From the Manufacturer</p>
+                <div class="responsive-table col-md-4">                    
+                    <table class="table table--nostripes">
+                        <thead>
+                            <tr>
+                                <th>Item Details</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Revision</td>
+                                <td>{{item.revision}}</td>
+                            </tr>
+                            <tr>
+                                <td>Subclass</td>
+                                <td>{{item.item_subclass}}</td>
+                            </tr>
+                            <tr>
+                                <td>Category</td>
+                                <td>{{item.item_category}}</td>
+                            </tr>
+                            <tr>
+                                <td>Lifecycle</td>
+                                <td>{{item.item_lifecycle}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            <div class="divider"></div>
             <ul class="specs">
                 <li>
                     <span>Item Details</span>
@@ -120,6 +162,10 @@
                         <dd>{{item.requesting_bu}}</dd>
                     </dl>
                 </li>
+            <div class="divider"></div>
+            <h6> Technical Details</h6>
+
+            <div class="divider"></div>
                 <li>
                     <span>Size and Weight</span>
                     <dl>
