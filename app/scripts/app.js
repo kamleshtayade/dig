@@ -15,18 +15,18 @@ angular.
       $locationProvider.hashPrefix('!');
 
       $routeProvider.
-        when('/land', {
+        when('/home', {
         templateUrl: 'views/land.html',
         controller: 'LandCtrl',
         controllerAs: 'land'
         }).
-        when('/items/:search', {
+        when('/search/:search', {
           template: '<item-list></item-list>'
         }).
         when('/items/:id', {
           template: '<item-detail></item-detail>'
         }).
-        otherwise('/land');
+        otherwise('/home');
         //logger
         $logProvider.debugEnabled(true);
 
