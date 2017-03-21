@@ -17,21 +17,20 @@
 <!-- /Page Title -->
 
 <div class="row">    
-    <div class="panel panel-success" ng-repeat="item in item">
+    <div class="panel panel-success" ng-repeat="item in hits">
         <div class="panel-heading">
-            <strong>Item </strong>: {{item.item_number}}
+            <strong>Item </strong>: {{item['_source']['item_number']}}
             <button class="btn btn--primary btn--small btn--icon pull-right">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </button>
         </div>
-        <!--<div class="hero hero--blue hero--compressed">
+<div class="hero hero--blue hero--compressed">
     <div class="container">
         <div class="hero__content">
-            <h1>{{item.item_number}} <small class="text-ghost">{{item.revision}}</small></h1>
-            <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+            <h1>{{item['_source']['item_number']}} <small class="text-ghost">{{item['_source']['revision']}}</small></h1>
         </div>
     </div>
-</div>-->
+</div>
         <div class="panel-body">
             <!-- Alert message for active mcn -->
             <div class="alert alert--info alert-dismissible" role="alert">
@@ -61,9 +60,9 @@
                 />
             </div>
 
-            <h2>{{item.item_number}} <small>{{item.revision}}</small></h2>
+            <h2>{{item['_source']['item_number']}} <small>{{item['_source']['revision']}}</small></h2>
 
-            <p>{{item.item_description}}</p>
+            <p>{{item['_source']['item_description']}}</p>
 
             <ul class="phone-thumbs">
                 <li ng-repeat="img in itemImg">
@@ -74,7 +73,7 @@
             <div class="divider"></div>
             <h6> Product Description</h6>
                 <p>From the Manufacturer</p>
-                <div class="responsive-table col-md-4">                    
+                <!--<div class="responsive-table col-md-4">                    
                     <table class="table table--nostripes">
                         <thead>
                             <tr>
@@ -85,23 +84,23 @@
                         <tbody>
                             <tr>
                                 <td>Revision</td>
-                                <td>{{item.revision}}</td>
+                                <td>{{item['_source']['revision']}}</td>
                             </tr>
                             <tr>
                                 <td>Subclass</td>
-                                <td>{{item.item_subclass}}</td>
+                                <td>{{item['_source']['item_subclass']}}</td>
                             </tr>
                             <tr>
                                 <td>Category</td>
-                                <td>{{item.item_category}}</td>
+                                <td>{{item['_source']['item_category']}}</td>
                             </tr>
                             <tr>
                                 <td>Lifecycle</td>
-                                <td>{{item.item_lifecycle}}</td>
+                                <td>{{item['_source']['item_lifecycle']}}</td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
+                </div>-->
 
             <div class="divider"></div>
             <ul class="specs">
@@ -109,57 +108,57 @@
                     <span>Item Details</span>
                     <dl>
                         <dt>Revision : </dt>
-                        <dd >{{item.revision}}</dd>
+                        <dd >{{item['_source']['revision']}}</dd>
                         <dt>Subclass : </dt>
-                        <dd >{{item.item_subclass}}</dd>
+                        <dd >{{item['_source']['item_subclass']}}</dd>
                         <dt>Category : </dt>
-                        <dd >{{item.item_category}}</dd>
+                        <dd >{{item['_source']['item_category']}}</dd>
                         <dt>Lifecycle : </dt>
-                        <dd >{{item.item_lifecycle}}</dd>
+                        <dd >{{item['_source']['item_lifecycle']}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Info</span>
                     <dl>
                         <dt>Type : </dt>
-                        <dd>{{item.itemtype}}</dd>
+                        <dd>{{item['_source']['user_item_type']}}</dd>
                         <dt>UOM : </dt>
-                        <dd>{{item.uom}}</dd>
+                        <dd>{{item['_source']['uom']}}</dd>
                         <dt>SuCM : </dt>
-                        <dd>{{item.sucm}}</dd>
+                        <dd>{{item['_source']['sucm']}}</dd>
                         <dt>Commodity Code : </dt>
-                        <dd>{{item.commodity_code}}</dd>
+                        <dd>{{item['_source']['commodity_code']}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Risk</span>
                     <dl>
                         <dt>Risk Rating : </dt>
-                        <dd>{{item.risk_rating}}</dd>
+                        <dd>{{item['_source']['risk_rating']}}</dd>
                         <dt>Risk Reason : </dt>
-                        <dd>{{item.risk_reason_code}}</dd>
+                        <dd>{{item['_source']['risk_reason_code']}}</dd>
                         <dt>Risk Comments : </dt>
-                        <dd>{{item.risk_comment}}</dd>
+                        <dd>{{item['_source']['risk_comment']}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Compliance</span>
                     <dl>
                         <dt>RoHS(i) : </dt>
-                        <dd>{{item.rohsi}}</dd>
+                        <dd>{{item['_source']['rohsi']}}</dd>
                         <dt>RoHS(c) : </dt>
-                        <dd>{{item.rohsc}}</dd>
+                        <dd>{{item['_source']['rohsc']}}</dd>
                         <dt>PbFree</dt>
-                        <dd>{{item.pbfree}}</dd>
+                        <dd>{{item['_source']['pbfree']}}</dd>
                     </dl>
                 </li>
                 <li>
                     <span>Vendor and BU</span>
                     <dl>
                         <dt>Manufacturer : </dt>
-                        <dd>{{item.manufacturer}}</dd>
+                        <dd>{{item['_source']['manufacturer']}}</dd>
                         <dt>Business Unit : </dt>
-                        <dd>{{item.requesting_bu}}</dd>
+                        <dd>{{item['_source']['requesting_bu']}}</dd>
                     </dl>
                 </li>
             <div class="divider"></div>
@@ -190,16 +189,16 @@
                     <span>Royalty Status</span>
                     <dl>
                         <dt> </dt>
-                        <dd>{{item.royalty_status}}</dd>                        
+                        <dd>{{item['_source']['royalty_status']}}</dd>                        
                     </dl>
                 </li>
                 <li>
                     <span>Creation details</span>
                     <dl>
                         <dt>Created By : </dt>
-                        <dd>{{item.createdby}}</dd>
+                        <dd>{{item['_source']['created_by']}}</dd>
                         <dt>Date : </dt>
-                        <dd>{{item.createddate}}</dd>
+                        <dd>{{item['_source']['created_date']}}</dd>
                     </dl>
                 </li>
                 <li>

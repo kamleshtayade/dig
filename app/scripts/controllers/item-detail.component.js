@@ -11,8 +11,8 @@ angular.
   module('itemDetail').
   component('itemDetail', {
     templateUrl: 'views/item-detail.html',
-    controller: ['$routeParams', 'Item','$log','$scope',
-      function ItemDetailController($routeParams,Item,$log,$scope) {   
+    controller: ['$routeParams', 'Item','$log','$scope','es','esFactory',
+      function ItemDetailController($routeParams,Item,$log,$scope,es,esFactory) {   
         $scope.item=[];
         $scope.solrQuery = 'id:'+$routeParams.id; // Here we can modify search parameter
         
@@ -70,6 +70,43 @@ angular.
             imgpath: 'items/images/34-2467-02_gr.PNG'
           }
         ];
-      }
+
+        //Elastic cluster status
+        es.cluster.state({
+          metric: [
+            'cluster_name',
+            'nodes',
+            'master_node',
+            'version'
+          ]
+        })
+          .then(function (resp) {
+            $scope.clusterState = resp;
+            $scope.error = null;
+          })
+          .catch(function (err) {
+            $scope.clusterState = null;
+            $scope.error = err;
+            // if the err is a NoConnections error, then the client was not able to
+            // connect to elasticsearch. In that case, create a more detailed error
+            // message
+            if (err instanceof esFactory.errors.NoConnections) {
+              $scope.error = new Error('Unable to connect to elasticsearch. ' +
+                'Make sure that it is running and listening at http://localhost:9200');
+            }
+          });
+          // Elastic search
+          // search for documents
+          es.search({
+            index: 'dmitemmastermv',
+            size: 50,
+            body: {
+              "query": { "match_phrase": { "id": $routeParams.id } }
+            }
+          }).then(function (response) {
+            $scope.hits = response.hits.hits;
+          });
+
+      }// ItemDetailController
     ]
   });

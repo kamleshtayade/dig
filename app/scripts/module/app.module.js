@@ -12,5 +12,6 @@ angular.module('iHubApp', [
     'ngTouch',
     'core',
     'itemDetail',
-    'itemList'
+    'itemList',
+    'elasticsearch'
 ]);
