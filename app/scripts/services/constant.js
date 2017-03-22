@@ -10,4 +10,5 @@
 angular.module('iHubApp')
   .constant('solrUrl', 'http://127.0.0.1:8983/solr/')
   .constant('solrFacet', '&facet.field=')
-  .constant('solrCall', '&wt=json&facet=on&indent=true&callback=JSON_CALLBACK');
+  .constant('solrCall', '&wt=json&facet=on&indent=true&callback=JSON_CALLBACK')
+  .constant('euiHost', 'http://fesesapp-dev-001:9200');

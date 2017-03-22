@@ -33,7 +33,13 @@
                 </div>
             </div>
     </form>
-    <!-- Sort Prefernces -->
+    <div class="divider"></div>
+        <form> <!-- start facet filter panel-->
+        <div data-ng-repeat="agg in aggregations">
+            <h6>Lifecycle{{agg.key}},{{agg.doc_count}}</h6>            
+        </div>
+    </form>
+    <!-- Sort Prefernces -->            
     <div class="divider"></div>
     <form> <!-- start facet filter panel-->
         <div ng-if="filteredProducts.length > 0">
@@ -47,7 +53,7 @@
                 </label>
             </div>
             <span data-ng-show="maxBrands<4" class="link" data-ng-click="maxBrands = 100">More</span> <span data-ng-show="maxBrands>3"
-                class="link" data-ng-click="maxBrands = 3">Lessone</span>
+                class="link" data-ng-click="maxBrands = 3">Less</span>
         </div>
         <div class="divider"></div>
         <div ng-if="filteredProducts.length > 0">
@@ -173,6 +179,7 @@
             <p>Preffered Supplier</p>
         </li>
     </ul><!-- es api-->
+    
     </div>
 
     </div>
