@@ -36,10 +36,10 @@ angular.
           }).then(function (response) {
            // $scope.hits = response.hits.hits;
            $scope.hits = angular.fromJson(response.hits.hits);
-           $scope.filteredProducts = $scope.hits;
-           $scope.aggregations = angular.fromJson(response.aggregations.categories.buckets);
-            
-            $log.debug("aggregations :"+$scope.aggregations);
+           //$scope.filteredProducts = $scope.hits;
+           $scope.agCategories = angular.fromJson(response.aggregations.categories.buckets);  
+           $scope.agRevisions = angular.fromJson(response.aggregations.revisions.buckets);       
+           
           });
           // Elastic Search
           
