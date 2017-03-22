@@ -66,13 +66,13 @@
     </form> <!-- end facet filter panel -->
     <div class="divider"></div>
     <!-- start facet filter--> 
-<div class="panel panel-success">
+<!--<div class="panel panel-success">
     <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Refine By </div>
     <div class="panel-body"> 
-        <tree branch="dataLife"></tree> <!-- Tree Directive -->
+        <tree branch="dataLife"></tree> 
         <tree branch="dataCat"></tree>
     </div>
-</div><!-- Refine By -->
+</div>--><!-- Refine By -->
     <div class="panel panel-info">
         <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Avg. Customer Review <small>YELP</small></div>
         <div class="panel-body">
@@ -105,7 +105,7 @@
         <div class="form-group">
                 <div class="form-group__text">
                     <input id="search" type="search" ng-model="$ctrl.query">
-                    <label for="search">Search Devices</label>
+                    <label for="search">Search</label>
                     <button type="button" class="link">
                         <span class="icon-search"></span>
                     </button>
@@ -165,11 +165,11 @@
                 <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
                 <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
             </a>
-            <a href="#!/items/{{item['_source']['id']}}">{{item['_source']['item_number']}}</a><small> {{item['_source']['revision']}}</small>
+            <a href="#!/items/{{item['_source']['id']}}" class="text-bold">{{item['_source']['item_number']}}</a><small class="text-bold"> {{item['_source']['revision']}}</small>,<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small>
             <button class="btn btn--primary btn--small btn--icon pull-right">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </button>
-            <p>$xxx,{{item['_source']['risk_rating']}},{{item['_source']['commodity_code']}}</p>
+            <p>$1.0</p>
             <p>Preffered Supplier</p>
         </li>
     </ul><!-- es api-->

@@ -17,39 +17,53 @@
 <!-- /Page Title -->
 
 <div class="row">    
-    <div class="panel panel-success" ng-repeat="item in hits">
-        <div class="panel-heading">
+    <div class="panel panel--raised" ng-repeat="item in hits">
+        <!--<div class="panel-heading">
             <strong>Item </strong>: {{item['_source']['item_number']}}
             <button class="btn btn--primary btn--small btn--icon pull-right">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </button>
-        </div>
-<div class="hero hero--blue hero--compressed">
+        </div>-->
+<div class="hero hero--dkblue hero--compressed">
     <div class="container">
         <div class="hero__content">
             <h1>{{item['_source']['item_number']}} <small class="text-ghost">{{item['_source']['revision']}}</small></h1>
+            <button class="btn btn--primary btn--small btn--icon pull-right">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
         </div>
+        <p>
+        <a class="pull-left">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </a> This Component do have active MCN # 31722
+        </p>
+        <p class="text-warning">
+        <a class="pull-left">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+        </a> This Component do have field failure <span class="badge">120</span> from 
+                    <a href="#" class="alert-link">TEXAS INSTRUMENTS</a>.  
+        </p>
     </div>
 </div>
         <div class="panel-body">
             <!-- Alert message for active mcn -->
-            <div class="alert alert--info alert-dismissible" role="alert">
+            <!--<div class="alert alert--info alert-dismissible" role="alert">
                 <div class="alert__icon icon-info-circle"></div>
                 <div class="alert__message">This Component do have active MCN # 
                 <a href="#" class="alert-link">31722</a>.
                 </div>
                 <div class="alert__close icon-close"><a type="button" class="alert__close icon-close pull-right" data-dismiss="alert" aria-label="Close"></a></div>
                 
-            </div>
+            </div>-->
             <!-- Alert message with field failure quantity -->
-            <div class="alert alert--warning alert-dismissible" role="alert">
+            <!--<div class="alert alert--warning alert-dismissible" role="alert">
                 <div class="alert__icon icon-exclamation-triangle"></div> 
                 <div class="alert__message">
                     This Component do have field failure <span class="badge">120</span> from 
                     <a href="#" class="alert-link">TEXAS INSTRUMENTS</a>.  
                 </div>              
                 <a type="button" class="alert__close icon-close pull-right" data-dismiss="alert" aria-label="Close"></a>
-            </div>
+            </div>-->
         <!--<div class="alert alert--warning">
             <div class="alert__icon icon-exclamation-triangle"></div>
             <div class="alert__message"><strong>Warning!</strong> This Component do have field failure <span class="badge">120</span> from <a href="#" class="link">TEXAS INSTRUMENTS</a> </div>
@@ -60,9 +74,7 @@
                 />
             </div>
 
-            <h2>{{item['_source']['item_number']}} <small>{{item['_source']['revision']}}</small></h2>
-
-            <p>{{item['_source']['item_description']}}</p>
+            <h6>{{item['_source']['item_description']}}</h6>
 
             <ul class="phone-thumbs">
                 <li ng-repeat="img in itemImg">
