@@ -34,17 +34,15 @@ angular.
               }
             }
           }).then(function (response) {
-           // $scope.hits = response.hits.hits;
            $scope.hits = angular.fromJson(response.hits.hits);
            //$scope.filteredProducts = $scope.hits;
            $scope.agCategories = angular.fromJson(response.aggregations.categories.buckets);  
-           $scope.agRevisions = angular.fromJson(response.aggregations.revisions.buckets);       
-           
+           $scope.agRevisions = angular.fromJson(response.aggregations.revisions.buckets);          
           });
           // Elastic Search
           
 
-       Items.query().$promise.then(
+      /* Items.query().$promise.then(
          function (result) {
            $scope.items = result.response.docs;
            //$log.debug('items : '+$scope.items[1].item_number);
@@ -60,7 +58,7 @@ angular.
          },
          function () {
          }
-       );
+       );*/
 
         $scope.orderProp = "item_number";
         /* filteredSiliconProducts */
