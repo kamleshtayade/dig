@@ -12,8 +12,8 @@ angular.
   module('itemList').
   component('itemList', {
     templateUrl: 'views/item-list.html',
-    controller: ['Items','$log','$scope','$routeParams','es','esFactory',
-      function ItemListController(Items,$log,$scope,$routeParams,es,esFactory) {
+    controller: ['Items','$log','$scope','$routeParams','es','esFactory','euiHost',
+      function ItemListController(Items,$log,$scope,$routeParams,es,esFactory,euiHost) {
        $scope.items = [];
        $scope.classcode = "";
        $scope.imageUrl = "";
@@ -34,7 +34,12 @@ angular.
               }
             }
           }).then(function (response) {
-            $scope.hits = response.hits.hits;
+           // $scope.hits = response.hits.hits;
+           $scope.hits = angular.fromJson(response.hits.hits);
+           //$scope.filteredProducts = $scope.hits;
+           $scope.agCategories = angular.fromJson(response.aggregations.categories.buckets);  
+           $scope.agRevisions = angular.fromJson(response.aggregations.revisions.buckets);       
+           
           });
           // Elastic Search
           
@@ -130,7 +135,7 @@ angular.
         var uniqueItems = function (data, key) {
           var result = [];
           for (var i = 0; i < data.length; i++) {
-            var value = data[i][key];
+            var value = data[i]['_source'][key];
             if (result.indexOf(value) == -1) {
               result.push(value);
             }
@@ -146,7 +151,13 @@ angular.
         $scope.maxBrands = 3;
         $scope.maxLabels = 3;
 
-        $scope.products = [{
+        $scope.products = [
+          {
+            "_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["08-0864-03"],
         "commodity_code":["SEMICONDUCTOR_ASICS_STANDARD CELL_0.065"],
         "revision":["-A0"],
@@ -162,8 +173,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["E: Legacy technology or projected to go EOL, not for NPI"],
         "rohsi":["Pass"],
-        "_version_":1561492601540968448},
-      {
+        "_version_":1561492601540968448}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["08-0870-04"],
         "commodity_code":["SEMICONDUCTOR_ASICS_STANDARD CELL_0.065"],
         "revision":["-A0"],
@@ -179,8 +194,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601598640128},
-      {
+        "_version_":1561492601598640128}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["08-0871-02"],
         "commodity_code":["SEMICONDUCTOR_ASICS_STANDARD CELL_0.065"],
         "revision":["-A0"],
@@ -196,8 +215,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601602834432},
-      {
+        "_version_":1561492601602834432}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["08-0875-02"],
         "commodity_code":["SEMICONDUCTOR_ASICS_STANDARD CELL_0.090"],
         "revision":["-A0"],
@@ -213,8 +236,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601608077312},
-      {
+        "_version_":1561492601608077312}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["11-1770-02"],
         "commodity_code":["E/M_PASSIVE_CAPACITOR_CERAMIC"],
         "revision":["-A0"],
@@ -230,8 +257,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601612271616},
-      {
+        "_version_":1561492601612271616}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["11-1781-02"],
         "commodity_code":["E/M_PASSIVE_CAPACITOR_CERAMIC"],
         "revision":["-A0"],
@@ -247,8 +278,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["G: Alternative recommended for NPI, see comments"],
         "rohsi":["Pass"],
-        "_version_":1561492601631145984},
-      {
+        "_version_":1561492601631145984}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["11-2330-02"],
         "commodity_code":["E/M_PASSIVE_CAPACITOR_CERAMIC"],
         "revision":["-A0"],
@@ -264,8 +299,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601643728896},
-      {
+        "_version_":1561492601643728896}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["11-2518-01"],
         "commodity_code":["E/M_PASSIVE_CAPACITOR_CERAMIC"],
         "revision":["-A0"],
@@ -281,8 +320,13 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601652117504},
+        "_version_":1561492601652117504}},
       {
+        "_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["12-1434-02"],
         "commodity_code":["E/M_PASSIVE_RESISTOR_THICK FILM"],
         "revision":["-A0"],
@@ -298,8 +342,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601656311808},
-      {
+        "_version_":1561492601656311808}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["12-2209-02"],
         "commodity_code":["E/M_PASSIVE_RESISTOR_THICK FILM"],
         "revision":["-A0"],
@@ -315,8 +363,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601659457536},
-      {
+        "_version_":1561492601659457536}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["12-2210-02"],
         "commodity_code":["E/M_PASSIVE_RESISTOR_THICK FILM"],
         "revision":["-A0"],
@@ -332,8 +384,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601667846144},
-      {
+        "_version_":1561492601667846144}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["12-2214-02"],
         "commodity_code":["E/M_PASSIVE_RESISTOR_THICK FILM"],
         "revision":["-A0"],
@@ -349,8 +405,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601670991872},
-      {
+        "_version_":1561492601670991872}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["12-2215-02"],
         "commodity_code":["E/M_PASSIVE_RESISTOR_THICK FILM"],
         "revision":["-A0"],
@@ -366,8 +426,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601673089024},
-      {
+        "_version_":1561492601673089024}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["13-0645-01"],
         "commodity_code":["SEMICONDUCTOR_DIODE_SH"],
         "revision":["-A0"],
@@ -383,8 +447,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601676234752},
-      {
+        "_version_":1561492601676234752}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["13-0787-02"],
         "commodity_code":["SEMICONDUCTOR_DIODE_ZE"],
         "revision":["-A0"],
@@ -400,8 +468,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["A: Qual + IPQ sources is NOT enough sources to meet strategy"],
         "rohsi":["Pass"],
-        "_version_":1561492601678331904},
-      {
+        "_version_":1561492601678331904}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["13-1311-02"],
         "commodity_code":["SEMICONDUCTOR_DIODE_TVS"],
         "revision":["-A0"],
@@ -417,8 +489,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601682526208},
-      {
+        "_version_":1561492601682526208}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["15-100539-01"],
         "commodity_code":["SEMICONDUCTOR_LINEAR_SWITCHES AND MUX"],
         "revision":["-A0"],
@@ -434,8 +510,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601683574784},
-      {
+        "_version_":1561492601683574784}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["15-102214-01"],
         "commodity_code":["SEMICONDUCTOR_MEMORY_DRAM_MODULE_DDR4_SERVER BU CSPG"],
         "revision":["-A0"],
@@ -450,8 +530,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["G: Alternative recommended for NPI, see comments"],
         "rohsi":["Pass"],
-        "_version_":1561492601685671936},
-      {
+        "_version_":1561492601685671936}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["15-102216-01"],
         "commodity_code":["SEMICONDUCTOR_MEMORY_DRAM_MODULE_DDR4_SERVER BU CSPG"],
         "revision":["-A0"],
@@ -466,8 +550,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["G: Alternative recommended for NPI, see comments"],
         "rohsi":["Pass"],
-        "_version_":1561492601688817664},
-      {
+        "_version_":1561492601688817664}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["15-13615-02"],
         "commodity_code":["SEMICONDUCTOR_MEMORY_DRAM_MODULE_DDR3_SERVER BU CSPG"],
         "revision":["-A1"],
@@ -482,8 +570,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["G: Alternative recommended for NPI, see comments"],
         "rohsi":["Pass"],
-        "_version_":1561492601690914816},
-      {
+        "_version_":1561492601690914816}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["15-13636-01"],
         "commodity_code":["SEMICONDUCTOR_LINEAR_VOLTAGE REGULATORS"],
         "revision":["-A0"],
@@ -499,8 +591,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601698254848},
-      {
+        "_version_":1561492601698254848}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["15-13637-02"],
         "commodity_code":["SEMICONDUCTOR_MEMORY_DRAM_MODULE_DDR3_SERVER BU CSPG"],
         "revision":["-A1"],
@@ -516,8 +612,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["G: Alternative recommended for NPI, see comments"],
         "rohsi":["Pass"],
-        "_version_":1561492601700352000},
-      {
+        "_version_":1561492601700352000}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["15-13699-01"],
         "commodity_code":["SEMICONDUCTOR_MPU_BRIDGES"],
         "revision":["-A0"],
@@ -533,8 +633,12 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["NA: Not Applicable"],
         "rohsi":["Pass"],
-        "_version_":1561492601704546304},
-      {
+        "_version_":1561492601704546304}},
+      {"_index": "dmitemmastermv",
+        "_type": "dmitemmastermv",
+        "_id": "129886278",
+        "_score": 11.7668085,
+        "_source": {
         "item_number":["15-13856-02"],
         "commodity_code":["SEMICONDUCTOR_MEMORY_DRAM_MODULE_DDR3_SERVER BU CSPG"],
         "revision":["-A0"],
@@ -549,109 +653,7 @@ angular.
         "rohsc":["Pass"],
         "risk_reason_code":["G: Alternative recommended for NPI, see comments"],
         "rohsi":["Pass"],
-        "_version_":1561492601706643456},
-      {
-        "item_number":["15-14068-01"],
-        "commodity_code":["SEMICONDUCTOR_MEMORY_DRAM_MODULE_DDR3_SERVER BU CSPG"],
-        "revision":["-A1"],
-        "item_category":"Commodity",
-        "pbfree":["Not Applicable"],
-        "id":"129957417",
-        "item_lifecycle":"Prototype",
-        "risk_comment":["RSOGA (1/5/2017) EXCLUSION THIS CPN IS EXCLUSIVE TO CSPG SERVER NO CISCO STD TRACEABILITY LABELING AND SHIPPING THRU CSPG SERVER EXCLUSIVE SCC"],
-        "item_subclass":["15-Memory"],
-        "risk_rating":["1"],
-        "requesting_bu":["TBABU"],
-        "item_description":["IC,DRAM,DDR3,16GB(2Gx72),933MHz,RDIMM,240P,1.5V,Dual Rank,SAVBU-Server,C-TEMP (0 to 70'C)"],
-        "rohsc":["Pass"],
-        "risk_reason_code":["G: Alternative recommended for NPI, see comments"],
-        "rohsi":["Pass"],
-        "_version_":1561492601708740608},
-      {
-        "item_number":["15-14686-01"],
-        "commodity_code":["SEMICONDUCTOR_MPU_BRIDGES"],
-        "revision":["-A0"],
-        "item_category":"Non-Commodity",
-        "pbfree":["Not Applicable"],
-        "id":"129931507",
-        "item_lifecycle":"Production",
-        "risk_comment":["TRDAM.10/07/16:  Parts used in UCS. Limited product life support not meeting Cisco standard requirements."],
-        "item_subclass":["15-Microprocessor"],
-        "risk_rating":["1"],
-        "requesting_bu":["TBABU"],
-        "item_description":["IC,MICROPROCESSOR,BRIDGE,100MHz,FCBGA836,1.05V VNOM,PCIE,SATA,WELLSBURG,PB-FREE,C-TEMP (0 to 70'C)"],
-        "rohsc":["Pass"],
-        "risk_reason_code":["E: Legacy technology or projected to go EOL, not for NPI"],
-        "rohsi":["Pass"],
-        "_version_":1561492601710837760},
-      {
-        "item_number":["15-3966-01"],
-        "commodity_code":["SEMICONDUCTOR_LOGIC_LOGIC+"],
-        "revision":["-A0"],
-        "item_category":"Commodity",
-        "pbfree":["Not Applicable"],
-        "id":"129918056",
-        "item_lifecycle":"Production",
-        "risk_comment":["AUTOUPDATED.02/19/2017: Strategy=Multi/2/PSL (P LD L) - Meets Strategy - Current PSL Q / NonPSL Q / PSL IPQ / NonPSL IPQ Sources=2/0/0/0"],
-        "item_subclass":["15-Logic"],
-        "risk_rating":["2"],
-        "requesting_bu":["TBABU"],
-        "item_description":["IC-LOGIC-BUFFER,TSSOP14,74LVC125A"],
-        "rohsc":["Pass"],
-        "risk_reason_code":["NA: Not Applicable"],
-        "rohsi":["Pass"],
-        "_version_":1561492601715032064},
-      {
-        "item_number":["15-4556-01"],
-        "commodity_code":["SEMICONDUCTOR_LINEAR_OP AMPS"],
-        "revision":["-A0"],
-        "item_category":"Commodity",
-        "pbfree":["Not Applicable"],
-        "id":"129920871",
-        "item_lifecycle":"End of Production",
-        "risk_comment":["AUTOUPDATED.10/12/2015: Strategy=Single/1/PSL (P LD L) - Meets Strategy - Current PSL Q / NonPSL Q / PSL IPQ / NonPSL IPQ Sources=2/0/0/0"],
-        "item_subclass":["15-Linear"],
-        "risk_rating":["2"],
-        "requesting_bu":["TBABU"],
-        "item_description":["IC-LIN,OP AMP,SC705,LMV321,SINGLE"],
-        "rohsc":["Pass"],
-        "risk_reason_code":["NA: Not Applicable"],
-        "rohsi":["Pass"],
-        "_version_":1561492601718177792},
-      {
-        "item_number":["15-5349-01"],
-        "commodity_code":["SEMICONDUCTOR_LOGIC_LOGIC+"],
-        "revision":["-A0"],
-        "item_category":"Commodity",
-        "pbfree":["Not Applicable"],
-        "id":"129912697",
-        "item_lifecycle":"End of Production",
-        "risk_comment":["AUTOUPDATED.12/25/2016: Strategy=Multi/2/PSL (P LD L) - Find New PSL Sources - Current PSL Q / NonPSL Q / PSL IPQ / NonPSL IPQ Sources=1/1/0/0"],
-        "item_subclass":["15-Logic"],
-        "risk_rating":["1"],
-        "requesting_bu":["TBABU"],
-        "item_description":["IC-LOGIC-BUFFER,SC705,7SZ125,UHS BFR"],
-        "rohsc":["Pass"],
-        "risk_reason_code":["A: Qual + IPQ sources is NOT enough sources to meet strategy"],
-        "rohsi":["Pass"],
-        "_version_":1561492601721323520},
-      {
-        "item_number":["15-5828-02"],
-        "commodity_code":["SEMICONDUCTOR_LINEAR_INTERFACE_DRIVER"],
-        "revision":["-A0"],
-        "item_category":"Non-Commodity",
-        "pbfree":["Not Applicable"],
-        "id":"129855864",
-        "item_lifecycle":"End of Production",
-        "risk_comment":["AUTOUPDATED.01/29/2017: Strategy=Multi/2/PSL (P LD L) - Find New PSL Sources - Current PSL Q / NonPSL Q / PSL IPQ / NonPSL IPQ Sources=1/1/0/0"],
-        "item_subclass":["15-Logic"],
-        "risk_rating":["1"],
-        "requesting_bu":["TBABU"],
-        "item_description":["IC,COMMS,PI3C3126,BUS SWI,2.5-3.3V,TSSOP14,Pb-free"],
-        "rohsc":["Pass"],
-        "risk_reason_code":["A: Qual + IPQ sources is NOT enough sources to meet strategy"],
-        "rohsi":["Pass"],
-        "_version_":1561492601723420672}];
+        "_version_":1561492601706643456}}];
   
 
         $scope.sorting = {
@@ -682,6 +684,7 @@ angular.
           };
           //brands
           $scope.brandsGroup = uniqueItems($scope.products, 'item_lifecycle');
+          $log.debug('Brand '+$scope.brandsGroup);
           var filterAfterBrands = [];
           selected = false;
           for (var j in $scope.products) {

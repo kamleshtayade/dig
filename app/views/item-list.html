@@ -33,9 +33,32 @@
                 </div>
             </div>
     </form>
-    <!-- Sort Prefernces -->
     <div class="divider"></div>
-    <form> <!-- start facet filter panel-->
+        <form> <!-- start facet filter panel-->
+        <h6>Categories</h6>
+        <div data-ng-repeat="agg in agCategories">            
+            <label class="checkbox">
+                    <input type="checkbox" name="checkbox1">
+                    <span class="checkbox__input"></span>
+                    <span class="checkbox__label">{{agg.key}}</span>
+                    <span class="badge badge--small badge--blue">{{agg.doc_count}}</span>
+            </label>            
+        </div>
+        <div class="divider"></div>
+        <h6>Revisions</h6>
+        <div data-ng-repeat="agg in agRevisions">            
+            <label class="checkbox">
+                    <input type="checkbox" name="checkbox1">
+                    <span class="checkbox__input"></span>
+                    <span class="checkbox__label">{{agg.key}}</span>
+                    <span class="badge badge--small badge--blue">{{agg.doc_count}}</span>
+            </label>            
+        </div>
+    </form>
+    <!-- Sort Prefernces -->            
+    <div class="divider"></div>
+    <!-- start facet filter panel-->
+    <form> 
         <div ng-if="filteredProducts.length > 0">
             <h6>Lifecycle</h6>
             <div data-ng-repeat="brand in brandsGroup | limitTo: maxBrands" data-ng-if="(filteredProducts | filter:searchTerm | filter:count('item_lifecycle', brand)).length > 0">
@@ -63,7 +86,8 @@
                 </div>
             </div>
         </div>
-    </form> <!-- end facet filter panel -->
+    </form>
+    <!-- end facet filter panel -->
     <div class="divider"></div>
     <!-- start facet filter--> 
 <!--<div class="panel panel-success">
@@ -173,6 +197,7 @@
             <p>Preffered Supplier</p>
         </li>
     </ul><!-- es api-->
+    
     </div>
 
     </div>
