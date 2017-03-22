@@ -24,13 +24,14 @@
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
             </button>
         </div>-->
-<div class="hero hero--dkblue hero--compressed">
+<div class="hero hero--dkblue hero--compressed head-desc">
     <div class="container">
         <div class="hero__content">
             <h1>{{item['_source']['item_number']}} <small class="text-ghost">{{item['_source']['revision']}}</small></h1>
-            <button class="btn btn--primary btn--small btn--icon pull-right">
+			<h6>{{item['_source']['item_description']}}</h6>
+            <!--button class="btn btn--primary btn--small btn--icon pull-right">
                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
-            </button>
+            </button-->
         </div>
         <p>
         <a class="pull-left">
@@ -69,22 +70,59 @@
             <div class="alert__message"><strong>Warning!</strong> This Component do have field failure <span class="badge">120</span> from <a href="#" class="link">TEXAS INSTRUMENTS</a> </div>
             <div class="alert__close icon-close"></div>
         </div>-->
-            <div class="phone-images">
-                <img ng-src="{{img}}" class="phone" ng-class="{selected: img === mainImageUrl}" ng-repeat="img in itemImg"
-                />
-            </div>
-
-            <h6>{{item['_source']['item_description']}}</h6>
-
+			<div class="container">
+            <div class="slide-outer">
+			<div class="prod-thumbs">
             <ul class="phone-thumbs">
                 <li ng-repeat="img in itemImg">
                     <img ng-src="{{img}}" ng-click="setImage(img)" />
                 </li>
             </ul>
-
-            <div class="divider"></div>
-            <h6> Product Description</h6>
-                <p>From the Manufacturer</p>
+			</div>
+			<div class="prod-slide">
+			<div class="phone-images">
+                <img ng-src="{{img}}" class="phone" ng-class="{selected: img === mainImageUrl}" ng-repeat="img in itemImg"
+                />
+				<!--h6> Product Description</h6>
+                <p>From the Manufacturer</p-->
+            </div>
+			<div class="prod-descri">
+                <h6 class="text-ghost"> Product Description</h6>
+                <p class="text-ghost">From the Manufacturer</p>
+				<ul class="specs item-details text-ghost">
+                <li>
+                    <span>Item Details</span>
+                    <dl>
+                        <dt>Revision : </dt>
+                        <dd >{{item['_source']['revision']}}</dd>
+                        <dt>Subclass : </dt>
+                        <dd >{{item['_source']['item_subclass']}}</dd>
+                        <dt>Category : </dt>
+                        <dd >{{item['_source']['item_category']}}</dd>
+                        <dt>Lifecycle : </dt>
+                        <dd >{{item['_source']['item_lifecycle']}}</dd>
+                    </dl>
+                </li>
+                <li>
+                    <span>Info</span>
+                    <dl>
+                        <dt>Type : </dt>
+                        <dd>{{item['_source']['user_item_type']}}</dd>
+                        <dt>UOM : </dt>
+                        <dd>{{item['_source']['uom']}}</dd>
+                        <dt>SuCM : </dt>
+                        <dd>{{item['_source']['sucm']}}</dd>
+                        <dt>Commodity Code : </dt>
+                        <dd>{{item['_source']['commodity_code']}}</dd>
+                    </dl>
+                </li>
+				</ul>
+            </div>
+			</div>
+			</div>
+			</div>
+            <!--div class="divider clearfix"></div-->
+            
                 <!--<div class="responsive-table col-md-4">                    
                     <table class="table table--nostripes">
                         <thead>
@@ -114,9 +152,12 @@
                     </table>
                 </div>-->
 
-            <div class="divider"></div>
+            <!--div class="divider"></div-->
+			<div class="container">
+			<div class="tech-detail clear">
+            <h6 class="marB20"> Technical Details</h6>
             <ul class="specs">
-                <li>
+                <!--li>
                     <span>Item Details</span>
                     <dl>
                         <dt>Revision : </dt>
@@ -141,7 +182,7 @@
                         <dt>Commodity Code : </dt>
                         <dd>{{item['_source']['commodity_code']}}</dd>
                     </dl>
-                </li>
+                </li-->
                 <li>
                     <span>Risk</span>
                     <dl>
@@ -173,10 +214,7 @@
                         <dd>{{item['_source']['requesting_bu']}}</dd>
                     </dl>
                 </li>
-            <div class="divider"></div>
-            <h6> Technical Details</h6>
-
-            <div class="divider"></div>
+            
                 <li>
                     <span>Size and Weight</span>
                     <dl>
@@ -197,6 +235,7 @@
                         <dd>{{item.display.touchScreen | checkmark}}</dd>
                     </dl>
                 </li>
+				<br/><br/>
                 <li>
                     <span>Royalty Status</span>
                     <dl>
@@ -218,8 +257,15 @@
                     <dd>{{item.additionalFeatures}}</dd>
                 </li>
             </ul>
-            <div class="divider"></div>
-                <div class="panel panel-info">
+			</div>
+			</div>
+			<div class="container">
+            <div class="fre-search clear">
+			<h5><!-i class="fa fa-chain-broken" aria-hidden="true"></i--> Frequently Searched Together</h5>
+			
+			</div>
+			</div>
+                <!--div class="panel panel-info">
                     <div class="panel-body">
                         <h5><i class="fa fa-chain-broken" aria-hidden="true"></i> Frequently Searched Together</h5>
                         <div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
@@ -255,7 +301,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div--->
         </div>
     </div>
 </div>

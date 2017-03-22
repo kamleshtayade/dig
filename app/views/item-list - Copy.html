@@ -1,89 +1,25 @@
 <!-- Page Title -->
-<div class="" style="background:#092942; height:60px; position:relative;" >
-	  <div class="container">
-	  <div class="breadcumsec pull-left">
-	  <ol class="breadcrumb">
-   <li><a href="#!/home">Home</a></li>
-   <li class="active">Search</li>
-	
-</ol>
-	  </div>
-    <form action="">
-      <div class="searchBGNew">
-        
-        <div class="input-groupNew">
-          <input type="text" id="search" ng-model="$ctrl.query" class="form-control searchInputNew" aria-label="..." placeholder="Start Searching">
-          
-          <!-- /btn-group --> 
+<div class="row">
+    <div class="container">
+        <!-- breadcumb -->
+        <ul class="breadcrumb">
+            <li><a href="#!/home">Home</a></li>
+            <li><span>Search</span></li>
+        </ul>
+        <!-- /breadcumbWrap -->
+        <!--<div class="row">
+            <h2 class="pull-left">Search</h2>
+        </div>-->
+        <div class="divider"></div>
         </div>
-        <button type="button" class="btn btn-warning searchBtnTwoNew">Search</button>
-        <!-- /input-group --> 
-      </div>
-	  
-      <!-- /.col-lg-6 -->
-    </form>
-	
-	
-  </div>
-	  </div>
-<div class="container">
-    <div class="row resultText">
-
-<span>Showing 1-6 of 10,000 results for Searched tag</span>
-<hr>
-<span><div class="row">
-    
-    <div class="col-md-6">
-	<label>Product by:</label>
-       <label class="radio radio--inline">
-           <input name="radio9" type="radio">
-           <span class="radio__input"></span>
-           <span class="radio__label">All</span>
-       </label>
-       <label class="radio radio--inline">
-           <input checked="" name="radio9" type="radio">
-           <span class="radio__input"></span>
-           <span class="radio__label">Cisco Products</span>
-       </label>
-       <label class="radio radio--inline">
-           <input name="radio9" type="radio">
-           <span class="radio__input"></span>
-           <span class="radio__label">External Products</span>
-       </label>
-	   <label>
-	   
-            <button class="btn btn--primary btn--small  industBT" type="button" data-toggle="collapse" data-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-            Industry Catalog 
-        </button>
-    
-	   </label>
-   </div>
-   <div class="col-md-6">
-   
-   
-	<label class="switch-icon">
-        <input name="switchicon1" type="checkbox">
-        <span class="switch__input">
-            <span class="icon-grid-view"></span>
-            <span class="icon-list-view"></span>
-        </span>
-    </label>
-   </div>
-</div></span> 	
-</div>
-
-
-
     </div>
-
 </div>
 
 <!-- /Page Title -->
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-4 panel-group panel-group--compressed">
-        <div class="panel panel--raised leftPanel">
+        <div class="panel panel--raised">
     <!--Sidebar content-->
     <form> <!-- Sort Prefernces -->
         <div class="form-group">            
@@ -97,10 +33,33 @@
                 </div>
             </div>
     </form>
-    <!-- Sort Prefernces -->
     <div class="divider"></div>
-    <form> <!-- start facet filter panel-->
-        <div ng-if="filteredProducts.length > 0" class="sort-check">
+        <form> <!-- start facet filter panel-->
+        <h6>Categories</h6>
+        <div data-ng-repeat="agg in agCategories">            
+            <label class="checkbox">
+                    <input type="checkbox" name="checkbox1">
+                    <span class="checkbox__input"></span>
+                    <span class="checkbox__label">{{agg.key}}</span>
+                    <span class="badge badge--small badge--blue">{{agg.doc_count}}</span>
+            </label>            
+        </div>
+        <div class="divider"></div>
+        <h6>Revisions</h6>
+        <div data-ng-repeat="agg in agRevisions">            
+            <label class="checkbox">
+                    <input type="checkbox" name="checkbox1">
+                    <span class="checkbox__input"></span>
+                    <span class="checkbox__label">{{agg.key}}</span>
+                    <span class="badge badge--small badge--blue">{{agg.doc_count}}</span>
+            </label>            
+        </div>
+    </form>
+    <!-- Sort Prefernces -->            
+    <div class="divider"></div>
+    <!-- start facet filter panel-->
+    <form> 
+        <div ng-if="filteredProducts.length > 0">
             <h6>Lifecycle</h6>
             <div data-ng-repeat="brand in brandsGroup | limitTo: maxBrands" data-ng-if="(filteredProducts | filter:searchTerm | filter:count('item_lifecycle', brand)).length > 0">
                 <label class="checkbox">
@@ -127,7 +86,8 @@
                 </div>
             </div>
         </div>
-    </form> <!-- end facet filter panel -->
+    </form>
+    <!-- end facet filter panel -->
     <div class="divider"></div>
     <!-- start facet filter--> 
 <!--<div class="panel panel-success">
@@ -164,10 +124,27 @@
     </div>
 </div>
     <div class="col-md-8">
-    
-    
+    <div class="panel panel--raised">
+        <form>
+        <div class="form-group">
+                <div class="form-group__text">
+                    <input id="search" type="search" ng-model="$ctrl.query">
+                    <label for="search">Search</label>
+                    <button type="button" class="link">
+                        <span class="icon-search"></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </br>
     <!-- SiliconExpert -->
-    
+    <div class="row">
+            <button class="btn btn--primary btn--small pull-right" type="button" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">
+            Industry Catalog 
+        </button>
+    </div>
     <div class="row">
             <div class="collapse" id="collapseExample">
                 <ul class="phones">
@@ -187,7 +164,7 @@
                 </ul>
             </div>
         </div><!-- SiliconExpert -->
-    
+    <div class="divider"></div>
     <!-- solr Api-->
     <!--<ul class="phones">
         <li ng-repeat="item in filteredProducts | filter:$ctrl.query | orderBy:orderProp" class="thumbnail phone-list-item">
@@ -212,22 +189,15 @@
                 <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
                 <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
             </a>
-            <a href="#!/items/{{item['_source']['id']}}" class="text-bold">{{item['_source']['item_number']}}</a>
-			<small class="text-bold"> {{item['_source']['revision']}}</small><br>
-			<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small><br>
-            <a class=" rating__star cartBtn">
-                <span class="icon-star"></span>
-            </a>
-            <p>$1.0, Preffered Supplier</p>
-			<p class="gridLink">
-			<a>MORE</a>l
-			<a>COMPARE</a>
-			
-			</p>
-			
-         
+            <a href="#!/items/{{item['_source']['id']}}" class="text-bold">{{item['_source']['item_number']}}</a><small class="text-bold"> {{item['_source']['revision']}}</small>,<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small>
+            <button class="btn btn--primary btn--small btn--icon pull-right">
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+            </button>
+            <p>$1.0</p>
+            <p>Preffered Supplier</p>
         </li>
     </ul><!-- es api-->
+    
     </div>
 
     </div>

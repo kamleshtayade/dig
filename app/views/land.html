@@ -1,17 +1,17 @@
 <!-- Page Title -->
-<div class="row">
+<!--<div class="row">
     <div class="container">
         <!-- breadcumb -->
-            <ul class="breadcrumb">
+          <!--  <ul class="breadcrumb">
                 <li><span>Home</span></li>
-            </ul>
+            </ul>-->
         <!-- /breadcumbWrap -->
         <!--<div class="row">
             <h2 class="pull-left">Home</h2>
         </div>-->
-        <div class="divider"></div>
+      <!--  <div class="divider"></div>
     </div>
-</div>
+</div>-->
 <!-- /Page Title -->
 <!--<div class="hero hero--blue">
     <div class="container">
@@ -21,23 +21,120 @@
         </div>
     </div>
 </div>-->
-    <div class="row">
-        <div class="panel-group panel-group--compressed">
-            <div class="panel">
-            <form>
-                <div class="form-group">
-                    <div class="form-group__text">
-                        <input id="search" type="search" ng-model="search">
-                        <label for="search">Search</label>
-                        <button type="input" class="link">
-                            <a class="btn btn--secondary" ng-href="#!/search/{{search}}"><span class="icon-search"></span>Search</a>
-                        </button>
+    <div class="container-fluid mar-0 pad-0">
+        <div class="headerSearch">
+             
+             <div class="searchBG custom">
+                
+
+            <div class="input-group">
+                <span class="icon-search"></span>
+                <input type="text" class="form-control" ng-model="search">
+                <span class="searchbutton">SEARCH ALL <i class=" icon-chevron-down"></i></span>
+            </div>
+            <a class="btn btn--primary" ng-href="#!/search/{{search}}">Search</a>
+           
+
+            </div>
+             
+           <!--  <div class="row">
+                <div class="panel-group panel-group--compressed">
+                    <div class="panel">
+                    <form>
+                        <div class="form-group">
+                            <div class="form-group__text">
+                                <input id="search" type="search" ng-model="search">
+                                <label for="search">Search</label>
+                                <button type="input" class="link">
+                                    <a class="btn btn--secondary" ng-href="#!/search/{{search}}"><span class="icon-search"></span>Search</a>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                     </div>
                 </div>
-            </form>
-            </div>
+            </div>-->
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-push-2">
+                <h4 class="recentTitle">Recent Searches</h4>
+                <ul class="recentList">
+                    <li> 
+                        <img src="images/recent-search-1.jpg" class="recentimg">
+                        <div class="contentDiv">
+                            <h4>Hardware</h4>
+                            <p>He lorem ipsum text is typically a scrambled section of De finibus bonorum et malorum.</p>
+                        </div>
+                    </li>
+                    <li> <img src="images/recent-search-2.jpg" class="recentimg">
+                    <div class="contentDiv"><h4>Lorem Ipsum</h4>
+                    <p>He lorem ipsum text is typically a scrambled section of De finibus bonorum et malorum.</p> </div>
+                    </li>
+                    <li> <img src="images/recent-search-3.jpg" class="recentimg">
+                    <div class="contentDiv"><h4>Lorem Ipsum</h4>
+                    <p>He lorem ipsum text is typically a scrambled section of De finibus bonorum et malorum.</p> </div>
+                    </li>
+                    <li> <img src="images/recent-search-4.jpg" class="recentimg">
+                    <div class="contentDiv"><h4>Hardware</h4>
+                    <p>He lorem ipsum text is typically a scrambled section of De finibus bonorum et malorum.</p> </div>
+                    </li>
+                </ul>
+                <span class="pull-right viewAll"> <a href="#">View all</a> </span> 
+                </div>
+    <!--Recent Searches-->
+                <div class="col-md-4 rightCarousel col-md-push-2"> <!--Newsfeed-->
+                <h4 class="recentTitle">Newsfeed</h4>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" style=""> 
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+                    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+                    </ol>
+                    
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                    <div class="item">
+                        <div class="newsBG">
+                        <h4>Lorem Impsum</h4>
+                        <p class="mart10">"Lorem ipsum" text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum.
+                            It is not known exactly when the text obtained its current standard form."
+                            It may have been as late as the 1960s,Lorem ipsum" text is derived from sections 1.10.33 of Cicero's De finibus</p>
+                        </div>
+                        <img src="images/newsfeed.jpg" alt="Chania" width="460" height="345"> </div>
+                    <div class="item">
+                        <div class="newsBG">
+                        <h4>Lorem Impsum</h4>
+                        <p class="mart10">"Lorem ipsum" text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum.
+                            It is not known exactly when the text obtained its current standard form."
+                            It may have been as late as the 1960s,Lorem ipsum" text is derived from sections 1.10.33 of Cicero's De finibus</p>
+                        </div>
+                        <img src="images/newsfeed.jpg" alt="Chania" width="460" height="345"> </div>
+                    <div class="item active">
+                        <div class="newsBG">
+                        <h4>Lorem Impsum</h4>
+                        <p class="mart10">"Lorem ipsum" text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum.
+                            It is not known exactly when the text obtained its current standard form."
+                            It may have been as late as the 1960s,Lorem ipsum" text is derived from sections 1.10.33 of Cicero's De finibus</p>
+                        </div>
+                        <img src="images/newsfeed.jpg" alt="Chania" width="460" height="345"> </div>
+                    <div class="item">
+                        <div class="newsBG">
+                        <h4>Lorem Impsum</h4>
+                        <p class="mart10">"Lorem ipsum" text is derived from sections 1.10.33 of Cicero's De finibus bonorum et malorum.
+                            It is not known exactly when the text obtained its current standard form."
+                            It may have been as late as the 1960s,Lorem ipsum" text is derived from sections 1.10.33 of Cicero's De finibus</p>
+                        </div>
+                        <img src="images/newsfeed.jpg" alt="Chania" width="460" height="345"> </div>
+                    </div>
+                </div>
+                </div>
+  </div>
         </div>
     </div>
+   
     <!--<div class="input-group">
   <input type="text" class="form-control col-md-6" placeholder="Search">
   <span class="input-group-btn">

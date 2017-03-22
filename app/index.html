@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="styles/app.animations.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-star-rating/css/star-rating.min.css" />
-    <link rel="stylesheet" href="styles/aui-standard.min.css">    
+   <link rel="stylesheet" href="styles/aui-standard.min.css">    
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/custom.css">
     <!--<link rel="stylesheet" href="styles/ciscoStructure.css">-->
     <!-- endbuild -->
   </head>
@@ -44,41 +45,56 @@
                   <ul class="tabs">
                     <li class="tab active">
                       <a>
-                        <div class="tab__heading text-ghost" title="Catalog">Catalog</div>
+                        <div class="tab__heading text-ghost" title="Home">Home</div>
                       </a>
                     </li>
-                    <li class="tab">
+                     <li class="tab">
                       <a>
-                        <div class="tab__heading text-ghost" title="Search History">Search History</div>
+                        <div class="tab__heading text-ghost" title="All Products">All Products
+                            <span class=" icon-chevron-down blue"></span>
+
+                        </div>
                       </a>
                     </li>
-                    <li class="tab">
+                     <li class="tab">
                       <a>
-                        <div class="tab__heading text-ghost" title="User Profile">User Profile</div>
+                        <div class="tab__heading text-ghost" title="Supporting Links">Supporting Links
+
+                           <span class=" icon-chevron-down blue"></span>
+                        </div>
                       </a>
                     </li>
-                    <li class="tab">
-                      <a>
-                        <div class="tab__heading text-ghost" title="Notifications">My List</div>
-                      </a>
-                    </li>
+                   
+                   
                   </ul>
+
+               <a href="#" class="myList"  data-toggle="modal" data-target="#myModal" title="My List"><img src="images/my-list-icon.png" class="list-icon">
+                 My List 
+              </a>
+
                 </div>
+               
                 <div class="header-toolbar">
                   <a class="avatar text-ghost">Welcome, John Doe</a>
-                  <button class="btn btn--small btn--icon">
+                  <button class="btn btn--small btn--icon" title="User Profile">
                         <span class="icon-contact"></span>
                   </button>
-                  <button class="btn btn--small btn--icon btn--negative">
+                  <button class="btn btn--small btn--icon btn--negative" title="Notification">
                         <span class="icon-alert"></span>
+                        <span class="spanNotify">2</span>
                   </button>
+                   <button class="btn btn--small btn--icon rewards" title="Rewards (for reuse) earnt">
+                        <span class="trophy"></span>
+                        <span class="spanNotify">2</span>
+                  </button>
+                  <!--
                   <button class="btn btn--small btn--icon btn--success" type="button" data-toggle="modal" data-target="#myModal">
                          <i class="fa fa-list" aria-hidden="true"></i>
                          <span class="btn__subtext text-ghost">03</span>
-                  </button>
-                  <button class="btn btn--small btn--icon">
+                  </button>-->
+                  <!--<button class="btn btn--small btn--icon">
                          <span class="icon-cog"></span>
-                  </button>
+                  </button>-->
                 </div>
 				</div>
 				<!-- /top-header-strip -->
@@ -114,7 +130,7 @@
     </div>-->
   <div class="content content__main">
 
-    <div class="container">
+    <div class="container-fluid pad-0 mar-0">
       <div ng-view=""></div>
     </div>
 

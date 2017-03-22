@@ -4,6 +4,9 @@ body {
   font-size: 14px;
   line-height: 1.42857;
 }
+.clear{clear: both;}
+.marB20{margin-bottom: 20px;}
+
 /* Page Header Section */
 .header {
 	background: #103d5b none repeat scroll 0 0;
@@ -27,11 +30,21 @@ body {
 }
 
 .phones li {
-  clear: both;
-  height: 115px;
-  padding-top: 15px;
+    clear: both;
+    height: 158px;
+    padding-top: 15px;
+    vertical-align: top;
+    margin-left: 16px;
+    max-width: 355px;
+    min-width: 230px;
+    padding: 18px;
+    width: 371px;
+    position: relative;
+	display:inline-block;
 }
-
+.cartBtn{position: absolute !important;top: 7px;right: -21px;font-size: 22px;}
+.gridLink{}
+.gridLink a{padding-right: 5px;font-size: 12px;padding-left: 1px;color: #ec971f;}
 .thumb {
   float: left;
   height: 100px;
@@ -55,7 +68,7 @@ body {
 .phone:first-child {
   display: block;
 }
-
+.head-desc{background: none; color: #666;}
 .phone-images {
   background-color: white;
   float: left;
@@ -64,24 +77,28 @@ body {
   position: relative;
   width: 400px;
 }
-
+.prod-slide{width: 83.70%; float: right; border: 1px solid #049fd9; margin: 0 0 50px 0;}
+.prod-thumbs{ float: left;}
 .phone-thumbs {
   list-style: none;
   margin: 0;
+  padding:0;
+  width: 160px;
 }
-
+.prod-descri{width: 50%; float: right; background: #049fd9; padding: 20px; height: 450px;}
 .phone-thumbs img {
   height: 100px;
   padding: 1em;
   width: 100px;
 }
-
+.slide-outer{clear: both; margin: 20px 0;}
 .phone-thumbs li {
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #ccc;
   cursor: pointer;
-  display: inline-block;
-  margin: 1em;
+  display: block;
+  margin: 0 10px 15px 0;
+  text-align: center;
 }
 
 .specs {
@@ -100,6 +117,10 @@ body {
   font-weight: normal;
   font-size: small;
 }
+ul.item-details{margin: 30px 0 0 0;}
+.item-details dd{color: #FFF;}
+.tech-detail{padding: 20px; background: #eee; border: 1px solid #CCC;}
+.fre-search{padding: 20px; background: #eee; border: 1px solid #CCC; margin: 20px 0 0 0;}
 .specs > li {
   display: inline-block;
   vertical-align: top;
@@ -118,6 +139,37 @@ body {
     display: block;
 }
 
+.searchBGNew{height: 105px;border-radius: 106px;width: 66.66666667%;position: relative;top: 13px; padding:2px 20px 10px 20px; float:right;}
+.searchInputNew{border-radius:19px; height: 35px;}
+.search-icnNew{}
+.searchBtnNew{ color: #626262; border-radius: 0px 19px 19px 0px; background: #dfdfe0; font-size: 11px; padding: 10px 16px; outline: none !important; border: none; height:35px;}
+.searchBtnTwoNew{background: #f27835; border-radius: 40px;float: right;position: relative;top: -6px;right: 22px;
+padding:7px 40px; }
+.input-groupNew {position: absolute;
+    display: table;
+    border-collapse: separate;
+    vertical-align: middle;
+    top: -3px;
+    width: 60%;
+    right: 199px;}
+.breadcumsec{top: 13px;position: relative;}
+.breadcrumb{background:none !important;}
+.breadcrumb>li>a{color:#04A1D8;}
+.breadcrumb>.active{color:#fff;}
+.resultText{margin: 17px 0px 20px -5px;font-size: 14px;}
+.breadcrumb > li.active{color:#fff;}
+
+.leftPanel{border-radius:0px !important;background: #049fd9;color: #fff;}
+
+.switch-icon, .switch--icon, .switch{float:right;}
+.panel--raised {box-shadow: 0px 0px 0px !important;border-radius: 0px;margin-bottom: -12px;}
+ul.phones{padding:0;}
+ul.phones li{border:0px solid; border-radius:0px; background:url(../images/cisco-pattern.png)12px 103px no-repeat #fff;padding-left: 19px;}
+.sort-check .checkbox__label .checkbox input:checked ~ .checkbox__label,{ color:#FFF;}
+.sort-check .checkbox .checkbox__input:before{box-shadow: inset 0 0 0 2px #FFF;}
+.sort-check .checkbox:hover{ color:#FFF;}
+.sort-check .checkbox:hover, .radio:hover{ color:#FFF;}
+.industBT{position: relative;left: 6px;}
 /*alert
 .alert {
   height: 40px;
