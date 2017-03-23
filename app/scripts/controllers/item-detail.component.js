@@ -101,7 +101,7 @@ angular.
             index: 'dmitemmastermv',
             size: 50,
             body: {
-              "query": { "match_phrase": { "id": $routeParams.id } }
+              "query": { "match_phrase": { "item_number": $routeParams.id } }
             }
           }).then(function (response) {
             $scope.hits = response.hits.hits;

@@ -221,7 +221,26 @@
 			</div>
 			<div class="container">
             <div class="fre-search clear">
-			<h5> Frequently Searched Together</h5>
+			<h5>Frequently Searched Together</h5>
+			<div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
+                <div class="thumbnail">
+                    <a href="#">
+                        <img src="{{freq.imgpath}}" alt="{{freq.name}}" style="width: 150px;height: 150px">
+                    </a>
+                    <div class="caption">
+                        <h6>{{freq.name}}</h6>
+                    </div>
+                    <div class="rating">
+                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+                    </div>
+                </div>
+                </div>
+			</div>
+			</div>
+            <div class="divider"></div>
+            <div class="container">
+            <div class="fre-search clear">
+			<h5>Look for similar items by category</h5>
 			<div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
                 <div class="thumbnail">
                     <a href="#">

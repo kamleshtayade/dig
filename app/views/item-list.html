@@ -235,12 +235,12 @@
     <!--es api -->
     <ul class="phones">
         <li ng-repeat="item in hits | filter:$ctrl.query" class="thumbnail phone-list-item">
-            <a href="#!/items/{{item['_source']['id']}}" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
+            <a href="#!/items/{{item['_source']['item_number']}}" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
                 <img ng-switch-when="0" ng-src="images/placeholder.png" alt="{{item.id}}" />
                 <img ng-switch-when="1" ng-src="images/placeholder.png" alt="{{item.id}}" />
                 <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
             </a>
-            <a href="#!/items/{{item['_source']['id']}}" class="text-bold">{{item['_source']['item_number']}}</a>
+            <a href="#!/items/{{item['_source']['item_number']}}" class="text-bold">{{item['_source']['item_number']}}</a>
 			<p><small class="text-bold"> {{item['_source']['revision']}}</small>,&nbsp
 			<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small>
             </p>
