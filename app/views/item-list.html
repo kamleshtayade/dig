@@ -35,27 +35,24 @@
     
     <div class="col-md-6">
 	<label>Product by:</label>
-       <label class="radio radio--inline">
+       <!--<label class="radio radio--inline">
            <input name="radio9" type="radio">
            <span class="radio__input"></span>
            <span class="radio__label">All</span>
-       </label>
-       <label class="radio radio--inline">
+       </label>-->
+       <label class="radio radio--inline topRadio" >
            <input checked="" name="radio9" type="radio">
            <span class="radio__input"></span>
            <span class="radio__label">Cisco Products</span>
        </label>
-       <label class="radio radio--inline">
-           <input name="radio9" type="radio">
+       <label class="radio radio--inline topRadio">
+           <input name="radio9" type="radio"data-toggle="collapse" data-target="#collapseExample"aria-expanded="false" aria-controls="collapseExample">
            <span class="radio__input"></span>
            <span class="radio__label">External Products</span>
        </label>
 	   <label>
 	   
-            <button class="btn btn--primary btn--small  industBT" type="button" data-toggle="collapse" data-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-            Industry Catalog 
-        </button>
+           
     
 	   </label>
    </div>
@@ -82,8 +79,11 @@
 <!-- /Page Title -->
 <div class="container">
   <div class="row">
-    <div class="col-md-4 panel-group panel-group--compressed">
+    <div class="col-md-3 panel-group panel-group--compressed">
         <div class="panel panel--raised leftPanel">
+		<!--div>
+	<input id="ex13" type="text" data-slider-ticks="[0,2000]" data-slider-ticks-snap-bounds="30" data-slider-ticks-labels='["$0", "$2000"]'/>
+	  </div-->
     <!--Sidebar content-->
     <!-- Sort Prefernces -->
     <!--
@@ -99,13 +99,13 @@
                 </div>
             </div>
     </form>-->
-    <!-- Sort Prefernces -->
-    <div class="divider"></div>
+    <!-- Sort Prefernces >
+    <div class="divider"></div-->
     <div>
         <form> <!-- start facet filter panel-->
         <h6>Risk Rating</h6>
         <div data-ng-repeat="agg in agRiskR">            
-            <label class="checkbox">
+            <label class="checkbox rightCheckbox">
                     <input type="checkbox" name="checkbox1">
                     <span class="checkbox__input"></span>
                     <span class="checkbox__label">{{agg.key}}</span>
@@ -115,11 +115,11 @@
         <div class="divider"></div>
         <h6>Control Code</h6>
         <div data-ng-repeat="agg in agCntCo">            
-            <label class="checkbox">
+            <label class="checkbox rightCheckbox">
                     <input type="checkbox" name="checkbox1">
                     <span class="checkbox__input"></span>
                     <span class="checkbox__label">{{agg.key}}</span>
-                    <span class="badge badge--small badge--blue">{{agg.doc_count}}</span>
+                    <span class="badge badge--small badge--blue"><a href="#">{{agg.doc_count}}</a></span>
             </label>            
         </div>
     </form>
@@ -191,14 +191,14 @@
     </div>
     </div>
 </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
     
     
     <!-- SiliconExpert -->
     
     <div class="row">
             <div class="collapse" id="collapseExample">
-                <ul class="phones">
+                <ul class="phonesExtra">
                     <li ng-repeat="item in filteredSiliconProducts" class="thumbnail phone-list-item">
                         <a href="#" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
                             <img ng-switch-when="0" ng-src="images/placeholder.png" alt="{{item.id}}" />
@@ -206,11 +206,14 @@
                             <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
                         </a>
                         <a href="#">{{item.part}}</a>
-                        <button class="btn btn--primary btn--small btn--icon pull-right">
-                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                            </button>
+                        <a class=" rating__star cartBtn ratingStar">
+                <span class="icon-star"></span>
+            </a>
                         <p>{{item.supplier}},{{item.cost}}</p>
                         <p>{{item.sellers}}</p>
+						<p class="gridLink ">
+			<a>REQUEST</a>			
+			</p>   
                     </li>
                 </ul>
             </div>
@@ -244,12 +247,12 @@
 			<p><small class="text-bold"> {{item['_source']['revision']}}</small>,&nbsp
 			<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small>
             </p>
-            <a class=" rating__star cartBtn">
+            <a class=" rating__star cartBtn ratingStar">
                 <span class="icon-star"></span>
             </a>
             <p>$&nbsp{{item['_source']['item_cost']}}</p>
 			<p class="gridLink">
-			<a>MORE</a>			
+			<a href="#!/items/{{item['_source']['item_number']}}">MORE</a>			
 			</p>         
         </li>
     </ul><!-- es api-->

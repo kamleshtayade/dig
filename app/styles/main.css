@@ -6,10 +6,11 @@ body {
 }
 .clear{clear: both;}
 .marB20{margin-bottom: 20px;}
-
+.marB40{margin-bottom: 40px;}
+.header-toolbar .btn.btn--icon.btn--small{min-width: 40px; max-width: 40px; height: 40px;}
 /* Page Header Section */
 .header {
-	background: #103d5b none repeat scroll 0 0;
+	
 	display: block;
 	padding: 1px 0 1px;
 }
@@ -35,15 +36,30 @@ body {
     padding-top: 15px;
     vertical-align: top;
     margin-left: 16px;
-    max-width: 355px;
-    min-width: 230px;
+    max-width: 402px;
+    min-width: 243px;
     padding: 18px;
-    width: 371px;
+    width: 416px;
     position: relative;
-	display:inline-block;
+    display: inline-block;
+}
+
+.phonesExtra li {
+    clear: both;
+    height: 158px;
+    padding-top: 15px;
+    vertical-align: top;
+    margin-left: 16px;
+    max-width: 402px;
+    min-width: 243px;
+    padding: 18px;
+    width: 416px;
+    position: relative;
+    display: inline-block;
+	background: #e2e2e2;
 }
 .cartBtn{position: absolute !important;top: 7px;right: -21px;font-size: 22px;}
-.gridLink{}
+.gridLink{float:right;}
 .gridLink a{padding-right: 5px;font-size: 12px;padding-left: 1px;color: #ec971f;}
 .thumb {
   float: left;
@@ -120,7 +136,7 @@ body {
 ul.item-details{margin: 30px 0 0 0;}
 .item-details dd{color: #FFF;}
 .tech-detail{padding: 20px; background: #eee; border: 1px solid #CCC;}
-.fre-search{padding: 20px; background: #eee; border: 1px solid #CCC; margin: 20px 0 0 0;}
+.fre-search{padding: 20px; background: #eee; border: 1px solid #CCC; margin: 20px 0 0 0; height:300px;}
 .specs > li {
   display: inline-block;
   vertical-align: top;
@@ -144,7 +160,7 @@ ul.item-details{margin: 30px 0 0 0;}
 .search-icnNew{}
 .searchBtnNew{ color: #626262; border-radius: 0px 19px 19px 0px; background: #dfdfe0; font-size: 11px; padding: 10px 16px; outline: none !important; border: none; height:35px;}
 .searchBtnTwoNew{background: #f27835; border-radius: 40px;float: right;position: relative;top: -6px;right: 22px;
-padding:7px 40px; }
+padding:7px 20px; }
 .input-groupNew {position: absolute;
     display: table;
     border-collapse: separate;
@@ -170,6 +186,115 @@ ul.phones li{border:0px solid; border-radius:0px; background:url(../images/cisco
 .sort-check .checkbox:hover{ color:#FFF;}
 .sort-check .checkbox:hover, .radio:hover{ color:#FFF;}
 .industBT{position: relative;left: 6px;}
+.slider-tick.round{border-radius:0px !important;}
+.slider-handle.round{border-radius:0px !important;}
+.slider-handle{width: 0  !important;
+    top: -4px  !important;
+    border-right: 5px solid transparent  !important;
+    border-left: 5px solid transparent  !important;
+    border-top: 5px solid #fff  !important;
+	height:0  !important;
+	background-color:#049fd9  !important;}
+
+.slider-tick{width: 0 !important;
+    top: -4px !important;
+    border-right: 5px solid transparent !important;
+    border-left: 5px solid transparent !important;
+    border-top: 5px solid #fff !important;
+	height:0 !important;}
+.slider.slider-horizontal {
+    height: 20px;
+    width: 216px;
+    margin-left: 11px;
+    margin-top: 10px;
+}
+.tooltip.top .tooltip-arrow{bottom: 5px ;}
+.tooltip-inner{border-radius:4px;padding: 6px 10px;}
+.rightCheckbox{color:#fff;}
+.rightCheckbox span:hover{color:#fff;}
+.rightCheckbox.checkbox input:hover ~ .checkbox__input:before, .checkbox input:hover ~ .radio__input:before, .radio input:hover ~ .checkbox__input:before, .radio input:hover ~ .radio__input:before
+{box-shadow: inset 0 0 0 2px #fff !important;}
+.rightCheckbox.checkbox .checkbox__input:before, .checkbox .radio__input:before, .radio .checkbox__input:before, .radio .radio__input:before
+{box-shadow: inset 0 0 0 2px #fff !important;}
+.rightCheckbox.checkbox:hover, .radio:hover{color:#fff;}
+.rightCheckbox.checkbox input:checked ~ .checkbox__label, .checkbox input:checked ~ .radio__label, .radio input:checked ~ .checkbox__label, .radio input:checked ~ .radio__label
+{color:#fff;}
+.rightCheckbox.checkbox .checkbox__input:after, .checkbox .radio__input:after, .radio .checkbox__input:after, .radio .radio__input:after{color:#fff;}
+.badge{background-color: #fff;color: #049fd9;}
+.badge:hover{color: #049fd9;}
+
+
+
+.topRadio.checkbox input:checked ~ .checkbox__label, .checkbox input:checked ~ .radio__label, .radio input:checked ~ .checkbox__label, .radio input:checked ~ .radio__label
+{color: #58585b !important;}
+.topRadio.checkbox .checkbox__input:before, .checkbox .radio__input:before, .radio .checkbox__input:before, .radio .radio__input:before
+{box-shadow:inset 0 0 0 2px #666 !important}
+.topRadio.rightCheckbox.checkbox:hover, .radio:hover{color:#58585b !important;}
+.topRadio.checkbox input:hover ~ .checkbox__input:before, .checkbox input:hover ~ .radio__input:before, .radio input:hover ~ .checkbox__input:before, .radio input:hover ~ .radio__input:before
+{box-shadow:inset 0 0 0 2px #049fd9!important;}
+.ratingStar{margin-right:33px!important;}
+
+.rating__star{margin-right: 15px;}
+
+
+
+/* View: Phone detail */
+.phoneExtra {
+  background-color: white;
+  display: none;
+  float: left;
+  height: 400px;
+  margin-bottom: 2em;
+  margin-right: 3em;
+  padding: 2em;
+  width: 400px;
+}
+
+.phoneExtra:first-child {
+  display: block;
+}
+.head-desc{background: none; color: #666;}
+.phoneExtra-images {
+  background-color: white;
+  float: left;
+  height: 450px;
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+}
+.prod-slide{width: 83.70%; float: right; border: 1px solid #049fd9; margin: 0 0 50px 0;}
+.prod-thumbs{ float: left;}
+.phoneExtra-thumbs {
+  list-style: none;
+  margin: 0;
+  padding:0;
+  width: 160px;
+}
+.prod-descri{width: 50%; float: right; background: #049fd9; padding: 20px; height: 450px; color:#FFF;}
+.phoneExtra-thumbs img {
+  height: 100px;
+  padding: 1em;
+  width: 100px;
+}
+.slide-outer{clear: both; margin: 20px 0;}
+.phoneExtra-thumbs li {
+  background-color: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: block;
+  margin: 0 10px 15px 0;
+  text-align: center;
+}
+.blue-bred{background: #092942; padding: 10px 0 10px 0 ;}
+.blue-bred .breadcrumb{margin-bottom:0;}
+.blue-bred .breadcrumb > li{color:#FFF;}
+.head-desc .icon-exclamation-triangle{color:#ff7300;}
+.tech-detail ul.specs li{width:23%;}
+.fre-search h5{margin-bottom:10px;}
+.fre-category {
+    height: 360px !important;
+}
+.leftPanel .checkbox__label{color:#FFF !important;}
 /*alert
 .alert {
   height: 40px;

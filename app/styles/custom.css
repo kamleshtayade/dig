@@ -40,7 +40,7 @@ position: relative;top: 50%;left:50%; transform:translate(-50%, -50%);border:sol
     /* border: solid 1px black; */
     display: block;
     border-radius: 50px;
-    margin-left: 4px;}
+    margin-left: 10px;}
 button.rewards, button.rewards:hover{background-color:#00bad1;}
 
 .recentList{margin:0;padding:0;list-style:none}
