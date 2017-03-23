@@ -24,21 +24,52 @@ angular.
           // Elastic search
           // search for documents
           es.search({
-            index: 'dmitemmastermv',
+            index: 'itemmastercost',
+            size: 100,
+            body: {
+              "query": {
+                "bool": {
+                  "must": [
+                    {
+                      "match": { "item_subclass": { "query": $routeParams.search, "operator": "and" } }
+                    },
+                    {
+                      "fuzzy": { "numeric31": { "value": 400, "fuzziness": 50 } }
+                    }
+                  ]
+                }
+              },
+              "sort": [{ "item_cost": "desc", "risk_rating": "desc" }],
+              "aggregations": {
+                "risk_ratings": { "terms": { "field": "risk_rating" } },
+                "control_codes": { "terms": { "field": "control_code" } }
+              }
+            }
+          }).then(function (response) {
+            $scope.hits = angular.fromJson(response.hits.hits);
+            $scope.agRiskR = angular.fromJson(response.aggregations.risk_ratings.buckets);
+            $scope.agCntCo = angular.fromJson(response.aggregations.control_codes.buckets);
+          });
+
+          /* working for all - full text (if) 
+          es.search({
+            index: 'itemmastercost',
             size: 10,
             body: {
               "query": { "match_phrase": { "_all": $routeParams.search } },
               "aggregations":{
-                "revisions":{"terms":{"field":"revision"}},
-                "categories":{"terms":{"field":"item_category"}}
+                "risk_rating":{"terms":{"field":"risk_rating"}},
+                "control_code":{"terms":{"field":"control_code"}}
               }
             }
           }).then(function (response) {
+           // $scope.hits = response.hits.hits;
            $scope.hits = angular.fromJson(response.hits.hits);
            //$scope.filteredProducts = $scope.hits;
-           $scope.agCategories = angular.fromJson(response.aggregations.categories.buckets);  
-           $scope.agRevisions = angular.fromJson(response.aggregations.revisions.buckets);          
+           $scope.agRiskR = angular.fromJson(response.aggregations.risk_rating.buckets);  
+           $scope.agCntCo = angular.fromJson(response.aggregations.control_code.buckets);          
           });
+          */
           // Elastic Search
           
 

@@ -12,11 +12,11 @@
       <div class="searchBGNew">
         
         <div class="input-groupNew">
-          <input type="text" id="search" ng-model="$ctrl.query" class="form-control searchInputNew" aria-label="..." placeholder="Start Searching">
+          <input type="text" id="search" ng-model="$ctrl.query" class="form-control searchInputNew" aria-label="..." placeholder="Refine Search...">
           
           <!-- /btn-group --> 
         </div>
-        <button type="button" class="btn btn-warning searchBtnTwoNew">Search</button>
+        <button type="button" class="btn btn-warning searchBtnTwoNew">Refine Search</button>
         <!-- /input-group --> 
       </div>
 	  
@@ -85,7 +85,9 @@
     <div class="col-md-4 panel-group panel-group--compressed">
         <div class="panel panel--raised leftPanel">
     <!--Sidebar content-->
-    <form> <!-- Sort Prefernces -->
+    <!-- Sort Prefernces -->
+    <!--
+    <form> 
         <div class="form-group">            
                     <h6>Sort By:</h6>
                 <div class="form-group__text select">
@@ -96,13 +98,13 @@
                     </select>
                 </div>
             </div>
-    </form>
+    </form>-->
     <!-- Sort Prefernces -->
     <div class="divider"></div>
     <div>
         <form> <!-- start facet filter panel-->
-        <h6>Categories</h6>
-        <div data-ng-repeat="agg in agCategories">            
+        <h6>Risk Rating</h6>
+        <div data-ng-repeat="agg in agRiskR">            
             <label class="checkbox">
                     <input type="checkbox" name="checkbox1">
                     <span class="checkbox__input"></span>
@@ -111,8 +113,8 @@
             </label>            
         </div>
         <div class="divider"></div>
-        <h6>Revisions</h6>
-        <div data-ng-repeat="agg in agRevisions">            
+        <h6>Control Code</h6>
+        <div data-ng-repeat="agg in agCntCo">            
             <label class="checkbox">
                     <input type="checkbox" name="checkbox1">
                     <span class="checkbox__input"></span>
@@ -155,7 +157,6 @@
         </div>
     </form>-->
      <!-- end facet filter panel -->
-    <div class="divider"></div>
     <!-- start facet filter--> 
 <!--<div class="panel panel-success">
     <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Refine By </div>
@@ -200,9 +201,9 @@
                 <ul class="phones">
                     <li ng-repeat="item in filteredSiliconProducts" class="thumbnail phone-list-item">
                         <a href="#" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
-                            <img ng-switch-when="0" ng-src="items/images/34-2467-02_gr.PNG" alt="{{item.id}}" />
-                            <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
-                            <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
+                            <img ng-switch-when="0" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                            <img ng-switch-when="1" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                            <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
                         </a>
                         <a href="#">{{item.part}}</a>
                         <button class="btn btn--primary btn--small btn--icon pull-right">
@@ -233,22 +234,22 @@
     </ul>-->
     <!--es api -->
     <ul class="phones">
-        <li ng-repeat="item in hits | filter:$ctrl.query | orderBy:orderProp" class="thumbnail phone-list-item">
+        <li ng-repeat="item in hits | filter:$ctrl.query" class="thumbnail phone-list-item">
             <a href="#!/items/{{item['_source']['id']}}" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
-                <img ng-switch-when="0" ng-src="items/images/34-2467-02_gr.PNG" alt="{{item.id}}" />
-                <img ng-switch-when="1" ng-src="items/images/341-0623-01_gr.PNG" alt="{{item.id}}" />
-                <img ng-switch-when="2" ng-src="items/images/34-2615-01_gr.PNG" alt="{{item.id}}" />
+                <img ng-switch-when="0" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                <img ng-switch-when="1" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
             </a>
             <a href="#!/items/{{item['_source']['id']}}" class="text-bold">{{item['_source']['item_number']}}</a>
-			<small class="text-bold"> {{item['_source']['revision']}}</small><br>
-			<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small><br>
+			<p><small class="text-bold"> {{item['_source']['revision']}}</small>,&nbsp
+			<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small>
+            </p>
             <a class=" rating__star cartBtn">
                 <span class="icon-star"></span>
             </a>
-            <p>$1.0, Preffered Supplier</p>
+            <p>$&nbsp{{item['_source']['item_cost']}}</p>
 			<p class="gridLink">
-			<a>MORE</a>l
-			<a>COMPARE</a>			
+			<a>MORE</a>			
 			</p>         
         </li>
     </ul><!-- es api-->
