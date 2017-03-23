@@ -243,14 +243,13 @@
                 <img ng-switch-when="1" ng-src="images/placeholder.png" alt="{{item.id}}" />
                 <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
             </a>
-            <a href="#!/items/{{item['_source']['item_number']}}" class="text-bold">{{item['_source']['item_number']}}</a>
-			<p><small class="text-bold"> {{item['_source']['revision']}}</small>,&nbsp
-			<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small>
-            </p>
+            <a href="#!/items/{{item['_source']['item_number']}}" class="text-bold">{{item['_source']['item_number']}}</a><br>
+			<small class="text-bold"> {{item['_source']['revision']}}</small>,&nbsp
+			<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small><br>
             <a class=" rating__star cartBtn ratingStar">
                 <span class="icon-star"></span>
             </a>            
-            <small>$&nbsp{{item['_source']['item_cost']}}&nbspRisk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small>
+            <small>$&nbsp{{item['_source']['item_cost']}}&nbspRisk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small><br>
             <small>{{item['_source']['item_description']}}</small>
             <p class="gridLink">
 			<a href="#!/items/{{item['_source']['item_number']}}">MORE</a>			
