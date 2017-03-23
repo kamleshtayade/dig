@@ -21,6 +21,7 @@ angular.
        $scope.filteredProducts = [];
        $scope.filteredSiliconProducts=[];
 
+       $scope.searchTag = $routeParams.search;
        $scope.res = $routeParams.search.split(" ");
        $scope.ESsize = 20;
        $scope.ESIndex = 'itemmastercost';
@@ -33,7 +34,7 @@ angular.
             if($scope.res[1]== null || $scope.res[1] =='undefined'){
                 $scope.res[1] = 400;
             }// need to remove this hardcoding post demo
-            
+
          es.search({
            index: $scope.ESIndex,
            size: $scope.ESsize,

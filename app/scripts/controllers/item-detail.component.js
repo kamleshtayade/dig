@@ -11,8 +11,8 @@ angular.
   module('itemDetail').
   component('itemDetail', {
     templateUrl: 'views/item-detail.html',
-    controller: ['$routeParams', 'Item','$log','$scope','es','esFactory',
-      function ItemDetailController($routeParams,Item,$log,$scope,es,esFactory) {   
+    controller: ['$routeParams', 'Item','$log','$scope','es','esFactory','$resource',
+      function ItemDetailController($routeParams,Item,$log,$scope,es,esFactory,$resource) {   
         $scope.item=[];
         $scope.solrQuery = 'id:'+$routeParams.id; // Here we can modify search parameter
         
@@ -20,7 +20,7 @@ angular.
          function (result) {
            $scope.item = result.response.docs;
            $scope.setImage("items/images/34-2467-02_gr.PNG");
-           $log.debug('item : '+$scope.item[0].item_number);
+          // $log.debug('item : '+$scope.item[0].item_number);
          },
          function () {
          }
@@ -106,6 +106,18 @@ angular.
           }).then(function (response) {
             $scope.hits = response.hits.hits;
           });
+
+          // Alternate CPN 11-100359-01
+          $scope.altrCPN = [];
+          var apiUrl = 'http://pdaf-api-dev.cisco.com/pdafapp/bom/1.0/cpn/'+$routeParams.id+'/getAlternateCPNs';
+          var AltrCPN = $resource(apiUrl);
+          AltrCPN.query( function (data) {
+            $scope.altrCPN = angular.fromJson(data);
+            if(data==null || data==undefined){
+              $log.debug("No Data");
+            }
+          });
+          // Alternate API End
 
       }// ItemDetailController
     ]

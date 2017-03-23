@@ -50,6 +50,7 @@ angular.
     function($resource,solrUrl,solrFacet,solrCall,$log) {   
        
      var solr_url = solrUrl.concat('ihub2/select?',solrFacet,'item_lifecycle',solrFacet,'item_category',solrCall);
+
      
      //$log.debug("solr_url:Item "+solr_url);
       return $resource(solr_url, {id: '@id'}, {
