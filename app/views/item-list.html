@@ -29,8 +29,8 @@
 <div class="container">
     <div class="row resultText">
 
-<span>Showing 1-{{ESsize}} of 10,000 results for <b>{{searchTag}}</b></span>
-<hr>
+<!--<span>Showing 1-{{ESsize}} of 10,000 results for <b>{{searchTag}}</b></span>
+<hr>-->
 <span><div class="row">
     
     <div class="col-md-6">
@@ -166,7 +166,7 @@
     </div>
 </div>--><!-- Refine By -->
     <div class="panel panel-info">
-        <div class="panel-heading"><i class="fa fa-chain-broken" aria-hidden="true"></i> Avg. Customer Review <small>YELP</small></div>
+        <div class="panel-heading">Avg. Customer Review <small>YELP</small></div>
         <div class="panel-body">
         <div class="rating">
             <div class="rating__stars">
@@ -249,11 +249,13 @@
             </p>
             <a class=" rating__star cartBtn ratingStar">
                 <span class="icon-star"></span>
-            </a>
-            <p>$&nbsp{{item['_source']['item_cost']}}</p>
-			<p class="gridLink">
+            </a>            
+            <small>$&nbsp{{item['_source']['item_cost']}}&nbspRisk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small>
+            <small>{{item['_source']['item_description']}}</small>
+            <p class="gridLink">
 			<a href="#!/items/{{item['_source']['item_number']}}">MORE</a>			
-			</p>         
+			</p> 
+			        
         </li>
     </ul><!-- es api-->
     </div>

@@ -51,7 +51,7 @@ angular.
                  ]
                }
              },
-             "sort": [{ "item_cost": "desc", "risk_rating": "desc" }],
+             "sort": [{ "item_cost": "asc", "risk_rating": "asc" }],
              "aggregations": {
                "risk_ratings": { "terms": { "field": "risk_rating" } },
                "control_codes": { "terms": { "field": "control_code" } }
@@ -68,7 +68,7 @@ angular.
            size: $scope.ESsize,
            body: {
              "query": { "match_phrase": { "_all": $routeParams.search } },
-             "sort": [{ "item_cost": "desc", "risk_rating": "desc" }],
+             "sort": [{ "item_cost": "asc", "risk_rating": "asc" }],
              "aggregations": {
                "risk_ratings": { "terms": { "field": "risk_rating" } },
                "control_codes": { "terms": { "field": "control_code" } }
