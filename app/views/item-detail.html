@@ -58,27 +58,14 @@
                 <li>
                     <span>Item Details</span>
                     <dl>
-                        <dt>Revision : </dt>
-                        <dd >{{item['_source']['revision']}}</dd>
                         <dt>Subclass : </dt>
                         <dd >{{item['_source']['item_subclass']}}</dd>
-                        <dt>Category : </dt>
+                        <dt>Part Category : </dt>
                         <dd >{{item['_source']['item_category']}}</dd>
-                        <dt>Lifecycle : </dt>
+                        <dt>Lifecycle Phase: </dt>
                         <dd >{{item['_source']['item_lifecycle']}}</dd>
-                    </dl>
-                </li>
-                <li>
-                    <span>Info</span>
-                    <dl>
-                        <dt>Type : </dt>
-                        <dd>{{item['_source']['user_item_type']}}</dd>
-                        <dt>UOM : </dt>
-                        <dd>{{item['_source']['uom']}}</dd>
-                        <dt>SuCM : </dt>
-                        <dd>{{item['_source']['sucm']}}</dd>
-                        <dt>Commodity Code : </dt>
-                        <dd>{{item['_source']['commodity_code']}}</dd>
+                        <dt>Business Unit : </dt>
+                        <dd>{{item['_source']['requesting_bu']}}</dd>
                     </dl>
                 </li>
 				</ul>
@@ -122,38 +109,31 @@
 			<div class="tech-detail clear">
             <h6 class="marB20"> Technical Details</h6>
             <ul class="specs">
-                <!--li>
-                    <span>Item Details</span>
+                <li> 
+                    <span>Technical</span>                   
                     <dl>
-                        <dt>Revision : </dt>
-                        <dd >{{item['_source']['revision']}}</dd>
-                        <dt>Subclass : </dt>
-                        <dd >{{item['_source']['item_subclass']}}</dd>
-                        <dt>Category : </dt>
-                        <dd >{{item['_source']['item_category']}}</dd>
-                        <dt>Lifecycle : </dt>
-                        <dd >{{item['_source']['item_lifecycle']}}</dd>
-                    </dl>
-                </li>
-                <li>
-                    <span>Info</span>
-                    <dl>
-                        <dt>Type : </dt>
+                        <dt>User Item Type : </dt>
                         <dd>{{item['_source']['user_item_type']}}</dd>
                         <dt>UOM : </dt>
                         <dd>{{item['_source']['uom']}}</dd>
-                        <dt>SuCM : </dt>
-                        <dd>{{item['_source']['sucm']}}</dd>
+                        <dt>Reliability Grade : </dt>
+                        <dd>{{item['_source']['reliability_grade']}}</dd> 
+                        <dt>L2 Use Condition : </dt>
+                        <dd>{{item['_source']['l2_use_condition']}}</dd>                         
+                    </dl>
+                </li>
+                <li>
+                    <span>Sourcing</span>
+                    <dl>
                         <dt>Commodity Code : </dt>
                         <dd>{{item['_source']['commodity_code']}}</dd>
-                    </dl>
-                </li-->
-                <li>
-                    <span>Risk</span>
-                    <dl>
+                        <dt>SuCM : </dt>
+                        <dd>{{item['_source']['sucm']}}</dd>
+                        <dt>Control Code : </dt>
+                        <dd>{{item['_source']['control_code']}}</dd>
                         <dt>Risk Rating : </dt>
                         <dd>{{item['_source']['risk_rating']}}</dd>
-                        <dt>Risk Reason : </dt>
+                        <dt>Risk Reason Code : </dt>
                         <dd>{{item['_source']['risk_reason_code']}}</dd>
                         <dt>Risk Comments : </dt>
                         <dd>{{item['_source']['risk_comment']}}</dd>
@@ -171,33 +151,18 @@
                     </dl>
                 </li>
                 <li>
-                    <span>Vendor and BU</span>
+                    <span>Regulatory Compliance</span>
                     <dl>
-                        <dt>Manufacturer : </dt>
-                        <dd>{{item['_source']['manufacturer']}}</dd>
-                        <dt>Business Unit : </dt>
-                        <dd>{{item['_source']['requesting_bu']}}</dd>
-                    </dl>
-                </li>
-            
-                <li>
-                    <span>Size and Weight</span>
-                    <dl>
-                        <dt>Dimensions : </dt>
-                        <dd ng-repeat="dim in $ctrl.item.sizeAndWeight.dimensions">{{dim}}</dd>
-                        <dt>Weight : </dt>
-                        <dd>{{item.sizeAndWeight.weight}}</dd>
-                    </dl>
-                </li>
-                <li>
-                    <span>Display</span>
-                    <dl>
-                        <dt>Screen size : </dt>
-                        <dd>{{item.display.screenSize}}</dd>
-                        <dt>Screen resolution : </dt>
-                        <dd>{{item.display.screenResolution}}</dd>
-                        <dt>Touch screen : </dt>
-                        <dd>{{item.display.touchScreen | checkmark}}</dd>
+                        <dt>EMC Critical : </dt>
+                        <dd>{{item['_source']['emc_critical']}}</dd>
+                        <dt>NEBS Critical : </dt>
+                        <dd>{{item['_source']['nebs_critical']}}</dd>
+                        <dt>Safety Critical</dt>
+                        <dd>{{item['_source']['safety_critical']}}</dd>
+                        <dt>Network Critical</dt>
+                        <dd>{{item['_source']['network_critical']}}</dd>
+                        <dt>IECEx Critical</dt>
+                        <dd>{{item['_source']['iecex_critical']}}</dd>
                     </dl>
                 </li>
 				<br/><br/>
@@ -208,20 +173,50 @@
                         <dd>{{item['_source']['royalty_status']}}</dd>                        
                     </dl>
                 </li>
-                <li>
-                    <span>Creation details</span>
-                    <dl>
-                        <dt>Created By : </dt>
-                        <dd>{{item['_source']['created_by']}}</dd>
-                        <dt>Date : </dt>
-                        <dd>{{item['_source']['created_date']}}</dd>
-                    </dl>
-                </li>
-                <li>
-                    <span>Additional Features</span>
-                    <dd>{{item.additionalFeatures}}</dd>
-                </li>
             </ul>
+             <div class="divider"></div>
+                <div class="responsive-table">
+                    <h8>Manufacturer</h8>
+                    <table class="table table--bordered table--nostripes">
+                        <thead>
+                            <tr>
+                                <th>Mfr. Name</th>
+                                <th>Mfr. Lifecycle Phase</th>
+                                <th>Mfr. Part Number</th>
+                                <th>Qual Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Row 1, Column 1</td>
+                                <td>Row 1, Column 2</td>
+                                <td>Row 1, Column 3</td>
+                                <td>Row 1, Column 4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="divider"></div>
+                 <div class="responsive-table">
+                    <h8>Attachments</h8>
+                    <table class="table table--bordered table--nostripes">
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>File Description</th>
+                                <th>File Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Row 1, Column 1</td>
+                                <td>Row 1, Column 2</td>
+                                <td>Row 1, Column 3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
 			</div>
 			</div>
 			<div class="container">

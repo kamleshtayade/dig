@@ -21,35 +21,64 @@ angular.
        $scope.filteredProducts = [];
        $scope.filteredSiliconProducts=[];
 
+       $scope.res = $routeParams.search.split(" ");
+       $scope.ESsize = 20;
+       $scope.ESIndex = 'itemmastercost';
+
+
           // Elastic search
-          // search for documents
-          es.search({
-            index: 'itemmastercost',
-            size: 100,
-            body: {
-              "query": {
-                "bool": {
-                  "must": [
-                    {
-                      "match": { "item_subclass": { "query": $routeParams.search, "operator": "and" } }
-                    },
-                    {
-                      "fuzzy": { "numeric31": { "value": 400, "fuzziness": 50 } }
-                    }
-                  ]
-                }
-              },
-              "sort": [{ "item_cost": "desc", "risk_rating": "desc" }],
-              "aggregations": {
-                "risk_ratings": { "terms": { "field": "risk_rating" } },
-                "control_codes": { "terms": { "field": "control_code" } }
-              }
-            }
-          }).then(function (response) {
-            $scope.hits = angular.fromJson(response.hits.hits);
-            $scope.agRiskR = angular.fromJson(response.aggregations.risk_ratings.buckets);
-            $scope.agCntCo = angular.fromJson(response.aggregations.control_codes.buckets);
-          });
+          // search for documents          
+       if ($scope.res[0] == 'capacitor' || $scope.res[0] == 'Capacitor') {
+
+            if($scope.res[1]== null || $scope.res[1] =='undefined'){
+                $scope.res[1] = 400;
+            }// need to remove this hardcoding post demo
+            
+         es.search({
+           index: $scope.ESIndex,
+           size: $scope.ESsize,
+           body: {
+             "query": {
+               "bool": {
+                 "must": [
+                   {
+                     "match": { "item_subclass": { "query": $scope.res[0], "operator": "and" } }
+                   },
+                   {
+                     "fuzzy": { "numeric31": { "value": $scope.res[1], "fuzziness": 50 } }
+                   }
+                 ]
+               }
+             },
+             "sort": [{ "item_cost": "desc", "risk_rating": "desc" }],
+             "aggregations": {
+               "risk_ratings": { "terms": { "field": "risk_rating" } },
+               "control_codes": { "terms": { "field": "control_code" } }
+             }
+           }
+         }).then(function (response) {
+           $scope.hits = angular.fromJson(response.hits.hits);
+           $scope.agRiskR = angular.fromJson(response.aggregations.risk_ratings.buckets);
+           $scope.agCntCo = angular.fromJson(response.aggregations.control_codes.buckets);
+         });
+       } else {
+         es.search({
+           index: $scope.ESIndex,
+           size: $scope.ESsize,
+           body: {
+             "query": { "match_phrase": { "_all": $routeParams.search } },
+             "sort": [{ "item_cost": "desc", "risk_rating": "desc" }],
+             "aggregations": {
+               "risk_ratings": { "terms": { "field": "risk_rating" } },
+               "control_codes": { "terms": { "field": "control_code" } }
+             }
+           }
+         }).then(function (response) {
+           $scope.hits = angular.fromJson(response.hits.hits);
+           $scope.agRiskR = angular.fromJson(response.aggregations.risk_ratings.buckets);
+           $scope.agCntCo = angular.fromJson(response.aggregations.control_codes.buckets);
+         });
+       }          
 
           /* working for all - full text (if) 
           es.search({
