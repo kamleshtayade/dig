@@ -1,0 +1,40 @@
+<!-- Page Title -->
+<div class="row blue-bred">
+    <div class="container">
+        <!-- breadcumb -->
+            <ul class="breadcrumb">
+                <li><a href="#!/home">Home</a></li>
+                <li><a href="#!/search">Search</a></li>
+                <li><span>Ext Item Details</span></li>
+            </ul>
+    </div>
+</div>
+<!-- /Page Title -->
+
+<div class="container marB40">
+    <div class="panel panel--raised row">
+    <div class="hero hero--dkblue hero--compressed head-desc">
+        <div>
+            <div class="hero__content">
+                <h2>{{extItem}} <small class="text-ghost">{{item['_source']['revision']}}</small></h2>
+                <h6>{{item['_source']['item_description']}}</h6>
+
+            </div>
+        </div>
+    </div>
+        <div class="responsive-table">
+                    <table class="table table--bordered table--nostripes">
+                        <thead>
+                            <tr>
+                                <th ng-repeat="item in colNames">{{item.name}}</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td ng-repeat="item in colNames">{{item.value}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    </div>
+</div>

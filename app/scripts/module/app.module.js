@@ -13,5 +13,8 @@ angular.module('iHubApp', [
     'core',
     'itemDetail',
     'itemList',
-    'elasticsearch'
+    'extItemDetail',
+    'elasticsearch',
+    'datatables',
+    'datatables.bootstrap'
 ]);

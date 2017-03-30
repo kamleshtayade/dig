@@ -16,15 +16,20 @@ angular.
 
       $routeProvider.
         when('/home', {
-        templateUrl: 'views/land.html',
-        controller: 'LandCtrl',
-        controllerAs: 'land'
+          templateUrl: 'views/land.html',
+          controller: 'LandCtrl',
+          controllerAs: 'land'
         }).
         when('/search/:search', {
           template: '<item-list></item-list>'
         }).
         when('/items/:id', {
           template: '<item-detail></item-detail>'
+        }).
+        when('/extitems/:id', {
+          templateUrl: 'views/extitem-detail.html',
+          controller: 'extItemDetailCtrl',
+          controllerAs: 'extItemDetail'
         }).
         otherwise('/home');
         //logger
