@@ -12,8 +12,8 @@ angular.
   module('itemList').
   component('itemList', {
     templateUrl: 'views/item-list.html',
-    controller: ['Items','$log','$scope','$routeParams','es','esFactory','euiHost',
-      function ItemListController(Items,$log,$scope,$routeParams,es,esFactory,euiHost) {
+    controller: ['Items','$log','$scope','$routeParams','es','esFactory','euiHost','$resource',
+      function ItemListController(Items,$log,$scope,$routeParams,es,esFactory,euiHost,$resource) {
        $scope.items = [];
        $scope.classcode = "";
        $scope.imageUrl = "";
@@ -29,12 +29,14 @@ angular.
 
           // Elastic search
           // search for documents          
+       /*
        if ($scope.res[0] == 'capacitor' || $scope.res[0] == 'Capacitor') {
 
             if($scope.res[1]== null || $scope.res[1] =='undefined'){
                 $scope.res[1] = 400;
             }// need to remove this hardcoding post demo
-
+            */
+        if ($scope.res[0] != null && $scope.res[1] != null) {
          es.search({
            index: $scope.ESIndex,
            size: $scope.ESsize,
@@ -788,7 +790,35 @@ angular.
             console.log(CommodityValue.length);
           }
         }, true);
-        // end Define facted        
-      }
+        // end Define facted      
+        // RatingService 
+        $scope.rating = '';
+        var baseUrl = "https://mdx-stg.cisco.com/mdx/emp/supplychain/%2Fc%2Fcec%2Fnews%2Fglobal-employee-headlines%2Fevo-supply-chain.html_01.json";
+
+       // var baseUrl = "https://mdx-stg.cisco.com/mdx/emp/supplychain/";
+        $scope.MDSRating = $resource(baseUrl, {
+          query: {
+            method: 'GET',
+            isArray: true,
+           // headers: { 'X-BB-SESSION': '8af8c7844225affb7d122d8c8f4eb233' },
+            headers: { 'apptoken': '8af8c7844225affb7d122d8c8f4eb233' },
+            transformResponse: function (data, headersGetter) {
+              var data = JSON.parse(data)["data"];
+              return data
+            }
+          }
+        });
+
+        $scope.MDSRating.query().$promise.then(
+         function (result) {
+           $scope.rating = result.response;
+           
+         },
+         function () {
+         }
+       );
+        $log.debug('MDSRating:'+$scope.rating);
+
+      }// end of controller
     ]
   });

@@ -249,8 +249,8 @@
             <a class=" rating__star cartBtn ratingStar">
                 <span class="icon-star"></span>
             </a>            
-            <small>$&nbsp{{item['_source']['item_cost']}}&nbspRisk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small><br>
-            <small>{{item['_source']['item_description']}}</small>
+            <small>$&nbsp{{item['_source']['item_cost']}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small><br>
+            <small>{{item['_source']['item_description'].substring(0,30)}}&nbsp;...</small>
             <p class="gridLink">
 			<a href="#!/items/{{item['_source']['item_number']}}">MORE</a>			
 			</p> 
