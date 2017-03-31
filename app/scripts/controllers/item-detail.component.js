@@ -15,6 +15,7 @@ angular.
       function ItemDetailController($routeParams,Item,$log,$scope,es,esFactory,$resource) {   
         $scope.item=[];
         $scope.solrQuery = 'id:'+$routeParams.id; // Here we can modify search parameter
+        $scope.itemNo = $routeParams.id;
         
        Item.get({q: $scope.solrQuery}).$promise.then(
          function (result) {
@@ -118,6 +119,17 @@ angular.
             }
           });
           // Alternate API End
+
+          // search for AVL
+          es.search({
+            index: 'dmavllistmpnmv',
+            size: 50,
+            body: {
+              "query": { "match": { "manufacturer_part_no": $routeParams.id } }
+            }
+          }).then(function (response) {
+            $scope.avlhits = response.hits.hits;
+          });
 
       }// ItemDetailController
     ]

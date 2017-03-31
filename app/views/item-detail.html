@@ -52,19 +52,19 @@
             </div>
 			<div class="prod-descri">
                 <h6> Product Description</h6>
-                <p>From the Manufacturer</p>
+                <p></p>
 				<ul class="specs item-details">
                 <li>
                     <span>Item Details</span>
                     <dl>
-                        <dt>Subclass : </dt>
-                        <dd >{{item['_source']['item_subclass']}}</dd>
-                        <dt>Part Category : </dt>
-                        <dd >{{item['_source']['item_category']}}</dd>
-                        <dt>Lifecycle Phase: </dt>
-                        <dd >{{item['_source']['item_lifecycle']}}</dd>
-                        <dt>Business Unit : </dt>
-                        <dd>{{item['_source']['requesting_bu']}}</dd>
+                        <dt>Subclass : {{item['_source']['item_subclass']}}</dt>
+                        <dd ></dd>
+                        <dt>Part Category : {{item['_source']['item_category']}}</dt>
+                        <dd ></dd>
+                        <dt>Lifecycle Phase: {{item['_source']['item_lifecycle']}}</dt>
+                        <dd ></dd>
+                        <dt>Business Unit : {{item['_source']['requesting_bu']}}</dt>
+                        <dd></dd>
                     </dl>
                 </li>
 				</ul>
@@ -72,38 +72,7 @@
 			</div>
 			</div>
 			</div>
-            <!--div class="divider clearfix"></div-->
-            
-                <!--<div class="responsive-table col-md-4">                    
-                    <table class="table table--nostripes">
-                        <thead>
-                            <tr>
-                                <th>Item Details</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Revision</td>
-                                <td>{{item['_source']['revision']}}</td>
-                            </tr>
-                            <tr>
-                                <td>Subclass</td>
-                                <td>{{item['_source']['item_subclass']}}</td>
-                            </tr>
-                            <tr>
-                                <td>Category</td>
-                                <td>{{item['_source']['item_category']}}</td>
-                            </tr>
-                            <tr>
-                                <td>Lifecycle</td>
-                                <td>{{item['_source']['item_lifecycle']}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>-->
 
-            <!--div class="divider"></div-->
 			<div>
 			<div class="tech-detail clear">
             <h6 class="marB20"> Technical Details</h6>
@@ -111,67 +80,60 @@
                 <li> 
                     <span>Technical</span>                   
                     <dl>
-                        <dt>User Item Type : </dt>
-                        <dd>{{item['_source']['user_item_type']}}</dd>
-                        <dt>UOM : </dt>
-                        <dd>{{item['_source']['uom']}}</dd>
-                        <dt>Reliability Grade : </dt>
-                        <dd>{{item['_source']['reliability_grade']}}</dd> 
-                        <dt>L2 Use Condition : </dt>
-                        <dd>{{item['_source']['l2_use_condition']}}</dd>                         
+                        <dt>User Item Type : {{item['_source']['user_item_type']}}</dt>
+                        <dd></dd>
+                        <dt>UOM : {{item['_source']['uom']}} </dt>
+                        <dd></dd>
+                        <dt>Reliability Grade : {{item['_source']['reliability_grade']}}</dt>
+                        <dd></dd> 
+                        <dt>L2 Use Condition : {{item['_source']['l2_use_condition']}}</dt>
+                        <dd></dd>                         
                     </dl>
-                </li>
-                <li>
-                    <span>Sourcing</span>
-                    <dl>
-                        <dt>Commodity Code : </dt>
-                        <dd>{{item['_source']['commodity_code']}}</dd>
-                        <dt>SuCM : </dt>
-                        <dd>{{item['_source']['sucm']}}</dd>
-                        <dt>Control Code : </dt>
-                        <dd>{{item['_source']['control_code']}}</dd>
-                        <dt>Risk Rating : </dt>
-                        <dd>{{item['_source']['risk_rating']}}</dd>
-                        <dt>Risk Reason Code : </dt>
-                        <dd>{{item['_source']['risk_reason_code']}}</dd>
-                        <dt>Risk Comments : </dt>
-                        <dd>{{item['_source']['risk_comment']}}</dd>
-                    </dl>
-                </li>
+                </li>                
                 <li>
                     <span>Compliance</span>
                     <dl>
-                        <dt>RoHS(i) : </dt>
-                        <dd>{{item['_source']['rohsi']}}</dd>
-                        <dt>RoHS(c) : </dt>
-                        <dd>{{item['_source']['rohsc']}}</dd>
-                        <dt>PbFree</dt>
-                        <dd>{{item['_source']['pbfree']}}</dd>
+                        <dt>RoHS(i) : {{item['_source']['rohsi']}}</dt>
+                        <dd></dd>
+                        <dt>RoHS(c) : {{item['_source']['rohsc']}}</dt>
+                        <dd></dd>
+                        <dt>PbFree: {{item['_source']['pbfree']}}</dt>
+                        <dd></dd>
                     </dl>
                 </li>
                 <li>
                     <span>Regulatory Compliance</span>
                     <dl>
-                        <dt>EMC Critical : </dt>
-                        <dd>{{item['_source']['emc_critical']}}</dd>
-                        <dt>NEBS Critical : </dt>
-                        <dd>{{item['_source']['nebs_critical']}}</dd>
-                        <dt>Safety Critical</dt>
-                        <dd>{{item['_source']['safety_critical']}}</dd>
-                        <dt>Network Critical</dt>
-                        <dd>{{item['_source']['network_critical']}}</dd>
-                        <dt>IECEx Critical</dt>
-                        <dd>{{item['_source']['iecex_critical']}}</dd>
+                        <dt>EMC Critical : {{item['_source']['emc_critical']}}</dt>
+                        <dd></dd>
+                        <dt>NEBS Critical : {{item['_source']['nebs_critical']}}</dt>
+                        <dd></dd>
+                        <dt>Safety Critical: {{item['_source']['safety_critical']}}</dt>
+                        <dd></dd>
+                        <dt>Network Critical: {{item['_source']['network_critical']}}</dt>
+                        <dd></dd>
+                        <dt>IECEx Critical: {{item['_source']['iecex_critical']}}</dt>
+                        <dd></dd>
                     </dl>
                 </li>
-				<br/><br/>
                 <li>
-                    <span>Royalty Status</span>
+                    <span>Sourcing</span>
                     <dl>
-                        <dt> </dt>
-                        <dd>{{item['_source']['royalty_status']}}</dd>                        
+                        <dt>Commodity Code : {{item['_source']['commodity_code']}}</dt>
+                        <dd></dd>
+                        <dt>SuCM : {{item['_source']['sucm']}}</dt>
+                        <dd></dd>
+                        <dt>Control Code : {{item['_source']['control_code']}}</dt>
+                        <dd></dd>
+                        <dt>Risk Rating : {{item['_source']['risk_rating']}}</dt>
+                        <dd></dd>
+                        <dt>Risk Reason Code : {{item['_source']['risk_reason_code']}}</dt>
+                        <dd></dd>
+                        <dt>Risk Comments : {{item['_source']['risk_comment']}}</dt>
+                        <dd></dd>
                     </dl>
                 </li>
+				<br/><br/>                
             </ul>
              <div class="divider"></div>
                 <div class="responsive-table">
@@ -185,11 +147,12 @@
                                 <th>Qual Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                        <tbody>                            
+                            <tr ng-repeat="avl in avlhits | filter : itemNo">
+                            <!--<tr ng-repeat="avl in avlhits">--><!-- Use only when you want manufacturer see the manufaturers with near matching -->
+                                <td>{{avl['_source']['manufacutrer_name']}}</td>
+                                <td>{{avl['_source']['mfr_lifecycle']}}</td>
+                                <td>{{avl['_source']['manufacturer_part_no']}}</td>
                                 <td></td>
                             </tr>
                         </tbody>
@@ -251,43 +214,6 @@
                 </div>
 			</div>
 			</div>
-                <!--<div class="panel panel-info">
-                    <div class="panel-body">
-                        <h5><i class="fa fa-chain-broken" aria-hidden="true"></i> Frequently Searched Together</h5>
-                        <div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
-                            <div class="thumbnail">
-                            <a href="#">
-                                <img src="{{freq.imgpath}}" alt="..." style="width: 150px;height: 150px">
-                            </a>
-                            <div class="caption">
-                                <h6>{{freq.name}}</h6>
-                            </div>
-                            <div class="rating">
-                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="divider"></div>
-                <div class="panel panel-info">
-                    <div class="panel-body">
-                        <h5><i class="fa fa-chain-broken" aria-hidden="true"></i> Look for similar items by category</h5>
-                        <div class="col-xs-6 col-md-3" ng-repeat="itemByCat in $ctrl.itemByCats">
-                            <div class="thumbnail">
-                            <a href="#">
-                                <img src="{{itemByCat.imgpath}}" alt="..." style="width: 150px;height: 150px">
-                            </a>
-                            <div class="caption">
-                                <h6>{{itemByCat.name}}</h6>
-                            </div>
-                            <div class="rating">
-                                <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
         </div>
     </div>
 </div>
