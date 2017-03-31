@@ -53,21 +53,13 @@
 			<div class="prod-descri">
                 <h6> Product Description</h6>
                 <p></p>
-				<ul class="specs item-details">
-                <li>
-                    <span>Item Details</span>
-                    <dl>
-                        <dt>Subclass : {{item['_source']['item_subclass']}}</dt>
-                        <dd ></dd>
-                        <dt>Part Category : {{item['_source']['item_category']}}</dt>
-                        <dd ></dd>
-                        <dt>Lifecycle Phase: {{item['_source']['item_lifecycle']}}</dt>
-                        <dd ></dd>
-                        <dt>Business Unit : {{item['_source']['requesting_bu']}}</dt>
-                        <dd></dd>
-                    </dl>
-                </li>
-				</ul>
+                <span>Item Details</span>
+                <ul class="list list--compressed">
+                    <li>Subclass : {{item['_source']['item_subclass']}}</li>
+                    <li>Part Category : {{item['_source']['item_category']}}</li>
+                    <li>Lifecycle Phase: {{item['_source']['item_lifecycle']}}</li>
+                    <li>Business Unit : {{item['_source']['requesting_bu']}}</li>
+                </ul>
             </div>
 			</div>
 			</div>
@@ -75,69 +67,52 @@
 
 			<div>
 			<div class="tech-detail clear">
-            <h6 class="marB20"> Technical Details</h6>
-            <ul class="specs">
-                <li> 
-                    <span>Technical</span>                   
-                    <dl>
-                        <dt>User Item Type : {{item['_source']['user_item_type']}}</dt>
-                        <dd></dd>
-                        <dt>UOM : {{item['_source']['uom']}} </dt>
-                        <dd></dd>
-                        <dt>Reliability Grade : {{item['_source']['reliability_grade']}}</dt>
-                        <dd></dd> 
-                        <dt>L2 Use Condition : {{item['_source']['l2_use_condition']}}</dt>
-                        <dd></dd>                         
-                    </dl>
-                </li>                
-                <li>
-                    <span>Compliance</span>
-                    <dl>
-                        <dt>RoHS(i) : {{item['_source']['rohsi']}}</dt>
-                        <dd></dd>
-                        <dt>RoHS(c) : {{item['_source']['rohsc']}}</dt>
-                        <dd></dd>
-                        <dt>PbFree: {{item['_source']['pbfree']}}</dt>
-                        <dd></dd>
-                    </dl>
-                </li>
-                <li>
-                    <span>Regulatory Compliance</span>
-                    <dl>
-                        <dt>EMC Critical : {{item['_source']['emc_critical']}}</dt>
-                        <dd></dd>
-                        <dt>NEBS Critical : {{item['_source']['nebs_critical']}}</dt>
-                        <dd></dd>
-                        <dt>Safety Critical: {{item['_source']['safety_critical']}}</dt>
-                        <dd></dd>
-                        <dt>Network Critical: {{item['_source']['network_critical']}}</dt>
-                        <dd></dd>
-                        <dt>IECEx Critical: {{item['_source']['iecex_critical']}}</dt>
-                        <dd></dd>
-                    </dl>
-                </li>
-                <li>
-                    <span>Sourcing</span>
-                    <dl>
-                        <dt>Commodity Code : {{item['_source']['commodity_code']}}</dt>
-                        <dd></dd>
-                        <dt>SuCM : {{item['_source']['sucm']}}</dt>
-                        <dd></dd>
-                        <dt>Control Code : {{item['_source']['control_code']}}</dt>
-                        <dd></dd>
-                        <dt>Risk Rating : {{item['_source']['risk_rating']}}</dt>
-                        <dd></dd>
-                        <dt>Risk Reason Code : {{item['_source']['risk_reason_code']}}</dt>
-                        <dd></dd>
-                        <dt>Risk Comments : {{item['_source']['risk_comment']}}</dt>
-                        <dd></dd>
-                    </dl>
-                </li>
-				<br/><br/>                
-            </ul>
+            <div class="row">
+                <h6> Technical Details</h6>
+                <div class="col-md-3">
+                    <p class="text-bold">Technical</p>
+                    <ul class="list list--compressed">
+                        <li>User Item Type : {{item['_source']['user_item_type']}}</li>
+                        <li>UOM : {{item['_source']['uom']}}</li>
+                        <li>Reliability Grade : {{item['_source']['reliability_grade']}}</li>
+                        <li>L2 Use Condition : {{item['_source']['l2_use_condition']}}</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <p class="text-bold">Compliance</p>
+                    <ul class="list list--compressed">
+                        <li>RoHS(i) : {{item['_source']['rohsi']}}</li>
+                        <li>RoHS(c) : {{item['_source']['rohsc']}}</li>
+                        <li>PbFree: {{item['_source']['pbfree']}}</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <p class="text-bold">Regulatory Compliance</p>
+                    <ul class="list list--compressed">
+                        <li>EMC Critical : {{item['_source']['emc_critical']}}</li>
+                        <li>NEBS Critical : {{item['_source']['nebs_critical']}}</li>
+                        <li>Safety Critical: {{item['_source']['safety_critical']}}</li>
+                        <li>Network Critical: {{item['_source']['network_critical']}}</li>
+                        <li>IECEx Critical: {{item['_source']['iecex_critical']}}</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <p class="text-bold">Sourcing</p>
+                    <ul class="list list--compressed">
+                        <li>Commodity Code : {{item['_source']['commodity_code']}}</li>
+                        <li>SuCM : {{item['_source']['sucm']}}</li>
+                        <li>Control Code : {{item['_source']['control_code']}}</li>
+                        <li>Risk Rating : {{item['_source']['risk_rating']}}</li>
+                        <li>Risk Reason Code : {{item['_source']['risk_reason_code']}}</li>
+                        <li>Risk Comments : {{item['_source']['risk_comment']}}</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Atlanta list:end -->
+
              <div class="divider"></div>
                 <div class="responsive-table">
-                    <h8>Manufacturer</h8>
+                    <h6>Manufacturer</h6>
                     <table class="table table--bordered table--nostripes">
                         <thead>
                             <tr>
@@ -160,7 +135,7 @@
                 </div>
                 <div class="divider"></div>
                  <div class="responsive-table">
-                    <h8>Attachments</h8>
+                    <h6>Attachments</h6>
                     <table class="table table--bordered table--nostripes">
                         <thead>
                             <tr>
