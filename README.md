@@ -1,6 +1,6 @@
-# i-hub
+# dig
 
-version 0.16.0.
+version 1.2
 
 ## Build & development
 
