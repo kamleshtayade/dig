@@ -16,5 +16,6 @@ angular.module('iHubApp', [
     'extItemDetail',
     'elasticsearch',
     'datatables',
-    'datatables.bootstrap'
+    'datatables.bootstrap',
+    'ui.bootstrap'
 ]);
