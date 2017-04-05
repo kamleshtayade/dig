@@ -13,6 +13,9 @@
 
 <div class="container marB40">    
     <div class="panel panel--raised row" ng-repeat="item in hits">
+        <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
+                <span class="icon-star"></span>
+            </a>
 <div class="hero hero--dkblue hero--compressed head-desc">
     <div>
         <div class="hero__content">
@@ -20,6 +23,7 @@
 			<h6>{{item['_source']['item_description']}}</h6>
 
         </div>
+        
         <p>
         <a class="pull-left">
                 <i class="alert__icon icon-info-circle" aria-hidden="true"></i>
@@ -168,7 +172,7 @@
             <div class="clear">
             <div class="fre-search fre-category clear">
 			<h5>Look for similar items by category</h5>
-			<div class="col-xs-6 col-md-3" ng-repeat="freq in altrCPN | limitTo : 4">
+			<div class="col-xs-6 col-md-3" ng-repeat="freq in altrCPNs | limitTo : 4">
                 <div class="thumbnail">
                     <a href="#!/items/{{freq.ITEM_NUMBER}}">
                         <img src="images/placeholder.png" alt="{{freq.ITEM_NUMBER}}" style="width: 150px;height: 150px">
