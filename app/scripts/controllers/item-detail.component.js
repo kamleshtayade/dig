@@ -109,15 +109,16 @@ angular.
           });
 
           // Alternate CPN 11-100359-01
+          $scope.altrCPN = [];
           $scope.altrCPNs = [];
-          var apiUrl = 'http://pdaf-api-dev.cisco.com/pdafapp/bom/1.0/cpn/getAlternateCPNs?cpns='+$routeParams.id;
-                    
+          var apiUrl = 'http://pdaf-api-dev.cisco.com/pdafapp/bom/1.0/cpn/getAlternateCPNs?cpns='+$routeParams.id;         
+          
           $resource(apiUrl).query( function (data) {
-            $scope.altrCPNs = angular.fromJson(data);
-            $log.debug('AltrCPNs:'+$scope.altrCPNs);
-            if(data==null || data==undefined){
-              $log.debug("No Data");
-            }
+            $scope.altrCPN = angular.fromJson(data);            
+            $log.debug("altrCPN"+$scope.altrCPN);
+            $scope.alterCPNItem = $scope.altrCPN[0].ITEM_NUMBER;
+            $scope.altrCPNs = $scope.altrCPN[0].ALTERNATE_CPNS;           
+            
           });
           // Alternate API End
 
