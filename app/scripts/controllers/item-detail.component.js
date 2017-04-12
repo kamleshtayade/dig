@@ -147,10 +147,21 @@ angular.
             index: 'dmavllistmpnmv',
             size: 50,
             body: {
-              "query": { "match": { "manufacturer_part_no": $routeParams.id } }
+              "query": { "match_phrase": { "manufacturer_part_no": $routeParams.id } }
             }
           }).then(function (response) {
             $scope.avlhits = response.hits.hits;
+          });
+
+           // search for MCN
+          es.search({
+            index: 'ccmccnciscopartdetails',
+            size: 50,
+            body: {
+              "query": { "match_phrase": { "current_item_no": $routeParams.id } }
+            }
+          }).then(function (response) {
+            $scope.mcnhits = response.hits.hits;
           });
 
       }// ItemDetailController

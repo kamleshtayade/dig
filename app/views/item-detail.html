@@ -25,14 +25,14 @@
         </div>
         
         <p>
-        <a class="pull-left">
+            <a class="pull-left">
                 <i class="alert__icon icon-info-circle" aria-hidden="true"></i>
-        </a>&nbsp; This Component has actionable MCNs
+            </a>&nbsp;&nbsp;This Component has actionable MCNs&nbsp;:&nbsp;<span ng-repeat="mcn in mcnhits"><a href="#" class="alert-link">{{mcn['_source']['cisco_log']}}</a><span ng-show=" ! $last ">,</span>
         </p>
         <p class="text-warning">
         <a class="pull-left">
                 <i class="alert__icon icon-exclamation-triangle" aria-hidden="true"></i>
-        </a>&nbsp; This Component have Quality issues from 
+        </a>&nbsp;&nbsp;This Component have Quality issues from 
                     <a href="#" class="alert-link">TEXAS INSTRUMENTS</a>.  
         </p>
     </div>
