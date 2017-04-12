@@ -154,9 +154,39 @@
                     </ul>
                 </div>-->
             </div>
-            <!-- Atlanta list:end -->
+            <!-- Atlanta list:end -->                   
 
+
+			</div>
+			</div>
+            <!--</br>
+            <div class="clear">
+            <div class="panel panel--ltgray">
              <div class="divider"></div>
+                 <div class="responsive-table">
+                    <h6>Attachments</h6>
+                    <table class="table table--bordered table--nostripes">
+                        <thead>
+                            <tr>
+                                <th>File Name</th>
+                                <th>File Description</th>
+                                <th>File Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>-->
+            </br>
+            <div class="clear">
+            <div class="panel panel--ltgray">
                 <div class="responsive-table">
                     <h6>Manufacturer</h6>
                     <table class="table table--bordered table--nostripes">
@@ -179,34 +209,37 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="divider"></div>
-                 <div class="responsive-table">
-                    <h6>Attachments</h6>
-                    <table class="table table--bordered table--nostripes">
-                        <thead>
-                            <tr>
-                                <th>File Name</th>
-                                <th>File Description</th>
-                                <th>File Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
 
-			</div>
-			</div>
-
+            </div>
+            </div>
+            </br>
             <div class="clear">
-            <div class="fre-search fre-category clear">
+            <div class="panel panel--ltgray">
 			<h5>Look for similar items by category</h5>
-			<div class="col-xs-6 col-md-3" ng-repeat="freq in altrCPNs | limitTo : 4">
+                <!--es api -->
+            <ul class="phones">
+                <li ng-repeat="freq in altrCPNs" class="thumbnail phone-list-item">
+                    <!--<a href="#!/items/{{item['_source']['item_number']}}" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
+                            <img ng-switch-when="0" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                            <img ng-switch-when="1" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                            <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                        </a>-->
+                    <a href="#!/items/{{alterCPNItem}}" class="text-bold">{{alterCPNItem}}</a><br>
+                    <small class="text-bold">&nbsp{{freq.REVISION}}</small>,&nbsp
+                    <small class="text-bold">&nbsp{{freq.ITEM_LIFECYCLE}}</small><br>
+                    <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
+                        <span class="icon-star"></span>
+                    </a>
+                    <small>$&nbsp{{freq.CURRENT_COST}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small><br>
+                    <small>{{freq.ITEM_DESCRIPTION.substring(0,30)}}&nbsp;...</small>
+                    <p class="gridLink">
+                        <a href="#!/items/{{alterCPNItem}}">MORE</a>
+                    </p>
+
+                </li>
+            </ul>
+            <!-- es api-->
+			<!--<div class="col-xs-6 col-md-3" ng-repeat="freq in altrCPNs | limitTo : 4">
                 <div class="thumbnail">
                     <a href="#!/items/{{freq.ITEM_NUMBER}}">
                         <img src="images/placeholder.png" alt="{{alterCPNItem}}" style="width: 150px;height: 150px">
@@ -216,26 +249,51 @@
                         <p><small>$&nbsp{{freq.CURRENT_COST}}</small></p>
                         <p><small>{{freq.ITEM_DESCRIPTION.substring(0,30)}}&nbsp;...</small></p>
                     </div>
-                </div>
-                </div>
+                </div>                
+                </div>-->
 			</div>
 			</div>
-
-            <div class="clear">
-            <div class="fre-search">
+            </br>
+           
+            <div class="panel panel--ltgray">
 			<h5>Frequently Searched Together</h5>
-			<div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
+                            <!--es api -->
+            <ul class="phones">
+                <li ng-repeat="freq in $ctrl.freqs" class="thumbnail phone-list-item">
+                    <!--<a href="#!/items/{{item['_source']['item_number']}}" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
+                            <img ng-switch-when="0" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                            <img ng-switch-when="1" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                            <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
+                        </a>-->
+                    <a href="#!/items/{{freq.name}}" class="text-bold">{{freq.name}}</a><br>
+                    <small class="text-bold">&nbsp{{freq.revision}}</small>,&nbsp
+                    <small class="text-bold">&nbsp{{freq.lifecycle}}</small><br>
+                    <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
+                        <span class="icon-star"></span>
+                    </a>
+                    <small>$&nbsp{{freq.cost}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp:&nbsp{{freq.riskrating}}</small><br>
+                    <small>{{freq.description.substring(0,30)}}&nbsp;...</small>
+                    <p class="gridLink">
+                        <a href="#!/items/{{freq.name}}">MORE</a>
+                    </p>
+
+                </li>
+            </ul>
+            <!-- es api-->
+			<!--<div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
                 <div class="thumbnail">
                     <a href="#">
                         <img src="{{freq.imgpath}}" alt="{{freq.name}}" style="width: 150px;height: 150px">
                     </a>
                     <div class="caption">
-                        <h6>{{freq.name}}</h6>
+                        <h6>{{freq.name}}</h6><small>&nbsp{{freq.revision}}</small>,<small>&nbsp{{freq.lifecycle}}</small>
+                        <p><small>$&nbsp{{freq.cost}}</small></p>
+                        <p><small>{{freq.description.substring(0,30)}}&nbsp;...</small></p>
                     </div>
                 </div>
-                </div>
+                </div>-->
 			</div>
-			</div>
+			
         </div>
     </div>
 </div>

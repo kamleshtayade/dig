@@ -41,17 +41,37 @@ angular.
         this.freqs = [
           {
             name: '34-2615-01',
-            imgpath: 'items/images/34-2615-01_gr.PNG'
+            imgpath: 'items/images/34-2615-01_gr.PNG',
+            revision:'-A0',
+            lifecycle:'Production',
+            cost:'1',
+            description:'PWRSPLY-DC/DC,8.0-13.8VIN,0',
+            riskrating:'1'
           }, {
             name: '34-2467-02',
-            imgpath: 'items/images/34-2467-02_gr.PNG'
+            imgpath: 'items/images/34-2467-02_gr.PNG',
+            revision:'-A0',
+            lifecycle:'Production',
+            cost:'1',
+            description:'PWRSPLY-DC/DC,8.0-13.8VIN,0',
+            riskrating:'1'
           }, {
             name: '341-0623-01',
-            imgpath: 'items/images/341-0623-01_gr.PNG'
+            imgpath: 'items/images/341-0623-01_gr.PNG',
+            revision:'-A0',
+            lifecycle:'Production',
+            cost:'1',
+            description:'PWRSPLY-DC/DC,8.0-13.8VIN,0',
+            riskrating:'1'
           },
           {
             name: '34-2615-01',
-            imgpath: 'items/images/34-2615-01_gr.PNG'
+            imgpath: 'items/images/34-2615-01_gr.PNG',
+            revision:'-A0',
+            lifecycle:'Production',
+            cost:'1',
+            description:'PWRSPLY-DC/DC,8.0-13.8VIN,0',
+            riskrating:'1'
           }
         ];
         this.itemByCats = [
