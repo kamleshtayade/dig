@@ -43,6 +43,8 @@ module.exports = function(config) {
       'bower_components/angular-datatables/dist/plugins/scroller/angular-datatables.scroller.js',
       'bower_components/angular-datatables/dist/plugins/tabletools/angular-datatables.tabletools.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/owl.carousel/dist/owl.carousel.js',
+      'bower_components/angular-owl-carousel2/src/angular-owl-carousel-2.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

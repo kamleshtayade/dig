@@ -17,5 +17,6 @@ angular.module('iHubApp', [
     'elasticsearch',
     'datatables',
     'datatables.bootstrap',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angular-owl-carousel-2'
 ]);

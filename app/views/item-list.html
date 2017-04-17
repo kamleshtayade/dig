@@ -207,7 +207,7 @@
                         </a>-->
                         <a href="#!/extitems/{{item.part}}">{{item.part}}</a>
                         <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
-                <span class="icon-star"></span>
+                <span class="icon-add-contain"></span>
             </a>
                         <p>{{item.supplier}},{{item.cost}}</p>
                         <p>{{item.sellers}}</p>
@@ -247,10 +247,11 @@
 			<small class="text-bold"> {{item['_source']['revision']}}</small>,&nbsp
 			<small class="text-bold"> {{item['_source']['item_lifecycle']}}</small><br>
             <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
-                <span class="icon-star"></span>
+                <span class="icon-add-contain"></span>
             </a>            
-            <small>$&nbsp{{item['_source']['item_cost']}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small><br>
-            <small>{{item['_source']['item_description'].substring(0,30)}}&nbsp;...</small>
+            <small>$&nbsp{{item['_source']['item_cost']}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp;:&nbsp;{{item['_source']['risk_rating']}}&nbsp;&nbsp;</small>
+            <small>Preferred Suppliers&nbsp;:&nbsp;<span ng-repeat="ps in pshits">{{ps['_source']['preferred']}}<span ng-show=" ! $last ">,</span></small><br>
+            <small>Desc&nbsp;:&nbsp;{{item['_source']['item_description'].substring(0,30)}}&nbsp;...</small>
             <p class="gridLink">
 			<a href="#!/items/{{item['_source']['item_number']}}">MORE</a>			
 			</p> 

@@ -16,44 +16,72 @@
         <!--<a class="pull-right">
                 <span uib-tooltip="Add to List!"><i class="fa fa-star" aria-hidden="true"></i></span>
         </a>-->
-<div class="hero hero--dkblue hero--compressed head-desc">
-    <div>
-        <div class="hero__content">
-            <h2>{{item['_source']['item_number']}} <small class="text-ghost">{{item['_source']['revision']}}</small></h2>
-			<h6>{{item['_source']['item_description']}}</h6>
-
-        </div>
         
-        <p>
-            <a class="pull-left">
-                <i class="alert__icon icon-info-circle" aria-hidden="true"></i>
-            </a>&nbsp;&nbsp;This Component has actionable MCNs&nbsp;:&nbsp;<span ng-repeat="mcn in mcnhits"><a href="#" class="alert-link">{{mcn['_source']['cisco_log']}}</a><span ng-show=" ! $last ">,</span>
-        </p>
-        <p class="text-warning">
-        <a class="pull-left">
-                <i class="alert__icon icon-exclamation-triangle" aria-hidden="true"></i>
-        </a>&nbsp;&nbsp;This Component have Quality issues from 
-                    <a href="#" class="alert-link">TEXAS INSTRUMENTS</a>.  
-        </p>
-    </div>
-</div>
+        <div class="hero hero--dkblue hero--compressed head-desc col-md-9">
+            <div>
+                <div class="hero__content">
+                    <h2>{{item['_source']['item_number']}} <small class="text-ghost">{{item['_source']['revision']}}</small></h2>
+                    <h8>{{item['_source']['item_description']}}</h8>
+                </div>
+                <p>
+                    <a class="pull-left">
+                        <i class="alert__icon icon-info-circle" aria-hidden="true"></i>
+                    </a>&nbsp;&nbsp;This Component has actionable MCNs&nbsp;:&nbsp;<span ng-repeat="mcn in mcnhits"><a href="#" class="alert-link">{{mcn['_source']['cisco_log']}}</a><span ng-show=" ! $last ">,</span>
+                </p>
+                <p class="text-warning">
+                    <a class="pull-left">
+                        <i class="alert__icon icon-exclamation-triangle" aria-hidden="true"></i>
+                    </a>&nbsp;&nbsp;This Component have Quality issues from
+                    <a href="#" class="alert-link">TEXAS INSTRUMENTS</a>.
+                </p>
+
+            </div>
+        </div>
+        <div class="panel col-md-3">
+            <div class="panel-body">
+                <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
+                    <span class="icon-add-contain"></span>
+                </a>
+                <span class="pull-left" uib-rating ng-model="average_rating" max="max" read-only="isReadonly" state-on="'fa fa-star'" state-off="'fa fa-star-o'"
+                    on-hover="hoveringOver(value)" on-leave="getSelectedRating(average_rating)" titles="ratings" aria-labelledby="default-rating"></span>
+                <!--<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+                                                                        ng-show="overStar && !isReadonly">{{percent}}%</span>-->
+                <small>&nbsp;&nbsp;{{totalusers}}&nbsp;<i class="fa fa-user" aria-hidden="true"></i></small><br>
+                <hr>
+                <button type="button" class="btn btn--icon btn--small btn--primary" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-comment-o" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn--icon btn--small btn--secondary"><i class="fa fa-comments-o" aria-hidden="true"></i></button>
+
+                <div uib-collapse="isCollapsed">
+                    <form>
+                        <div class="form-group">
+                            <div class="form-group__text">
+                                <textarea id="textarea1" class="form-control" rows="2" placeholder='Share your Comments'></textarea>
+                            </div>
+                        </div>
+                        <button class="btn btn--icon btn--small btn--success" uib-tooltip="Submit">
+                                        <span class="icon-check"></span>
+                                    </button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
         <div class="panel-body">
 			<div>
             <div class="slide-outer">
-			<div class="prod-thumbs">
+			<!--<div class="prod-thumbs">
             <ul class="phone-thumbs">
                 <li ng-repeat="img in itemImg">
                     <img ng-src="{{img}}" ng-click="setImage(img)" />
                 </li>
             </ul>
-			</div>
+			</div>-->
 			<div class="prod-slide">
-			<div class="phone-images">
+			<!--<div class="phone-images">
                 <img ng-src="{{img}}" class="phone" ng-class="{selected: img === mainImageUrl}" ng-repeat="img in itemImg"
                 />
-				<!--h6> Product Description</h6>
-                <p>From the Manufacturer</p-->
-            </div>
+            </div>-->
 			<div class="prod-descri">
                 <h6> Product Description</h6>
                 <p></p>
@@ -67,6 +95,7 @@
             </div>
 			</div>
 			</div>
+            
 			</div>
      
 			<div>
@@ -113,77 +142,13 @@
                             <li><i>Risk Comments :</i> {{item['_source']['risk_comment']}}</li>
                         </ul>
                     </uib-tab>
-                </uib-tabset>
-
-                <!--<div class="col-md-3">
-                    <p class="text-bold text-large">Technical</p>
-                    <ul class="list list--compressed">
-                        <li><i>User Item Type :</i> {{item['_source']['user_item_type']}}</li>
-                        <li><i>UOM :</i> {{item['_source']['uom']}}</li>
-                        <li><i>Reliability Grade :</i> {{item['_source']['reliability_grade']}}</li>
-                        <li><i>L2 Use Condition :</i> {{item['_source']['l2_use_condition']}}</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <p class="text-bold text-large">Compliance</p>
-                    <ul class="list list--compressed">
-                        <li><i>RoHS(i) :</i> {{item['_source']['rohsi']}}</li>
-                        <li><i>RoHS(c) :</i> {{item['_source']['rohsc']}}</li>
-                        <li><i>PbFree :</i> {{item['_source']['pbfree']}}</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <p class="text-bold text-large">Regulatory Compliance</p>
-                    <ul class="list list--compressed">
-                        <li><i>EMC Critical :</i> {{item['_source']['emc_critical']}}</li>
-                        <li><i>NEBS Critical :</i> {{item['_source']['nebs_critical']}}</li>
-                        <li><i>Safety Critical :</i> {{item['_source']['safety_critical']}}</li>
-                        <li><i>Network Critical :</i> {{item['_source']['network_critical']}}</li>
-                        <li><i>IECEx Critical :</i> {{item['_source']['iecex_critical']}}</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <p class="text-bold text-large">Sourcing</p>
-                    <ul class="list list--compressed">
-                        <li><i>Commodity Code :</i> {{item['_source']['commodity_code']}}</li>
-                        <li><i>SuCM :</i> {{item['_source']['sucm']}}</li>
-                        <li><i>Control Code :</i> {{item['_source']['control_code']}}</li>
-                        <li><i>Risk Rating :</i> {{item['_source']['risk_rating']}}</li>
-                        <li><i>Risk Reason Code :</i> {{item['_source']['risk_reason_code']}}</li>
-                        <li><i>Risk Comments :</i> {{item['_source']['risk_comment']}}</li>
-                    </ul>
-                </div>-->
+                </uib-tabset>                
             </div>
             <!-- Atlanta list:end -->                   
 
 
 			</div>
 			</div>
-            <!--</br>
-            <div class="clear">
-            <div class="panel panel--ltgray">
-             <div class="divider"></div>
-                 <div class="responsive-table">
-                    <h6>Attachments</h6>
-                    <table class="table table--bordered table--nostripes">
-                        <thead>
-                            <tr>
-                                <th>File Name</th>
-                                <th>File Description</th>
-                                <th>File Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div>-->
             </br>
             <div class="clear">
             <div class="panel panel--ltgray">
@@ -213,87 +178,43 @@
             </div>
             </div>
             </br>
-            <div class="clear">
             <div class="panel panel--ltgray">
-			<h5>Look for similar items by category</h5>
-                <!--es api -->
-            <ul class="phones">
-                <li ng-repeat="freq in altrCPNs" class="thumbnail phone-list-item">
-                    <!--<a href="#!/items/{{item['_source']['item_number']}}" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
-                            <img ng-switch-when="0" ng-src="images/placeholder.png" alt="{{item.id}}" />
-                            <img ng-switch-when="1" ng-src="images/placeholder.png" alt="{{item.id}}" />
-                            <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
-                        </a>-->
-                    <a href="#!/items/{{alterCPNItem}}" class="text-bold">{{alterCPNItem}}</a><br>
-                    <small class="text-bold">&nbsp{{freq.REVISION}}</small>,&nbsp
-                    <small class="text-bold">&nbsp{{freq.ITEM_LIFECYCLE}}</small><br>
-                    <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
-                        <span class="icon-star"></span>
-                    </a>
-                    <small>$&nbsp{{freq.CURRENT_COST}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small><br>
-                    <small>{{freq.ITEM_DESCRIPTION.substring(0,30)}}&nbsp;...</small>
-                    <p class="gridLink">
-                        <a href="#!/items/{{alterCPNItem}}">MORE</a>
-                    </p>
-
-                </li>
-            </ul>
-            <!-- es api-->
-			<!--<div class="col-xs-6 col-md-3" ng-repeat="freq in altrCPNs | limitTo : 4">
-                <div class="thumbnail">
-                    <a href="#!/items/{{freq.ITEM_NUMBER}}">
-                        <img src="images/placeholder.png" alt="{{alterCPNItem}}" style="width: 150px;height: 150px">
-                    </a>
-                    <div class="caption">
-                        <h6>{{alterCPNItem}}</h6><small>&nbsp{{freq.REVISION}}</small>,<small>&nbsp{{freq.ITEM_LIFECYCLE}}</small>
-                        <p><small>$&nbsp{{freq.CURRENT_COST}}</small></p>
-                        <p><small>{{freq.ITEM_DESCRIPTION.substring(0,30)}}&nbsp;...</small></p>
+            <div class="panel-body">
+                <h5>Look for similar items by category</h5>
+                <ng-owl-carousel class="owl-theme" owl-items="altrCPNs" owl-properties="properties" owl-ready="ready($api)">
+                    <div class="item">
+                        <h6>.</h6>
                     </div>
-                </div>                
-                </div>-->
-			</div>
-			</div>
-            </br>
-           
-            <div class="panel panel--ltgray">
-			<h5>Frequently Searched Together</h5>
-                            <!--es api -->
-            <ul class="phones">
-                <li ng-repeat="freq in $ctrl.freqs" class="thumbnail phone-list-item">
-                    <!--<a href="#!/items/{{item['_source']['item_number']}}" class="thumb thumb--huge thumb--square" ng-switch="$index % 3">
-                            <img ng-switch-when="0" ng-src="images/placeholder.png" alt="{{item.id}}" />
-                            <img ng-switch-when="1" ng-src="images/placeholder.png" alt="{{item.id}}" />
-                            <img ng-switch-when="2" ng-src="images/placeholder.png" alt="{{item.id}}" />
-                        </a>-->
-                    <a href="#!/items/{{freq.name}}" class="text-bold">{{freq.name}}</a><br>
-                    <small class="text-bold">&nbsp{{freq.revision}}</small>,&nbsp
-                    <small class="text-bold">&nbsp{{freq.lifecycle}}</small><br>
-                    <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
-                        <span class="icon-star"></span>
-                    </a>
-                    <small>$&nbsp{{freq.cost}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp:&nbsp{{freq.riskrating}}</small><br>
-                    <small>{{freq.description.substring(0,30)}}&nbsp;...</small>
-                    <p class="gridLink">
-                        <a href="#!/items/{{freq.name}}">MORE</a>
-                    </p>
-
-                </li>
-            </ul>
-            <!-- es api-->
-			<!--<div class="col-xs-6 col-md-3" ng-repeat="freq in $ctrl.freqs">
-                <div class="thumbnail">
-                    <a href="#">
-                        <img src="{{freq.imgpath}}" alt="{{freq.name}}" style="width: 150px;height: 150px">
-                    </a>
-                    <div class="caption">
-                        <h6>{{freq.name}}</h6><small>&nbsp{{freq.revision}}</small>,<small>&nbsp{{freq.lifecycle}}</small>
-                        <p><small>$&nbsp{{freq.cost}}</small></p>
-                        <p><small>{{freq.description.substring(0,30)}}&nbsp;...</small></p>
+                    <div class="item panel" data-ng-repeat="altrCPN in altrCPNs">
+                        <!--<h4>{{$index}}</h4>-->
+                        <a href="#!/items/{{alterCPNItem}}" class="text-bold">{{alterCPNItem}}</a><br>
+                        <small class="text-bold">&nbsp{{altrCPN.REVISION}}</small>,&nbsp
+                        <small class="text-bold">&nbsp{{altrCPN.ITEM_LIFECYCLE}}</small><br>                        
+                        <small>$&nbsp{{altrCPN.CURRENT_COST}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp:&nbsp{{item['_source']['risk_rating']}}</small><br>
+                        <small>{{altrCPN.ITEM_DESCRIPTION.substring(0,30)}}&nbsp;...</small>
                     </div>
-                </div>
-                </div>-->
-			</div>
-			
+                </ng-owl-carousel>
+            </div>
+        </div>
+        </br>
+           <div class="panel panel--ltgray">
+            <div class="panel-body">
+                <h5>Frequently Searched Together</h5>
+                <ng-owl-carousel class="owl-theme" owl-items="$ctrl.freqs" owl-properties="properties" owl-ready="ready($api)">
+                    <div class="item">
+                        <h6>.</h6>
+                    </div>
+                    <div class="item panel" data-ng-repeat="freq in $ctrl.freqs">
+                        <!--<h4>{{$index}}</h4>-->
+                        <a href="#!/items/{{item.name}}" class="text-bold">{{freq.name}}</a><br>
+                        <small class="text-bold">&nbsp{{freq.revision}}</small>,&nbsp
+                        <small class="text-bold">&nbsp{{freq.lifecycle}}</small><br>                        
+                        <small>$&nbsp{{freq.cost}}&nbsp;&nbsp;&nbsp;&nbsp;Risk Rating&nbsp:&nbsp{{freq.riskrating}}</small><br>
+                        <small>{{freq.description.substring(0,30)}}&nbsp;...</small>
+                    </div>
+                </ng-owl-carousel>
+            </div>
+        </div>			
         </div>
     </div>
 </div>

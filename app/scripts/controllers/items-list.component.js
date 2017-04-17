@@ -27,15 +27,7 @@ angular.
        $scope.ESIndex = 'itemmastercost';
 
 
-          // Elastic search
-          // search for documents          
-       /*
-       if ($scope.res[0] == 'capacitor' || $scope.res[0] == 'Capacitor') {
-
-            if($scope.res[1]== null || $scope.res[1] =='undefined'){
-                $scope.res[1] = 400;
-            }// need to remove this hardcoding post demo
-            */
+        // Elastic search - search for item documents          
         if ($scope.res[0] != null && $scope.res[1] != null) {
          es.search({
            index: $scope.ESIndex,
@@ -53,7 +45,7 @@ angular.
                  ]
                }
              },
-             "sort": [{ "item_cost": "asc", "risk_rating": "asc" }],
+             "sort": [{ "item_cost": "asc", "risk_rating": "desc" }],
              "aggregations": {
                "risk_ratings": { "terms": { "field": "risk_rating" } },
                "control_codes": { "terms": { "field": "control_code" } }
@@ -70,7 +62,7 @@ angular.
            size: $scope.ESsize,
            body: {
              "query": { "match_phrase": { "_all": $routeParams.search } },
-             "sort": [{ "item_cost": "asc", "risk_rating": "asc" }],
+             "sort": [{ "item_cost": "asc", "risk_rating": "desc" }],
              "aggregations": {
                "risk_ratings": { "terms": { "field": "risk_rating" } },
                "control_codes": { "terms": { "field": "control_code" } }
@@ -83,45 +75,17 @@ angular.
          });
        }          
 
-          /* working for all - full text (if) 
-          es.search({
-            index: 'itemmastercost',
-            size: 10,
+       // Elastic search - search for preferred suppliers
+       es.search({
+            index: 'dmcommoditycodemv',
+            size: 50,
             body: {
-              "query": { "match_phrase": { "_all": $routeParams.search } },
-              "aggregations":{
-                "risk_rating":{"terms":{"field":"risk_rating"}},
-                "control_code":{"terms":{"field":"control_code"}}
-              }
+             // "query": { "match_all": {} }
+              "query": { "match_phrase": { "commodity_code": "OPTICS_PASSIVE_DISCRETE_WAVELENGTH MANAGEMENT_SPLITTERS_CWDM_50GHZ" } }
             }
           }).then(function (response) {
-           // $scope.hits = response.hits.hits;
-           $scope.hits = angular.fromJson(response.hits.hits);
-           //$scope.filteredProducts = $scope.hits;
-           $scope.agRiskR = angular.fromJson(response.aggregations.risk_rating.buckets);  
-           $scope.agCntCo = angular.fromJson(response.aggregations.control_code.buckets);          
+            $scope.pshits = response.hits.hits;
           });
-          */
-          // Elastic Search
-          
-
-      /* Items.query().$promise.then(
-         function (result) {
-           $scope.items = result.response.docs;
-           //$log.debug('items : '+$scope.items[1].item_number);
-           $scope.filteredProducts = $scope.items; //facted filter
-         },
-         function () {
-         }
-       );
-
-       Items.query().$promise.then(
-         function (result) {
-           $scope.facets = result.facet_counts.facet_fields;
-         },
-         function () {
-         }
-       );*/
 
         $scope.orderProp = "item_number";
         /* filteredSiliconProducts */

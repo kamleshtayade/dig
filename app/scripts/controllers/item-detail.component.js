@@ -11,11 +11,15 @@ angular.
   module('itemDetail').
   component('itemDetail', {
     templateUrl: 'views/item-detail.html',
-    controller: ['$routeParams', 'Item','$log','$scope','es','esFactory','$resource',
-      function ItemDetailController($routeParams,Item,$log,$scope,es,esFactory,$resource) {   
+    controller: ['$routeParams', 'Item','$log','$scope','es','esFactory','$resource','$http','$cookies','$cookieStore','$timeout',
+      function ItemDetailController($routeParams,Item,$log,$scope,es,esFactory,$resource,$http,$cookies,$cookieStore,$timeout) {   
+        $scope.isCollapsed = true;
         $scope.item=[];
         $scope.solrQuery = 'id:'+$routeParams.id; // Here we can modify search parameter
         $scope.itemNo = $routeParams.id;
+
+        $scope.favCo = $cookies.getAll();
+        $log.debug("All Cookies key "+JSON.stringify($scope.favCo));
         
        Item.get({q: $scope.solrQuery}).$promise.then(
          function (result) {
@@ -163,6 +167,75 @@ angular.
           }).then(function (response) {
             $scope.mcnhits = response.hits.hits;
           });
+
+          // rating start
+          $scope.rating = 0;
+		      $scope.ratings = 5;
+		      $scope.comment = [];
+          $scope.average_rating = 2;
+          $scope.totalusers = 1;
+          $scope.max = 5;
+          $scope.isReadonly = false;
+
+          function getRating() {
+            var xmlhttp = new XMLHttpRequest();
+            var response;
+            xmlhttp.open("GET", "https://mdx-stg.cisco.com/mdx/emp/supplychain/testid1_01.json");
+            xmlhttp.withCredentials = true;
+            xmlhttp.send();
+
+            xmlhttp.onreadystatechange = function () {
+              if (xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.status == 401)) {
+                var jsoncomment = JSON.parse(xmlhttp.responseText);
+                $scope.ratingsdata = jsoncomment;
+                $scope.showcomments = true;
+                $scope.average_rating = $scope.ratingsdata.average_rating;
+                $scope.totalusers = $scope.ratingsdata.total_count;
+                $log.debug("Show Comments "+$scope.average_rating);
+                $scope.$apply();
+              }
+            }
+
+          }
+
+          getRating(); //get previous ratings
+
+          $scope.hoveringOver = function (value) {
+            $scope.overStar = value;
+            $scope.percent = 100 * (value / $scope.max);
+          };
+	      
+          // put ratings
+          $scope.getSelectedRating = function (value) {
+            $log.debug("Selected Ratings "+value);
+            $scope.rating = value;
+          }
+
+          // rating end
+
+          // Multi-Carousel
+          var owlAPi;
+          $scope.items = [1, 2, 3, 4, 5, 6, 7, 8];
+
+          $scope.properties = {
+            items: 3,
+            onChange: function () {
+              // console.dir(arguments);
+            },
+            animateIn: 'fadeIn',
+            lazyLoad: true,
+            margin: 10,
+            nav:true
+          };
+
+          $scope.ready = function ($api) {
+            owlAPi = $api;
+          };
+
+          $timeout(function () {
+            //console.dir(owlAPi);
+            owlAPi.trigger('next.owl.carousel', [2000]);
+          }, 2000)
 
       }// ItemDetailController
     ]
