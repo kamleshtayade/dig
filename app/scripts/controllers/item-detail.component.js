@@ -175,12 +175,14 @@ angular.
           $scope.average_rating = 2;
           $scope.totalusers = 1;
           $scope.max = 5;
+          $scope.avgIsReadonly = true;
           $scope.isReadonly = false;
 
           function getRating() {
             var xmlhttp = new XMLHttpRequest();
             var response;
-            xmlhttp.open("GET", "https://mdx-stg.cisco.com/mdx/emp/supplychain/testid1_01.json");
+            var getUrl = "https://mdx-stg.cisco.com/mdx/emp/supplychain/"+$routeParams.id+"_01.json";
+            xmlhttp.open("GET", getUrl);
             xmlhttp.withCredentials = true;
             xmlhttp.send();
 
@@ -191,11 +193,59 @@ angular.
                 $scope.showcomments = true;
                 $scope.average_rating = $scope.ratingsdata.average_rating;
                 $scope.totalusers = $scope.ratingsdata.total_count;
-                $log.debug("Show Comments "+$scope.average_rating);
                 $scope.$apply();
               }
             }
 
+          }
+          
+          // put ratings
+          $scope.getSelectedRating = function (value) {
+            $log.debug("Selected Ratings " + value);
+            $scope.rating = value;
+          }
+
+          function mycallback(response) {
+            $log.debug('callback called');
+            $log.debug(response);
+            setTimeout(function () {
+              getRating();
+            }, 300);
+          }
+
+          $scope.saveRatingsComments = function (value) {
+            if (value != '') {
+              putRating(value,$scope.rating, mycallback); // Implement the callback once put request is completed. 
+            }
+          }
+
+          function putRating(comments,rating, callback) {
+           $log.debug("Show Comments "+comments);            
+            $log.debug("Show Rating "+rating);
+            var jsonobj = {
+              'appid': 'supplychain', 'apptoken': '8af8c7844225affb7d122d8c8f4eb233',
+              'ratings': [{
+                'objectid': $routeParams.id,
+                'source': 'supplychain',
+                'access_level': 'emp',
+                "rating": rating,
+                "title": 'mycomments',
+                "comment": comments,
+                "operation": 'update'
+              }]
+            }
+            var xmlhttp = new XMLHttpRequest();
+            var data = JSON.stringify(jsonobj);
+            xmlhttp.open("POST", " https://mdx-stg.cisco.com/mdx/rest/putrating");
+            xmlhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+            xmlhttp.withCredentials = true;
+            xmlhttp.send(data);
+            xmlhttp.onreadystatechange = function () {
+              if (xmlhttp.readyState == 4 && (xmlhttp.status == 200 || xmlhttp.status == 401)) {
+
+                callback(xmlhttp.responseText);
+              }
+            }
           }
 
           getRating(); //get previous ratings
@@ -205,11 +255,6 @@ angular.
             $scope.percent = 100 * (value / $scope.max);
           };
 	      
-          // put ratings
-          $scope.getSelectedRating = function (value) {
-            $log.debug("Selected Ratings "+value);
-            $scope.rating = value;
-          }
 
           // rating end
 

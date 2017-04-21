@@ -10,9 +10,13 @@
  */
 angular.
   module('iHubApp').
-  config(['$locationProvider' ,'$routeProvider','$logProvider',
-    function config($locationProvider, $routeProvider,$logProvider) {
+  config(['$locationProvider', '$routeProvider', '$logProvider', '$httpProvider',
+    function config($locationProvider, $routeProvider, $logProvider, $httpProvider) {
       $locationProvider.hashPrefix('!');
+
+      //enabling CORS
+      $httpProvider.defaults.useXDomain = true;
+      delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
       $routeProvider.
         when('/home', {
@@ -32,11 +36,11 @@ angular.
           controllerAs: 'extItemDetail'
         }).
         otherwise('/home');
-        //logger
-        $logProvider.debugEnabled(true);
+      //logger
+      $logProvider.debugEnabled(true);
 
     }
-  ]).run(['$rootScope','$log',function($rootScope,$log){
+  ]).run(['$rootScope', '$log', function ($rootScope, $log) {
     $rootScope.$log = $log;
   }]);
 

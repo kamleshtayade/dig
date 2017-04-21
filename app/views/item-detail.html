@@ -42,8 +42,8 @@
                 <a class=" rating__star cartBtn ratingStar" uib-tooltip="Add to List!">
                     <span class="icon-add-contain"></span>
                 </a>
-                <span class="pull-left" uib-rating ng-model="average_rating" max="max" read-only="isReadonly" state-on="'fa fa-star'" state-off="'fa fa-star-o'"
-                    on-hover="hoveringOver(value)" on-leave="getSelectedRating(average_rating)" titles="ratings" aria-labelledby="default-rating"></span>
+                <span class="pull-left" uib-rating data-ng-model="average_rating" max="max" read-only="avgIsReadonly" state-on="'fa fa-star'" state-off="'fa fa-star-o'"
+                    on-hover="hoveringOver(value)" titles="ratings" aria-labelledby="default-rating"></span>
                 <!--<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
                                                                         ng-show="overStar && !isReadonly">{{percent}}%</span>-->
                 <small>&nbsp;&nbsp;{{totalusers}}&nbsp;<i class="fa fa-user" aria-hidden="true"></i></small><br>
@@ -54,17 +54,17 @@
                 <div uib-collapse="isCollapsed">
                     <form>
                         <div class="form-group">
+                            <div class="pull-left" uib-rating data-ng-model="rating" max="max" read-only="isReadonly" state-on="'fa fa-star'" state-off="'fa fa-star-o'"
+                    on-hover="hoveringOver(value)" on-leave="getSelectedRating(rating)" titles="ratings" aria-labelledby="default-rating"></div></br>                            
                             <div class="form-group__text">
-                                <textarea id="textarea1" class="form-control" rows="2" placeholder='Share your Comments'></textarea>
+                                <textarea id="ratings-text" data-ng-model="txtcomment" class="form-control" rows="2" placeholder='Share your Comments'></textarea>
                             </div>
                         </div>
-                        <button class="btn btn--icon btn--small btn--success" uib-tooltip="Submit">
+                        <button class="btn btn--icon btn--small btn--success" data-ng-click="saveRatingsComments(txtcomment);isCollapsed = !isCollapsed" uib-tooltip="Submit">
                                         <span class="icon-check"></span>
                                     </button>
                     </form>
-
                 </div>
-
             </div>
         </div>
         <div class="panel-body">
